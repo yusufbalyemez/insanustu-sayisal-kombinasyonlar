@@ -1,0 +1,801 @@
+[
+  {
+    "surahNumber": 1,
+    "surahName": "Al-Fatiha",
+    "totalAyahs": 7,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 2,
+    "surahName": "Al-Baqarah",
+    "totalAyahs": 286,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 3,
+    "surahName": "Aal-E-Imran",
+    "totalAyahs": 200,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 4,
+    "surahName": "An-Nisa",
+    "totalAyahs": 176,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 5,
+    "surahName": "Al-Ma'idah",
+    "totalAyahs": 120,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 6,
+    "surahName": "Al-An'am",
+    "totalAyahs": 165,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 7,
+    "surahName": "Al-A'raf",
+    "totalAyahs": 206,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 8,
+    "surahName": "Al-Anfal",
+    "totalAyahs": 75,
+    "startsWithBasmala": false,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 9,
+    "surahName": "At-Tawbah",
+    "totalAyahs": 129,
+    "startsWithBasmala": false,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 10,
+    "surahName": "Yunus",
+    "totalAyahs": 109,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 11,
+    "surahName": "Hud",
+    "totalAyahs": 123,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 12,
+    "surahName": "Yusuf",
+    "totalAyahs": 111,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 13,
+    "surahName": "Ar-Ra'd",
+    "totalAyahs": 43,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 14,
+    "surahName": "Ibrahim",
+    "totalAyahs": 52,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 15,
+    "surahName": "Al-Hijr",
+    "totalAyahs": 99,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 16,
+    "surahName": "An-Nahl",
+    "totalAyahs": 128,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 17,
+    "surahName": "Al-Isra",
+    "totalAyahs": 111,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 18,
+    "surahName": "Al-Kahf",
+    "totalAyahs": 110,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 19,
+    "surahName": "Maryam",
+    "totalAyahs": 98,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 20,
+    "surahName": "Taha",
+    "totalAyahs": 135,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 21,
+    "surahName": "Al-Anbiya",
+    "totalAyahs": 112,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 22,
+    "surahName": "Al-Hajj",
+    "totalAyahs": 78,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 23,
+    "surahName": "Al-Mu'minun",
+    "totalAyahs": 118,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+
+  {
+    "surahNumber": 24,
+    "surahName": "An-Nur",
+    "totalAyahs": 64,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 25,
+    "surahName": "Al-Furqan",
+    "totalAyahs": 77,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 26,
+    "surahName": "Ash-Shu'ara",
+    "totalAyahs": 227,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 27,
+    "surahName": "An-Naml",
+    "totalAyahs": 93,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 28,
+    "surahName": "Al-Qasas",
+    "totalAyahs": 88,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 29,
+    "surahName": "Al-Ankabut",
+    "totalAyahs": 69,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 30,
+    "surahName": "Ar-Rum",
+    "totalAyahs": 60,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 31,
+    "surahName": "Luqman",
+    "totalAyahs": 34,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 32,
+    "surahName": "As-Sajdah",
+    "totalAyahs": 30,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 33,
+    "surahName": "Al-Ahzab",
+    "totalAyahs": 73,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 34,
+    "surahName": "Saba",
+    "totalAyahs": 54,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 35,
+    "surahName": "Fatir",
+    "totalAyahs": 45,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 36,
+    "surahName": "Ya-Sin",
+    "totalAyahs": 83,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 37,
+    "surahName": "As-Saffat",
+    "totalAyahs": 182,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 38,
+    "surahName": "Sad",
+    "totalAyahs": 88,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 39,
+    "surahName": "Az-Zumar",
+    "totalAyahs": 75,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 40,
+    "surahName": "Ghafir",
+    "totalAyahs": 85,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 41,
+    "surahName": "Fussilat",
+    "totalAyahs": 54,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 42,
+    "surahName": "Ash-Shura",
+    "totalAyahs": 53,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 43,
+    "surahName": "Az-Zukhruf",
+    "totalAyahs": 89,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 44,
+    "surahName": "Ad-Dukhan",
+    "totalAyahs": 59,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 45,
+    "surahName": "Al-Jathiyah",
+    "totalAyahs": 37,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 46,
+    "surahName": "Al-Ahqaf",
+    "totalAyahs": 35,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 47,
+    "surahName": "Muhammad",
+    "totalAyahs": 38,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 48,
+    "surahName": "Al-Fath",
+    "totalAyahs": 29,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 49,
+    "surahName": "Al-Hujurat",
+    "totalAyahs": 18,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 50,
+    "surahName": "Qaf",
+    "totalAyahs": 45,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 51,
+    "surahName": "Adh-Dhariyat",
+    "totalAyahs": 60,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 52,
+    "surahName": "At-Tur",
+    "totalAyahs": 49,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 53,
+    "surahName": "An-Najm",
+    "totalAyahs": 62,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 54,
+    "surahName": "Al-Qamar",
+    "totalAyahs": 55,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 55,
+    "surahName": "Ar-Rahman",
+    "totalAyahs": 78,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 56,
+    "surahName": "Al-Waqi'ah",
+    "totalAyahs": 96,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 57,
+    "surahName": "Al-Hadid",
+    "totalAyahs": 29,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 58,
+    "surahName": "Al-Mujadila",
+    "totalAyahs": 22,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 59,
+    "surahName": "Al-Hashr",
+    "totalAyahs": 24,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 60,
+    "surahName": "Al-Mumtahina",
+    "totalAyahs": 13,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 61,
+    "surahName": "As-Saff",
+    "totalAyahs": 14,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 62,
+    "surahName": "Al-Jumu'ah",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 63,
+    "surahName": "Al-Munafiqun",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 64,
+    "surahName": "At-Taghabun",
+    "totalAyahs": 18,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 65,
+    "surahName": "At-Talaq",
+    "totalAyahs": 12,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 66,
+    "surahName": "At-Tahrim",
+    "totalAyahs": 12,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 67,
+    "surahName": "Al-Mulk",
+    "totalAyahs": 30,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 68,
+    "surahName": "Al-Qalam",
+    "totalAyahs": 52,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 69,
+    "surahName": "Al-Haqqah",
+    "totalAyahs": 52,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 70,
+    "surahName": "Al-Ma'arij",
+    "totalAyahs": 44,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 71,
+    "surahName": "Nuh",
+    "totalAyahs": 28,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 72,
+    "surahName": "Al-Jinn",
+    "totalAyahs": 28,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 73,
+    "surahName": "Al-Muzzammil",
+    "totalAyahs": 20,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 74,
+    "surahName": "Al-Muddaththir",
+    "totalAyahs": 56,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 75,
+    "surahName": "Al-Qiyamah",
+    "totalAyahs": 40,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 76,
+    "surahName": "Al-Insan",
+    "totalAyahs": 31,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 77,
+    "surahName": "Al-Mursalat",
+    "totalAyahs": 50,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 78,
+    "surahName": "An-Naba'",
+    "totalAyahs": 40,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 79,
+    "surahName": "An-Nazi'at",
+    "totalAyahs": 46,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 80,
+    "surahName": "'Abasa",
+    "totalAyahs": 42,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 81,
+    "surahName": "At-Takwir",
+    "totalAyahs": 29,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 82,
+    "surahName": "Al-Infitar",
+    "totalAyahs": 19,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 83,
+    "surahName": "Al-Mutaffifin",
+    "totalAyahs": 36,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 84,
+    "surahName": "Al-Inshiqaq",
+    "totalAyahs": 25,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 85,
+    "surahName": "Al-Buruj",
+    "totalAyahs": 22,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 86,
+    "surahName": "At-Tariq",
+    "totalAyahs": 17,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 87,
+    "surahName": "Al-A'la",
+    "totalAyahs": 19,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 88,
+    "surahName": "Al-Ghashiyah",
+    "totalAyahs": 26,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 89,
+    "surahName": "Al-Fajr",
+    "totalAyahs": 30,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 90,
+    "surahName": "Al-Balad",
+    "totalAyahs": 20,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 91,
+    "surahName": "Ash-Shams",
+    "totalAyahs": 15,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 92,
+    "surahName": "Al-Lail",
+    "totalAyahs": 21,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 93,
+    "surahName": "Ad-Duha",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 94,
+    "surahName": "Ash-Sharh",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 95,
+    "surahName": "At-Tin",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 96,
+    "surahName": "Al-Alaq",
+    "totalAyahs": 19,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 97,
+    "surahName": "Al-Qadr",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 98,
+    "surahName": "Al-Bayyina",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 99,
+    "surahName": "Az-Zalzala",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 100,
+    "surahName": "Al-Adiyat",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 101,
+    "surahName": "Al-Qariah",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 102,
+    "surahName": "At-Takathur",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 103,
+    "surahName": "Al-Asr",
+    "totalAyahs": 3,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 104,
+    "surahName": "Al-Humazah",
+    "totalAyahs": 9,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 105,
+    "surahName": "Al-Fil",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 106,
+    "surahName": "Quraish",
+    "totalAyahs": 4,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 107,
+    "surahName": "Al-Ma'un",
+    "totalAyahs": 7,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 108,
+    "surahName": "Al-Kawthar",
+    "totalAyahs": 3,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 109,
+    "surahName": "Al-Kafirun",
+    "totalAyahs": 6,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 110,
+    "surahName": "An-Nasr",
+    "totalAyahs": 3,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 111,
+    "surahName": "Al-Masad",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 112,
+    "surahName": "Al-Ikhlas",
+    "totalAyahs": 4,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 113,
+    "surahName": "Al-Falaq",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 114,
+    "surahName": "An-Nas",
+    "totalAyahs": 6,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  }
+]
