@@ -58,9 +58,12 @@ const Navbar = () => {
           <ListItem
             button
             onClick={() => handleListItemClick(0)}
-            sx={{ bgcolor: selectedItem === 0 ? "black" : "inherit","&:hover": {
-      bgcolor: "black", // Fare imleci üzerine gelince siyah yap
-    },  }}
+            sx={{
+              bgcolor: selectedItem === 0 ? "black" : "inherit",
+              "&:hover": {
+                bgcolor: "black", // Fare imleci üzerine gelince siyah yap
+              },
+            }}
           >
             <FaHome className="mr-1" />
             <ListItemText primary="Home" />
@@ -71,9 +74,12 @@ const Navbar = () => {
                 button
                 key={index}
                 onClick={() => handleListItemClick(issue)}
-                sx={{ bgcolor: selectedItem === issue ? "black" : "inherit","&:hover": {
-      bgcolor: "black", // Fare imleci üzerine gelince siyah yap
-    }, }}
+                sx={{
+                  bgcolor: selectedItem === issue ? "black" : "inherit",
+                  "&:hover": {
+                    bgcolor: "black", // Fare imleci üzerine gelince siyah yap
+                  },
+                }}
               >
                 <AiOutlineNumber className="mr-1" />
                 <ListItemText primary={`Issue ${issue}`} />
