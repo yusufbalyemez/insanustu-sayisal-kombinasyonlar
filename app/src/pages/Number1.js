@@ -1,67 +1,48 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import surahInfo from "../assets/SurahInfo.json";
+import { calculateMod19, generateSurahDisplay, calculateTotalAyahs } from "../components/Functions";
+import { toast } from "react-toastify";
 
 const Number1 = () => {
   const [surahDisplay, setSurahDisplay] = useState([]);
   const [mod19, setMod19] = useState(null);
+  const [digitCount, setDigitCount] = useState(0);
+
+ // Toplam ayet sayısına tıklanınca sure adı ve numarası bildiriliyor
+ const handleTotalClick = useCallback((surahNumber, surahName) => {
+    toast.success(`[${surahNumber}] ${surahName} Suresinin Ayet Sayısı`);
+  }, []);
+
+  // Ayet numarasına tıklanınca sure numarası, sure adı ve ayet numarası bildiriliyor
+  const handleAyatClick = useCallback((surahNumber, surahName, ayatNumber) => {
+    toast.success(`[${surahNumber}] ${surahName} ${ayatNumber}.Ayet`);
+  }, []);
 
   useEffect(() => {
-    // Tüm surelerin toplam ayet sayısını ve numaralarını birleştiriyoruz
-    const surahList = surahInfo.map((surah, surahIndex) => {
-      const ayetSayisi = surah.totalAyahs;
+    // Sure bilgilerini başta veya sonda toplam ayet sayısını gösterecek şekilde oluştur
+    const surahList = generateSurahDisplay(surahInfo, handleTotalClick, handleAyatClick, "start");
 
-      // Ayet sayısını kırmızı ve kalın yapıyoruz ve tıklanınca sure adını gösterecek şekilde ayarlıyoruz
-      const ayetler = [
-        <span
-          key={`surah-${surahIndex}-total`}
-          style={{ color: "red", fontWeight: "bold", cursor: "pointer", marginRight: "5px" }}
-          onClick={() => alert(`Sure Adı: ${surah.surahName}`)}
-        >
-          {ayetSayisi}
-        </span>,
-      ];
+   
+    // Tüm surelerin numaralarını düz bir dizi haline getirip totalAyahs ile birleştiriyoruz
+    const allSurahNumbers = surahList.flat();
 
-      // 1'den ayet sayısına kadar olan numaraları ekliyoruz
-      for (let i = 1; i <= ayetSayisi; i++) {
-        ayetler.push(
-          <span
-            key={`surah-${surahIndex}-ayat-${i}`}
-            style={{ cursor: "pointer", marginRight: "5px" }}
-            onClick={() => alert(`Sure Adı: ${surah.surahName}, Ayet No: ${i}`)}
-          >
-            {i}
-          </span>
-        );
-      }
 
-      return ayetler;
-    });
-
-    const allSurahNumbers = surahList.flat(); // Tüm surelerin numaralarını düz bir dizi haline getir
     setSurahDisplay(allSurahNumbers);
 
     // 19'a göre modunu hesapla
-    const modResult = calculateMod19(allSurahNumbers.map((item) => item.props.children).join(""));
+    const combinedText = allSurahNumbers.map((item) => item.props.children).join("");
+    const modResult = calculateMod19(combinedText);
     setMod19(modResult);
-  }, []);
 
-  // Metinsel olarak büyük sayının 19'a bölümünden kalanını hesaplayan fonksiyon
-  const calculateMod19 = (numStr) => {
-    let remainder = 0;
-
-    for (let i = 0; i < numStr.length; i++) {
-      remainder = (remainder * 10 + parseInt(numStr[i])) % 19;
-    }
-
-    return remainder;
-  };
+    // Basamak sayısını hesapla
+    setDigitCount(combinedText.length);
+  }, [handleTotalClick, handleAyatClick]);
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center gap-5">
       <h1>Tüm Surelerin Ayet Bilgisi</h1>
-      <div
+      <div className="w-full md:w-10/12"
         style={{
-          width: "1000px",
           overflowWrap: "break-word",
           wordWrap: "break-word",
           whiteSpace: "normal",
@@ -73,6 +54,7 @@ const Number1 = () => {
         {surahDisplay}
       </div>
       <h2>19'a bölümünden kalan: {mod19}</h2>
+      <h3>Toplam Basamak Sayısı: {digitCount}</h3>
     </div>
   );
 };
