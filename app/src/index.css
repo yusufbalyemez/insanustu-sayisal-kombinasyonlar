@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+@layer utilities {
+    .v-center {
+        @apply flex flex-row justify-center items-center
+    }
+}
+@layer utilities{
+    .h-center {
+        @apply flex flex-col justify-center items-center
+    }
+}
