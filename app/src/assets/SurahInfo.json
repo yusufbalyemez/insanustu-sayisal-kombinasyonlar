@@ -3,7 +3,7 @@
     "surahNumber": 1,
     "surahName": "Al-Fatiha",
     "totalAyahs": 7,
-    "startsWithBasmala": true,
+    "startsWithBasmala": false,
     "startsWithHurufMuqattaat": false
   },
   {
@@ -46,13 +46,13 @@
     "surahName": "Al-A'raf",
     "totalAyahs": 206,
     "startsWithBasmala": true,
-    "startsWithHurufMuqattaat": false
+    "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 8,
     "surahName": "Al-Anfal",
     "totalAyahs": 75,
-    "startsWithBasmala": false,
+    "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
@@ -81,7 +81,7 @@
     "surahName": "Yusuf",
     "totalAyahs": 111,
     "startsWithBasmala": true,
-    "startsWithHurufMuqattaat": false
+    "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 13,
@@ -95,7 +95,7 @@
     "surahName": "Ibrahim",
     "totalAyahs": 52,
     "startsWithBasmala": true,
-    "startsWithHurufMuqattaat": false
+    "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 15,
@@ -187,7 +187,7 @@
     "surahName": "An-Naml",
     "totalAyahs": 93,
     "startsWithBasmala": true,
-    "startsWithHurufMuqattaat": false
+    "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 28,
@@ -397,7 +397,7 @@
     "surahName": "Al-Hadid",
     "totalAyahs": 29,
     "startsWithBasmala": true,
-    "startsWithHurufMuqattaat": true
+    "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 58,
