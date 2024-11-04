@@ -7,6 +7,7 @@ import { AiOutlineNumber } from "react-icons/ai";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(0);
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -16,6 +17,11 @@ const Navbar = () => {
       return;
     }
     setIsDrawerOpen(open);
+  };
+
+  // Tıklanan öğenin indeksini günceller
+  const handleListItemClick = (index) => {
+    setSelectedItem(index);
   };
 
   return (
@@ -49,22 +55,31 @@ const Navbar = () => {
           onKeyDown={toggleDrawer(false)}
           sx={{ color: "white" }}
         >
-          <ListItem button>
+          <ListItem
+            button
+            onClick={() => handleListItemClick(0)}
+            sx={{ bgcolor: selectedItem === 0 ? "black" : "inherit","&:hover": {
+      bgcolor: "black", // Fare imleci üzerine gelince siyah yap
+    },  }}
+          >
             <FaHome className="mr-1" />
             <ListItemText primary="Home" />
           </ListItem>
-          <ListItem button>
-            <AiOutlineNumber className="mr-1" />
-            <ListItemText primary="Issue 1" />
-          </ListItem>
-          <ListItem button>
-            <AiOutlineNumber className="mr-1" />
-            <ListItemText primary="Issue 2" />
-          </ListItem>
-          <ListItem button>
-            <AiOutlineNumber className="mr-1" />
-            <ListItemText primary="Issue 3" />
-          </ListItem>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+            (issue, index) => (
+              <ListItem
+                button
+                key={index}
+                onClick={() => handleListItemClick(issue)}
+                sx={{ bgcolor: selectedItem === issue ? "black" : "inherit","&:hover": {
+      bgcolor: "black", // Fare imleci üzerine gelince siyah yap
+    }, }}
+              >
+                <AiOutlineNumber className="mr-1" />
+                <ListItemText primary={`Issue ${issue}`} />
+              </ListItem>
+            )
+          )}
         </List>
       </Drawer>
     </>
