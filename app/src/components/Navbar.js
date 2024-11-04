@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { Drawer, List, ListItem, ListItemText } from "@mui/material";
 import { FaHome } from "react-icons/fa";
 import { AiOutlineNumber } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -55,35 +56,39 @@ const Navbar = () => {
           onKeyDown={toggleDrawer(false)}
           sx={{ color: "white" }}
         >
-          <ListItem
-            button
-            onClick={() => handleListItemClick(0)}
-            sx={{
-              bgcolor: selectedItem === 0 ? "black" : "inherit",
-              "&:hover": {
-                bgcolor: "black", // Fare imleci üzerine gelince siyah yap
-              },
-            }}
-          >
-            <FaHome className="mr-1" />
-            <ListItemText primary="Home" />
-          </ListItem>
+          <Link to={"/"}>
+            <ListItem
+              button
+              onClick={() => handleListItemClick(0)}
+              sx={{
+                bgcolor: selectedItem === 0 ? "black" : "inherit",
+                "&:hover": {
+                  bgcolor: "black", // Fare imleci üzerine gelince siyah yap
+                },
+              }}
+            >
+              <FaHome className="mr-1" />
+              <ListItemText primary="Home" />
+            </ListItem>
+          </Link>
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
             (issue, index) => (
-              <ListItem
-                button
-                key={index}
-                onClick={() => handleListItemClick(issue)}
-                sx={{
-                  bgcolor: selectedItem === issue ? "black" : "inherit",
-                  "&:hover": {
-                    bgcolor: "black", // Fare imleci üzerine gelince siyah yap
-                  },
-                }}
-              >
-                <AiOutlineNumber className="mr-1" />
-                <ListItemText primary={`Issue ${issue}`} />
-              </ListItem>
+              <Link to={`${issue}`}>
+                <ListItem
+                  button
+                  key={index}
+                  onClick={() => handleListItemClick(issue)}
+                  sx={{
+                    bgcolor: selectedItem === issue ? "black" : "inherit",
+                    "&:hover": {
+                      bgcolor: "black", // Fare imleci üzerine gelince siyah yap
+                    },
+                  }}
+                >
+                  <AiOutlineNumber className="mr-1" />
+                  <ListItemText primary={`Issue ${issue}`} />
+                </ListItem>
+              </Link>
             )
           )}
         </List>
