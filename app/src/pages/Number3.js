@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from "react";
 import sureListesi from "../assets/SurahInfo.json";
-import { calculateMod19, calculateTotalAyahs,handleTotalClick, handleAyatClick, handleTotalAyatClick } from "../components/Functions";
+import {
+  calculateMod19,
+  calculateTotalAyahs,
+  handleTotalClick,
+  handleAyatClick,
+  handleTotalAyatClick,
+  handleSurahNoClick
+} from "../components/Functions";
 
-const Number2 = () => {
+const Number3 = () => {
   const [olusanDizi, setOlusanDizi] = useState([]);
   const [stringSayi, setStringSayi] = useState("");
   const [goster, setGoster] = useState(false);
@@ -28,6 +35,16 @@ const Number2 = () => {
       }
       //End
 
+      //Sure Numarasını Yazdır
+      bosDizi.push({
+        durum: "sureNo",
+        sureAdi: sure.surahName,
+        sureNo: sure.surahNumber,
+        deger: sure.surahNumber,
+      });
+      stringBuyukSayi += sure.surahNumber.toString();
+      //End
+
       //Start -Suredeki Toplam Ayet Sayısını Yazdırır
       bosDizi.push({
         durum: "ayet-sayisi",
@@ -42,7 +59,7 @@ const Number2 = () => {
 
     //Start - Kurandaki Tüm Ayet Numaralarını Toplar
     const Toplam = calculateTotalAyahs(sureListesi);
-    
+
     bosDizi.push({
       durum: "toplam-ayet-sayisi",
       deger: Toplam,
@@ -72,16 +89,31 @@ const Number2 = () => {
                 if (eleman.durum === "toplam-ayet-sayisi") {
                   handleTotalAyatClick();
                 } else if (eleman.durum === "ayet-sayisi") {
-                  handleTotalClick(eleman.sureNo, eleman.sureAdi, setSelectedSurahs);
+                  handleTotalClick(
+                    eleman.sureNo,
+                    eleman.sureAdi,
+                    setSelectedSurahs
+                  );
+                } else if (eleman.durum === "sureNo") {
+                  handleSurahNoClick(
+                    eleman.sureNo,
+                    eleman.sureAdi,
+                    setSelectedSurahs
+                  );
                 } else {
-                  handleAyatClick(eleman.sureNo, eleman.sureAdi, eleman.deger, setSelectedSurahs);
+                  handleAyatClick(
+                    eleman.sureNo,
+                    eleman.sureAdi,
+                    eleman.deger,
+                    setSelectedSurahs
+                  );
                 }
               }}
               className={`${
                 eleman.durum === "ayet-sayisi" ? "text-red-600" : ""
               }${eleman.durum === "ayetNo" ? "text-white" : ""}${
                 eleman.durum === "toplam-ayet-sayisi" ? "text-yellow-400" : ""
-              } ${
+              }${eleman.durum === "sureNo" ? "text-blue-400" : ""} ${
                 selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
               } mr-1 mb-1 cursor-pointer`}
             >
@@ -92,11 +124,9 @@ const Number2 = () => {
       )}
       <h2>String Number</h2>
       <p>Bu Sayı: {stringSayi.length}</p>
-      <p>
-        19'a bölümünden kalan {calculateMod19(stringSayi)}
-      </p>
+      <p>19'a bölümünden kalan {calculateMod19(stringSayi)}</p>
     </div>
   );
 };
 
-export default Number2;
+export default Number3;

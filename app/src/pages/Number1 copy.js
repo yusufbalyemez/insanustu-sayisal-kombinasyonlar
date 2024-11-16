@@ -8,10 +8,7 @@ import {
 import { useQuran } from "../context/quranListContext";
 import { BiShow } from "react-icons/bi";
 import { BiSolidHide } from "react-icons/bi";
-import { RiNumbersFill } from "react-icons/ri";
-import { CgMathDivide } from "react-icons/cg";
-import { SiMiraheze } from "react-icons/si";
-
+import image1 from "../images/1.png";
 
 const Number1 = () => {
   const { quranList, setQuranList } = useQuran();
@@ -58,33 +55,29 @@ const Number1 = () => {
 
   return (
     <div className="flex flex-col justify-center items-center gap-5 mt-5">
-      <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-2xl ring-2 ring-gray-600 hover:ring-4 hover:ring-yellow-400 transition-all duration-300 text-white min-w-72">
-        <div>
-          <p className="flex items-center text-lg font-semibold mb-2">
-            <RiNumbersFill className="text-lg mr-1" />
-            Basamak Sayısı:{" "}
-            <span className="text-yellow-300 ml-1">{stringSayi.length}</span>
-          </p>
-          <p className="flex items-center text-lg font-semibold">
-            <CgMathDivide className="text-lg font-bold"/>
-            19'a bölümünden kalan:
-            <span className="text-green-300 ml-1">
-              {calculateMod19(stringSayi)}
-            </span>
-          </p>
-        </div>
+      <div className="flex flex-col items-center justify-center p-6 bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-2xl ring-2 ring-gray-600 hover:ring-4 hover:ring-yellow-400 transition-all duration-300 text-white min-w-96">
+        <p className="text-lg font-semibold mb-2">
+          Basamak Sayısı:{" "}
+          <span className="text-yellow-300">{stringSayi.length}</span>
+        </p>
+        <p className="text-lg font-semibold">
+          19'a bölümünden kalan:
+          <span className="text-green-300 ml-1">
+            {calculateMod19(stringSayi)}
+          </span>
+        </p>
       </div>
 
       <button
         onClick={toggleGoster}
-        className={`mb-4 px-4 py-2 font-bold rounded flex items-center justify-center gap-2 ${
-          goster ? "bg-green-900 text-white" : "bg-yellow-400 text-blue-900"
+        className={`mb-4 px-4 py-2 font-bold rounded w-96 flex items-center justify-center gap-2 ${
+          goster ? "bg-gray-800 text-white" : "bg-yellow-400 text-blue-900"
         }`}
       >
         {goster ? (
           <>
             <BiSolidHide className="text-lg" />
-            Metni Göster
+            Sayıyı Gizle
           </>
         ) : (
           <>
@@ -95,7 +88,7 @@ const Number1 = () => {
       </button>
 
       {goster ? (
-        <div className="break-words border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto md:h-[700px] hover:ring-4 hover:ring-yellow-400 transition-all max-h-[550px]">
+        <div className="break-words border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-80 md:max-h-96">
           {olusanDizi.map((eleman, index) => (
             <span
               key={index}
@@ -130,9 +123,8 @@ const Number1 = () => {
           ))}
         </div>
       ) : (
-        <div className="text-white flex flex-col items-center gap-10 break-words border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-[550px] hover:ring-4 hover:ring-yellow-400 transition-all">
-          <p className="text-yellow-400 flex items-center gap-2"><SiMiraheze />
-          Birinci Sayı</p>
+        <div className="text-white flex flex-col items-center gap-10 break-words border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-96 md:max-h-[400px] hover:ring-4 hover:ring-yellow-400 transition-all">
+          <p className="text-yellow-400">Birinci Sayı</p>
           <p>
             Kuran’daki her bir ayetin numarasını yazalım, önüne de her bir sure
             için bu suredeki ayet sayısını yazalım. Böylelikle, yedi ayetten
