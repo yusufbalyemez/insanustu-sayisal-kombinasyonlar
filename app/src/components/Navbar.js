@@ -95,7 +95,6 @@ const Navbar = () => {
     localStorage.setItem("quranList", JSON.stringify(defaultQuranList)); // LocalStorage kaydet
     setIsLeftDrawerOpen(false); // Drawer kapat
   };
-  
 
   return (
     <>
@@ -128,9 +127,11 @@ const Navbar = () => {
           onKeyDown={toggleDrawer(false)}
           sx={{ color: "white" }}
         >
-          <Link to={"/"}>
+          <Link to="/">
             <ListItem
               button
+              component={Link}
+              to="/"
               onClick={() => handleListItemClick(0)}
               sx={{
                 bgcolor: selectedItem === 0 ? "black" : "inherit",
@@ -143,23 +144,25 @@ const Navbar = () => {
               <ListItemText primary="Home" />
             </ListItem>
           </Link>
+
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
             (issue, index) => (
-              <Link to={`${issue}`} key={index}>
-                <ListItem
-                  button
-                  onClick={() => handleListItemClick(issue)}
-                  sx={{
-                    bgcolor: selectedItem === issue ? "black" : "inherit",
-                    "&:hover": {
-                      bgcolor: "black",
-                    },
-                  }}
-                >
-                  <AiOutlineNumber className="mr-1" />
-                  <ListItemText primary={`Issue ${issue}`} />
-                </ListItem>
-              </Link>
+              <ListItem
+                button
+                component={Link}
+                to={`/${issue}`}
+                onClick={() => handleListItemClick(issue)}
+                sx={{
+                  bgcolor: selectedItem === issue ? "black" : "inherit",
+                  "&:hover": {
+                    bgcolor: "black",
+                  },
+                }}
+                key={index}
+              >
+                <AiOutlineNumber className="mr-1" />
+                <ListItemText primary={`Issue ${issue}`} />
+              </ListItem>
             )
           )}
         </List>
