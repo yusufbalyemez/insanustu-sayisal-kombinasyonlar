@@ -4,19 +4,35 @@ import surahInfo from "../assets/SurahInfo.json";
 
 import { toast } from "react-toastify";
 
-export const handleTotalClick = (surahNumber, surahName, setSelectedSurahs) => {
+export const handleTotalClick = (surahNumber, surahName, currentValue, setSelectedSurahs) => {
   setSelectedSurahs((prevSelected) => {
     const isSelected = prevSelected.includes(surahNumber);
     const newSelected = isSelected
       ? prevSelected.filter((num) => num !== surahNumber)
       : [...prevSelected, surahNumber];
-    if (!isSelected) {
-      toast.success(`[${surahNumber}] ${surahName} Suresinin Ayet Sayısı`);
+
+    // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+    const matchedSurah = surahInfo.find((surah) => surah.surahNumber === surahNumber);
+
+    if (matchedSurah) {
+      // `totalAyahs` eşleşmesi kontrolü
+      if (matchedSurah.totalAyahs === currentValue) {
+        toast.success(
+          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Ayet Sayısı Doğru: ${matchedSurah.totalAyahs}`
+        );
+      } else {
+        toast.error(
+          `[${surahNumber}] ${matchedSurah.surahName} Suresi Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${currentValue} değil!`
+        );
+      }
+    } else {
+      // Eşleşme yoksa farklı bir mesaj gönder
+      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
     }
+
     return newSelected;
   });
 };
-
 export const handleAyatClick = (
   surahNumber,
   surahName,
@@ -28,9 +44,26 @@ export const handleAyatClick = (
     const newSelected = isSelected
       ? prevSelected.filter((num) => num !== surahNumber)
       : [...prevSelected, surahNumber];
-    if (!isSelected) {
-      toast.success(`[${surahNumber}] ${surahName} ${ayatNumber}. Ayet`);
+
+    // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+    const matchedSurah = surahInfo.find((surah) => surah.surahNumber === surahNumber);
+
+    if (matchedSurah) {
+      // `ayatNumber` ve `totalAyahs` karşılaştırması
+      if (ayatNumber > matchedSurah.totalAyahs) {
+        // Uyarı mesajı
+        toast.error(
+          `Ekleme tespit edildi. [${surahNumber}] ${surahName} Suresinde böyle bir ayet olmamalıydı.`
+        );
+      } else {
+        // Başarı mesajı
+        toast.success(`[${surahNumber}] ${surahName} ${ayatNumber}. Ayet`);
+      }
+    } else {
+      // Geçersiz sure numarası
+      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
     }
+
     return newSelected;
   });
 };

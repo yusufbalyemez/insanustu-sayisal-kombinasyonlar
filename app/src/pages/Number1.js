@@ -11,10 +11,12 @@ import { BiSolidHide } from "react-icons/bi";
 import { RiNumbersFill } from "react-icons/ri";
 import { CgMathDivide } from "react-icons/cg";
 import { SiMiraheze } from "react-icons/si";
+import QURAN from "../assets/SurahInfo.json"
 
 
 const Number1 = () => {
   const { quranList, setQuranList } = useQuran();
+  const [orjinQuran,setOrjinQuran] = useState([]);
   const [olusanDizi, setOlusanDizi] = useState([]);
   const [stringSayi, setStringSayi] = useState("");
   const [goster, setGoster] = useState(false);
@@ -24,7 +26,32 @@ const Number1 = () => {
 
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
+    const orjinalBosDizi = []; //SurahInfo jsonundaki bilgiler buraya yazdırılacak.
     let stringBuyukSayi = ""; // 19'a bölünecek devasa metinsel sayıyı oluşturur.
+
+    //SurahInfo Json içerisindeki surelere erişir.
+    QURAN.forEach((sure) => {
+      //Start -Suredeki Toplam Ayet Sayısını Yazdırır
+      orjinalBosDizi.push({
+        durum: "ayet-sayisi",
+        sureAdi: sure.surahName,
+        sureNo: sure.surahNumber,
+        deger: sure.totalAyahs,
+      });
+      //End
+
+      //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
+      for (let i = 1; i <= sure.totalAyahs; i++) {
+        orjinalBosDizi.push({
+          durum: "ayetNo",
+          sureAdi: sure.surahName,
+          sureNo: sure.surahNumber,
+          deger: i,
+        });
+      }
+      //End
+    });
+    //End
 
     //Tüm Kuran içerisindeki surelere erişir.
     quranList.forEach((sure) => {
@@ -53,8 +80,20 @@ const Number1 = () => {
     //End
 
     setOlusanDizi(bosDizi);
+    setOrjinQuran(orjinalBosDizi);
     setStringSayi(stringBuyukSayi);
   }, [quranList]);
+
+  // Dizileri Karşılaştırma fonksiyonu
+  const isDifferent = (eleman) => {
+    const originalElement = orjinQuran.find(
+      (orjEleman) =>
+        orjEleman.sureNo === eleman.sureNo &&
+        orjEleman.durum === eleman.durum &&
+        orjEleman.deger === eleman.deger
+    );
+    return !originalElement;
+  };
 
   return (
     <div className="flex flex-col justify-center items-center gap-5 mt-5">
@@ -112,6 +151,7 @@ const Number1 = () => {
                   handleTotalClick(
                     eleman.sureNo,
                     eleman.sureAdi,
+                    eleman.deger,
                     setSelectedSurahs
                   );
                 } else {
@@ -124,9 +164,15 @@ const Number1 = () => {
                 }
               }}
               className={`${
-                eleman.durum === "ayet-sayisi" ? "text-yellow-400" : ""
-              }${eleman.durum === "ayetNo" ? "text-white" : ""}${
-                eleman.durum === "toplam-ayet-sayisi" ? "text-red-600" : ""
+                isDifferent(eleman)
+                  ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
+                  : eleman.durum === "ayet-sayisi"
+                  ? "text-yellow-400" // Ayet sayısı için sarı
+                  : eleman.durum === "ayetNo"
+                  ? "text-white" // Ayet numarası için beyaz
+                  : eleman.durum === "toplam-ayet-sayisi"
+                  ? "text-blue-600" // Toplam ayet sayısı için mavi
+                  : ""
               } ${
                 selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
               } mr-1 mb-1 cursor-pointer`}
