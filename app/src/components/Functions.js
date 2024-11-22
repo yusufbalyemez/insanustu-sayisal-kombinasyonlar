@@ -88,7 +88,7 @@ export const handleAyatClick = (
   selectedSurahs,
   setSelectedSurahs
 ) => {
-  if(selectedSurahs.length == 0){
+  if(selectedSurahs.length === 0){
     const matchedSurah = surahInfo.find(
       (surah) => surah.surahNumber === surahNumber
     );
@@ -117,7 +117,7 @@ export const handleTotalClick = (
 ) => {
   // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
 
-  if (selectedSurahs.length == 0) {
+  if (selectedSurahs.length === 0) {
     //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
     const matchedSurah = surahInfo.find(
       (surah) => surah.surahNumber === surahNumber

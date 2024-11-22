@@ -1,5 +1,5 @@
 // QuranContext.js
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import quran from "../assets/SurahInfo.json";
 
 const QuranContext = createContext();

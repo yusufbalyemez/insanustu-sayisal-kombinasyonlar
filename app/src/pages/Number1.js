@@ -15,9 +15,9 @@ import QURAN from "../assets/SurahInfo.json"
 
 
 const Number1 = () => {
-  const { quranList, setQuranList } = useQuran();
-  const [orjinQuran,setOrjinQuran] = useState([]);
-  const [olusanDizi, setOlusanDizi] = useState([]);
+  const {quranList} = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
+  const [orginQuranEmptyList,setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
+  const [olusanDizi, setOlusanDizi] = useState([]);//Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
   const [stringSayi, setStringSayi] = useState("");
   const [goster, setGoster] = useState(false);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
@@ -80,13 +80,13 @@ const Number1 = () => {
     //End
 
     setOlusanDizi(bosDizi);
-    setOrjinQuran(orjinalBosDizi);
+    setOrginQuranEmptyList(orjinalBosDizi);
     setStringSayi(stringBuyukSayi);
   }, [quranList]);
 
   // Dizileri Karşılaştırma fonksiyonu
   const isDifferent = (eleman) => {
-    const originalElement = orjinQuran.find(
+    const originalElement = orginQuranEmptyList.find(
       (orjEleman) =>
         orjEleman.sureNo === eleman.sureNo &&
         orjEleman.durum === eleman.durum &&
