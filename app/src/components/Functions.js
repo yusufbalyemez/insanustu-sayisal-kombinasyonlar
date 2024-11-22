@@ -141,8 +141,13 @@ export const handleTotalClick = (
   toggleSurahSelection(surahNumber, setSelectedSurahs);
 };
 
-export const handleTotalAyatClick = () => {
-  toast.success(`Kurandaki Tüm Ayet Numaralarının Toplamı:`);
+export const handleTotalAyatClick = (value) => {
+  if(value===6234){
+    toast.success(`Kurandaki Numaralı Ayet Sayısı: ${value}, Numarasız 112(Besmele) 6234+112=6346 ayetten oluşmaktadır.`);
+  }else{
+    toast.error(`Hata tespit edildi. Kurandaki numaralı toplam ayet sayısı ${value} değil, 6234 olmalıydı!`);
+  }
+  
 };
 export const handleSurahNoClick = (
   surahNumber,
