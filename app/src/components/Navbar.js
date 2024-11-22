@@ -22,7 +22,6 @@ const Navbar = () => {
   const { quranList, setQuranList } = useQuran();
   const [tempQuranList, setTempQuranList] = useState([]);
 
-  // İlk yüklemede localStorage'dan veriyi al
   useEffect(() => {
     const storedQuranList = localStorage.getItem("quranList");
     if (storedQuranList) {
@@ -35,20 +34,14 @@ const Navbar = () => {
   }, []);
 
   const toggleDrawer = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
+    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return;
     }
     setIsDrawerOpen(open);
   };
 
   const toggleDrawer2 = (open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
+    if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return;
     }
     setIsLeftDrawerOpen(open);
@@ -58,14 +51,12 @@ const Navbar = () => {
     setSelectedItem(index);
   };
 
-  // Ayet sayısını geçici listeye kaydetme
   const handleAyahChange = (index, value) => {
     const updatedTempList = [...tempQuranList];
     updatedTempList[index].totalAyahs = parseInt(value) || 0;
     setTempQuranList(updatedTempList);
   };
 
-  // Huruf Muqattaat Checkbox'ını geçici listeye kaydetme
   const handleHurufCheckboxChange = (index) => {
     const updatedTempList = [...tempQuranList];
     updatedTempList[index].startsWithHurufMuqattaat =
@@ -73,15 +64,12 @@ const Navbar = () => {
     setTempQuranList(updatedTempList);
   };
 
-  // Basmala Checkbox'ını geçici listeye kaydetme
   const handleBasmalaCheckboxChange = (index) => {
     const updatedTempList = [...tempQuranList];
-    updatedTempList[index].startsWithBasmala =
-      !updatedTempList[index].startsWithBasmala;
+    updatedTempList[index].startsWithBasmala = !updatedTempList[index].startsWithBasmala;
     setTempQuranList(updatedTempList);
   };
 
-  // `Değiştir` butonuna tıklandığında tempQuranList'i quranList'e aktar ve localStorage'a kaydet
   const handleUpdateQuranList = () => {
     setQuranList(tempQuranList);
     localStorage.setItem("quranList", JSON.stringify(tempQuranList));
@@ -89,16 +77,16 @@ const Navbar = () => {
   };
 
   const handleDefaultQuranList = () => {
-    const defaultQuranList = JSON.parse(JSON.stringify(quran)); // Derin kopya al
-    setQuranList(defaultQuranList); // Global state güncelle
-    setTempQuranList(defaultQuranList); // Temp listeyi de güncelle
-    localStorage.setItem("quranList", JSON.stringify(defaultQuranList)); // LocalStorage kaydet
-    setIsLeftDrawerOpen(false); // Drawer kapat
+    const defaultQuranList = JSON.parse(JSON.stringify(quran));
+    setQuranList(defaultQuranList);
+    setTempQuranList(defaultQuranList);
+    localStorage.setItem("quranList", JSON.stringify(defaultQuranList));
+    setIsLeftDrawerOpen(false);
   };
 
   return (
     <>
-      <div className="flex justify-between items-center  bg-gradient-to-l from-gray-700 to-gray-800 px-2 md:px-10">
+      <div className="flex justify-between items-center bg-gradient-to-l from-gray-700 to-gray-800 px-2 md:px-10">
         <div className="w-20 pt-1">
           <img src={logo} alt="Logo" onClick={toggleDrawer2(true)} />
         </div>
@@ -110,7 +98,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Sağ Drawer Bileşeni */}
+      {/* Sağ Drawer */}
       <Drawer
         anchor="right"
         open={isDrawerOpen}
@@ -127,48 +115,27 @@ const Navbar = () => {
           onKeyDown={toggleDrawer(false)}
           sx={{ color: "white" }}
         >
-          <Link to="/">
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((issue, index) => (
             <ListItem
-              button
+              key={index}
               component={Link}
-              to="/"
-              onClick={() => handleListItemClick(0)}
+              to={issue === 0 ? "/" : `/${issue}`}
+              onClick={() => handleListItemClick(issue)}
               sx={{
-                bgcolor: selectedItem === 0 ? "black" : "inherit",
+                bgcolor: selectedItem === issue ? "black" : "inherit",
                 "&:hover": {
                   bgcolor: "black",
                 },
               }}
             >
-              <FaHome className="mr-1" />
-              <ListItemText primary="Home" />
+              <AiOutlineNumber className="mr-1" />
+              <ListItemText primary={issue === 0 ? "Home" : `Issue ${issue}`} />
             </ListItem>
-          </Link>
-
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
-            (issue, index) => (
-              <ListItem
-                button
-                component={Link}
-                to={`/${issue}`}
-                onClick={() => handleListItemClick(issue)}
-                sx={{
-                  bgcolor: selectedItem === issue ? "black" : "inherit",
-                  "&:hover": {
-                    bgcolor: "black",
-                  },
-                }}
-                key={index}
-              >
-                <AiOutlineNumber className="mr-1" />
-                <ListItemText primary={`Issue ${issue}`} />
-              </ListItem>
-            )
-          )}
+          ))}
         </List>
       </Drawer>
 
-      {/* Sol Drawer Bileşeni */}
+      {/* Sol Drawer */}
       <Drawer
         anchor="left"
         open={isLeftDrawerOpen}
@@ -177,7 +144,6 @@ const Navbar = () => {
           sx: { width: 400, bgcolor: "#374151", padding: "5px" },
         }}
       >
-        {/* Çarpı Butonu */}
         <div className="absolute top-2 right-5 border px-2 border-yellow-400 rounded-md">
           <button
             onClick={toggleDrawer2(false)}
@@ -188,9 +154,7 @@ const Navbar = () => {
         </div>
 
         <div className="flex flex-col items-center justify-center text-center text-white">
-          <span className="my-2 text-blue-300 font-bold">
-            SUPERHUMAN NUMBERS
-          </span>
+          <span className="my-2 text-blue-300 font-bold">SUPERHUMAN NUMBERS</span>
         </div>
         <table className="text-white text-center">
           <thead>
@@ -209,7 +173,7 @@ const Navbar = () => {
                 <td>{sura.surahName}</td>
                 <td>
                   <input
-                    className="w-10 text-yellow-300 text-center border-b  outline-none bg-transparent"
+                    className="w-10 text-yellow-300 text-center border-b outline-none bg-transparent"
                     type="text"
                     value={sura.totalAyahs}
                     onChange={(e) => handleAyahChange(index, e.target.value)}
