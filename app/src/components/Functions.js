@@ -4,21 +4,129 @@ import surahInfo from "../assets/SurahInfo.json";
 
 import { toast } from "react-toastify";
 
-export const handleTotalClick = (surahNumber, surahName, currentValue, setSelectedSurahs) => {
+const toggleSurahSelection = (surahNumber, setSelectedSurahs) => {
   setSelectedSurahs((prevSelected) => {
     const isSelected = prevSelected.includes(surahNumber);
-    const newSelected = isSelected
+    return isSelected
       ? prevSelected.filter((num) => num !== surahNumber)
       : [...prevSelected, surahNumber];
+  });
+};
 
-    // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
-    const matchedSurah = surahInfo.find((surah) => surah.surahNumber === surahNumber);
+/* export const handleTotalClick = (
+  surahNumber,
+  surahName,
+  currentValue,
+  setSelectedSurahs
+) => {
+  setTimeout(() => {
+    setSelectedSurahs((prevSelected) => {
+      const isSelected = prevSelected.includes(surahNumber);
+      const newSelected = isSelected
+        ? prevSelected.filter((num) => num !== surahNumber)
+        : [...prevSelected, surahNumber];
+
+      // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+      const matchedSurah = surahInfo.find(
+        (surah) => surah.surahNumber === surahNumber
+      );
+
+      if (matchedSurah) {
+        if (matchedSurah.totalAyahs === currentValue) {
+          toast.success(
+            `[${surahNumber}] ${matchedSurah.surahName} Suresinin Ayet Sayısı Doğru: ${matchedSurah.totalAyahs}`
+          );
+        } else {
+          toast.error(
+            `[${surahNumber}] ${matchedSurah.surahName} Suresi Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${currentValue} değil!`
+          );
+        }
+      } else {
+        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      }
+
+      return newSelected;
+    });
+  }, 0); // Render işlemini bloklamamak için gecikme ekledik
+}; */
+/* export const handleAyatClick = (
+  surahNumber,
+  surahName,
+  ayatNumber,
+  setSelectedSurahs
+) => {
+  setTimeout(() => {
+    setSelectedSurahs((prevSelected) => {
+      const isSelected = prevSelected.includes(surahNumber);
+      const newSelected = isSelected
+        ? prevSelected.filter((num) => num !== surahNumber)
+        : [...prevSelected, surahNumber];
+
+      const matchedSurah = surahInfo.find((surah) => surah.surahNumber === surahNumber);
+
+      if (matchedSurah) {
+        if (ayatNumber > matchedSurah.totalAyahs) {
+          toast.error(
+            `Ekleme tespit edildi. [${surahNumber}] ${surahName} Suresinde böyle bir ayet olmamalıydı.`
+          );
+        } else {
+          toast.success(`[${surahNumber}] ${surahName} ${ayatNumber}. Ayet`);
+        }
+      } else {
+        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      }
+
+      return newSelected;
+    });
+  }, 0);
+}; */
+
+export const handleAyatClick = (
+  surahNumber,
+  surahName,
+  ayatNumber,
+  selectedSurahs,
+  setSelectedSurahs
+) => {
+  if(selectedSurahs.length == 0){
+    const matchedSurah = surahInfo.find(
+      (surah) => surah.surahNumber === surahNumber
+    );
+    if (matchedSurah) {
+      if (ayatNumber > matchedSurah.totalAyahs) {
+        toast.error(
+          `Ekleme tespit edildi. [${surahNumber}] ${surahName} Suresinde böyle bir ayet olmamalıydı.`
+        );
+      } else {
+        toast.success(`[${surahNumber}] ${surahName} ${ayatNumber}. Ayet`);
+      }
+    } else {
+      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+    }
+  
+  }
+  toggleSurahSelection(surahNumber, setSelectedSurahs);
+};
+
+export const handleTotalClick = (
+  surahNumber,
+  surahName,
+  currentValue,
+  selectedSurahs,
+  setSelectedSurahs
+) => {
+  // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+
+  if (selectedSurahs.length == 0) {
+    //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
+    const matchedSurah = surahInfo.find(
+      (surah) => surah.surahNumber === surahNumber
+    );
 
     if (matchedSurah) {
-      // `totalAyahs` eşleşmesi kontrolü
       if (matchedSurah.totalAyahs === currentValue) {
         toast.success(
-          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Ayet Sayısı Doğru: ${matchedSurah.totalAyahs}`
+          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Ayet Sayısı : ${matchedSurah.totalAyahs}`
         );
       } else {
         toast.error(
@@ -26,46 +134,11 @@ export const handleTotalClick = (surahNumber, surahName, currentValue, setSelect
         );
       }
     } else {
-      // Eşleşme yoksa farklı bir mesaj gönder
       toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
     }
+  }
 
-    return newSelected;
-  });
-};
-export const handleAyatClick = (
-  surahNumber,
-  surahName,
-  ayatNumber,
-  setSelectedSurahs
-) => {
-  setSelectedSurahs((prevSelected) => {
-    const isSelected = prevSelected.includes(surahNumber);
-    const newSelected = isSelected
-      ? prevSelected.filter((num) => num !== surahNumber)
-      : [...prevSelected, surahNumber];
-
-    // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
-    const matchedSurah = surahInfo.find((surah) => surah.surahNumber === surahNumber);
-
-    if (matchedSurah) {
-      // `ayatNumber` ve `totalAyahs` karşılaştırması
-      if (ayatNumber > matchedSurah.totalAyahs) {
-        // Uyarı mesajı
-        toast.error(
-          `Ekleme tespit edildi. [${surahNumber}] ${surahName} Suresinde böyle bir ayet olmamalıydı.`
-        );
-      } else {
-        // Başarı mesajı
-        toast.success(`[${surahNumber}] ${surahName} ${ayatNumber}. Ayet`);
-      }
-    } else {
-      // Geçersiz sure numarası
-      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
-    }
-
-    return newSelected;
-  });
+  toggleSurahSelection(surahNumber, setSelectedSurahs);
 };
 
 export const handleTotalAyatClick = () => {
@@ -82,12 +155,13 @@ export const handleSurahNoClick = (
       ? prevSelected.filter((num) => num !== surahNumber)
       : [...prevSelected, surahNumber];
     if (!isSelected) {
-      toast.success(`Tıklanan ${surahNumber} sayısı ${surahName} suresinin sıra numarasıdır.`);
+      toast.success(
+        `Tıklanan ${surahNumber} sayısı ${surahName} suresinin sıra numarasıdır.`
+      );
     }
     return newSelected;
   });
 };
-
 
 export const calculateTotalAyahs = (surahInfo) => {
   return surahInfo.reduce((total, surah) => total + surah.totalAyahs, 0);

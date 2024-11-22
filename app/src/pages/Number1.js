@@ -152,6 +152,7 @@ const Number1 = () => {
                     eleman.sureNo,
                     eleman.sureAdi,
                     eleman.deger,
+                    selectedSurahs,
                     setSelectedSurahs
                   );
                 } else {
@@ -159,6 +160,7 @@ const Number1 = () => {
                     eleman.sureNo,
                     eleman.sureAdi,
                     eleman.deger,
+                    selectedSurahs,
                     setSelectedSurahs
                   );
                 }
