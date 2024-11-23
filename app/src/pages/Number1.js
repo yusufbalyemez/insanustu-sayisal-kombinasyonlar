@@ -184,7 +184,7 @@ const Number1 = () => {
               className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1"
               onClick={()=> setSelectedSurahs([])}
             >
-              <TbSquaresSelected />
+              <TbSquaresSelected className="text-xl"/>
               Seçimleri Kaldır
             </button>
           </div>
