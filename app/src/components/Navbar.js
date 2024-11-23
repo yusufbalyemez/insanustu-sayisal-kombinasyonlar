@@ -11,7 +11,7 @@ import {
   ListItem,
   ListItemText,
 } from "@mui/material";
-import { FaHome } from "react-icons/fa";
+/* import { FaHome } from "react-icons/fa"; */
 import { AiOutlineNumber } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import quran from "../assets/SurahInfo.json";
