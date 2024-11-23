@@ -4,6 +4,7 @@ import {
   handleTotalClick,
   handleAyatClick,
   handleTotalAyatClick,
+  isDifferent
 } from "../components/Functions";
 import { useQuran } from "../context/quranListContext";
 import { SiMiraheze } from "react-icons/si";
@@ -100,16 +101,6 @@ const Number1 = () => {
     setStringSayi(stringBuyukSayi);
   }, [quranList]);
 
-  // Dizileri Karşılaştırma fonksiyonu
-  const isDifferent = (eleman) => {
-    const originalElement = orginQuranEmptyList.find(
-      (orjEleman) =>
-        orjEleman.sureNo === eleman.sureNo &&
-        orjEleman.durum === eleman.durum &&
-        orjEleman.deger === eleman.deger
-    );
-    return !originalElement;
-  };
 
   return (
     <div className="flex flex-col justify-center items-center gap-5 mt-5">
@@ -164,7 +155,7 @@ const Number1 = () => {
                 }
               }}
               className={`${
-                isDifferent(eleman)
+                isDifferent(eleman,orginQuranEmptyList)
                   ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
                   : eleman.durum === "ayet-sayisi"
                   ? "text-yellow-400" // Ayet sayısı için sarı

@@ -116,7 +116,6 @@ export const handleAyatClick = (
   
   }
   toggleSurahSelection(surahNumber, setSelectedSurahs);
-  console.log(selectedSurahs)
 };
 
 export const handleTotalClick = (
@@ -181,6 +180,22 @@ export const handleSurahNoClick = (
 
 export const calculateTotalAyahs = (surahInfo) => {
   return surahInfo.reduce((total, surah) => total + surah.totalAyahs, 0);
+};
+
+// Dizileri Karşılaştırma fonksiyonu
+export const isDifferent = (eleman,orginQuranEmptyList) => {
+  const originalElement = orginQuranEmptyList.find(
+    (orjEleman) =>
+      orjEleman.sureNo === eleman.sureNo &&
+      orjEleman.durum === eleman.durum &&
+      orjEleman.deger === eleman.deger
+  );
+  return !originalElement;
+};
+
+export const toggleGoster = (setCopyState,goster,setGoster) => {
+  setCopyState(false);
+  setGoster(!goster);
 };
 
 export const getAllAyahNumbers = () => {
