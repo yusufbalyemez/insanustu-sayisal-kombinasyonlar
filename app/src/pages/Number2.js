@@ -12,7 +12,10 @@ import { BiSolidHide } from "react-icons/bi";
 import { RiNumbersFill } from "react-icons/ri";
 import { CgMathDivide } from "react-icons/cg";
 import { SiMiraheze } from "react-icons/si";
+import { FaCopy } from "react-icons/fa";
+import { FaCircleCheck } from "react-icons/fa6";
 import QURAN from "../assets/SurahInfo.json";
+import { toast } from "react-toastify";
 
 const Number2 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -21,8 +24,24 @@ const Number2 = () => {
   const [stringSayi, setStringSayi] = useState("");
   const [goster, setGoster] = useState(false);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
+  const [copyState, setCopyState] = useState(false);
 
-  const toggleGoster = () => setGoster(!goster);
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText(stringSayi)
+      .then(() => {
+        toast.success("Sayı Kopyalandı.");
+      })
+      .catch((err) => {
+        toast.error("Kopyalama başarısız.");
+      });
+    setCopyState(true);
+  };
+
+  const toggleGoster = () => {
+    setCopyState(false);
+    setGoster(!goster);
+  };
 
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
@@ -53,9 +72,9 @@ const Number2 = () => {
     });
     //End
 
-    //Start - Kurandaki Tüm Ayet Numaralarını Toplar 
-    const gercekToplam = calculateTotalAyahs(QURAN); 
-    
+    //Start - Kurandaki Tüm Ayet Numaralarını Toplar
+    const gercekToplam = calculateTotalAyahs(QURAN);
+
     orjinalBosDizi.push({
       durum: "toplam-ayet-sayisi",
       deger: gercekToplam,
@@ -88,9 +107,9 @@ const Number2 = () => {
     });
     //End
 
-    //Start - Kurandaki Tüm Ayet Numaralarını Toplar 
+    //Start - Kurandaki Tüm Ayet Numaralarını Toplar
     const hesaplananToplam = calculateTotalAyahs(quranList);
-    
+
     bosDizi.push({
       durum: "toplam-ayet-sayisi",
       deger: hesaplananToplam,
@@ -156,6 +175,29 @@ const Number2 = () => {
           </>
         )}
       </button>
+
+      {goster && (
+        <div>
+          <div className="flex justify-end items-center">
+            <button
+              className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1"
+              onClick={handleCopy}
+            >
+              {copyState ? (
+                <>
+                  <FaCircleCheck />
+                  Kopyalandı
+                </>
+              ) : (
+                <>
+                  <FaCopy />
+                  Sayıyı Kopyala
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      )}
 
       {goster ? (
         <div

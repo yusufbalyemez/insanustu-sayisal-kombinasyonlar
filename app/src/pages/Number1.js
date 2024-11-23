@@ -11,18 +11,35 @@ import { BiSolidHide } from "react-icons/bi";
 import { RiNumbersFill } from "react-icons/ri";
 import { CgMathDivide } from "react-icons/cg";
 import { SiMiraheze } from "react-icons/si";
-import QURAN from "../assets/SurahInfo.json"
-
+import { FaCopy } from "react-icons/fa";
+import { FaCircleCheck } from "react-icons/fa6";
+import QURAN from "../assets/SurahInfo.json";
+import { toast } from "react-toastify";
 
 const Number1 = () => {
-  const {quranList} = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
-  const [orginQuranEmptyList,setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
-  const [olusanDizi, setOlusanDizi] = useState([]);//Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
+  const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
+  const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
+  const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
   const [stringSayi, setStringSayi] = useState("");
   const [goster, setGoster] = useState(false);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
+  const [copyState, setCopyState] = useState(false);
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText(stringSayi)
+      .then(() => {
+        toast.success("Sayı Kopyalandı.");
+      })
+      .catch((err) => {
+        toast.error("Kopyalama başarısız.");
+      });
+    setCopyState(true);
+  };
 
-  const toggleGoster = () => setGoster(!goster);
+  const toggleGoster = () => {
+    setCopyState(false);
+    setGoster(!goster);
+  };
 
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
@@ -97,10 +114,12 @@ const Number1 = () => {
 
   return (
     <div className="flex flex-col justify-center items-center gap-5 mt-5">
-      <div className="flex flex-col items-center justify-center p-6
+      <div
+        className="flex flex-col items-center justify-center p-6
        bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-2xl
         ring-2 ring-gray-600 hover:ring-4 hover:ring-yellow-400 transition-all
-         duration-300 text-white min-w-72">
+         duration-300 text-white min-w-72"
+      >
         <div>
           <p className="flex items-center text-lg font-semibold mb-2">
             <RiNumbersFill className="text-lg mr-1" />
@@ -108,7 +127,7 @@ const Number1 = () => {
             <span className="text-yellow-300 ml-1">{stringSayi.length}</span>
           </p>
           <p className="flex items-center text-lg font-semibold">
-            <CgMathDivide className="text-lg font-bold"/>
+            <CgMathDivide className="text-lg font-bold" />
             19'a bölümünden kalan:
             <span className="text-green-300 ml-1">
               {calculateMod19(stringSayi)}
@@ -136,11 +155,36 @@ const Number1 = () => {
         )}
       </button>
 
+      {goster && (
+        <div>
+          <div className="flex justify-end items-center">
+            <button
+              className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1"
+              onClick={handleCopy}
+            >
+              {copyState ? (
+                <>
+                  <FaCircleCheck />
+                  Kopyalandı
+                </>
+              ) : (
+                <>
+                  <FaCopy />
+                  Sayıyı Kopyala
+                </>
+              )}
+            </button>
+          </div>
+        </div>
+      )}
+
       {goster ? (
-        <div className="break-words border border-gray-300 p-4 mb-5
+        <div
+          className="break-words border border-gray-300 p-4 mb-5
          w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800
           rounded-lg text-xl overflow-y-auto hover:ring-4
-           hover:ring-yellow-400 transition-all max-h-[500px] md:max-h-[400px]">
+           hover:ring-yellow-400 transition-all max-h-[500px] md:max-h-[400px]"
+        >
           {olusanDizi.map((eleman, index) => (
             <span
               key={index}
@@ -184,12 +228,16 @@ const Number1 = () => {
           ))}
         </div>
       ) : (
-        <div className="text-white flex flex-col items-center gap-10 break-words
+        <div
+          className="text-white flex flex-col items-center gap-10 break-words
          border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l
           from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-[500px] md:max-h-[400px]
-           hover:ring-4 hover:ring-yellow-400 transition-all">
-          <p className="text-yellow-400 flex items-center gap-2"><SiMiraheze />
-          Birinci Sayı</p>
+           hover:ring-4 hover:ring-yellow-400 transition-all"
+        >
+          <p className="text-yellow-400 flex items-center gap-2">
+            <SiMiraheze />
+            Birinci Sayı
+          </p>
           <p>
             Kuran’daki her bir ayetin numarasını yazalım, önüne de her bir sure
             için bu suredeki ayet sayısını yazalım. Böylelikle, yedi ayetten
