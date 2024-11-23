@@ -15,6 +15,7 @@ import { FaCopy } from "react-icons/fa";
 import { FaCircleCheck } from "react-icons/fa6";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet"; 
 
 const Number1 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -114,6 +115,9 @@ const Number1 = () => {
 
   return (
     <div className="flex flex-col justify-center items-center gap-5 mt-5">
+      <Helmet>
+        <title>Sayı 1</title> {/* Sayfanın başlığı */}
+      </Helmet>
       <div
         className="flex flex-col items-center justify-center p-6
        bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-2xl
