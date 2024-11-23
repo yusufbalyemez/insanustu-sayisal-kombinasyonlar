@@ -15,7 +15,9 @@ import { FaCopy } from "react-icons/fa";
 import { FaCircleCheck } from "react-icons/fa6";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
-import { Helmet } from "react-helmet"; 
+import { Helmet } from "react-helmet";
+import { TbSquaresSelected } from "react-icons/tb";
+
 
 const Number1 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -161,7 +163,7 @@ const Number1 = () => {
 
       {goster && (
         <div>
-          <div className="flex justify-end items-center">
+          <div className="flex justify-end items-center gap-2">
             <button
               className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1"
               onClick={handleCopy}
@@ -177,6 +179,13 @@ const Number1 = () => {
                   Sayıyı Kopyala
                 </>
               )}
+            </button>
+            <button
+              className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1"
+              onClick={()=> setSelectedSurahs([])}
+            >
+              <TbSquaresSelected />
+              Seçimleri Kaldır
             </button>
           </div>
         </div>
