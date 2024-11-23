@@ -4,6 +4,7 @@ import surahInfo from "../assets/SurahInfo.json";
 
 import { toast } from "react-toastify";
 
+//Spanları seçme - eski
 const toggleSurahSelection = (surahNumber, setSelectedSurahs) => {
   setSelectedSurahs((prevSelected) => {
     const isSelected = prevSelected.includes(surahNumber);
@@ -12,6 +13,14 @@ const toggleSurahSelection = (surahNumber, setSelectedSurahs) => {
       : [...prevSelected, surahNumber];
   });
 };
+
+/* 
+const toggleSurahSelection = (surahNumber, setSelectedSurahs) => {
+  setSelectedSurahs((prevSelected) => {
+    // Eğer seçiliyse tüm seçimleri kaldır
+    return prevSelected.includes(surahNumber) ? [] : [surahNumber];
+  });
+}; */
 
 /* export const handleTotalClick = (
   surahNumber,
@@ -88,7 +97,8 @@ export const handleAyatClick = (
   selectedSurahs,
   setSelectedSurahs
 ) => {
-  if(selectedSurahs.length === 0){
+  
+  if(!selectedSurahs.includes(surahNumber)){ //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
     const matchedSurah = surahInfo.find(
       (surah) => surah.surahNumber === surahNumber
     );
@@ -106,6 +116,7 @@ export const handleAyatClick = (
   
   }
   toggleSurahSelection(surahNumber, setSelectedSurahs);
+  console.log(selectedSurahs)
 };
 
 export const handleTotalClick = (
@@ -117,7 +128,7 @@ export const handleTotalClick = (
 ) => {
   // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
 
-  if (selectedSurahs.length === 0) {
+  if(!selectedSurahs.includes(surahNumber)){ //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
     //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
     const matchedSurah = surahInfo.find(
       (surah) => surah.surahNumber === surahNumber
