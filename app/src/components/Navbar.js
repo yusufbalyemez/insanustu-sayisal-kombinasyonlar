@@ -140,7 +140,7 @@ const Navbar = () => {
               >
                 <AiOutlineNumber className="mr-1" />
                 <ListItemText
-                  primary={issue === 0 ? "Home" : `Issue ${issue}`}
+                  primary={issue === 0 ? "Anasayfa" : `Sayı ${issue}`}
                 />
               </ListItem>
             )

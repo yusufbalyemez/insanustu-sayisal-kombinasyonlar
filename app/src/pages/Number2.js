@@ -126,7 +126,7 @@ const Number2 = () => {
     <div className="flex flex-col justify-center items-center gap-5 mt-5">
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
-        <title>Sayı 1</title>
+        <title>Sayı 2</title>
       </Helmet>
 
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
@@ -200,7 +200,7 @@ const Number2 = () => {
         >
           <p className="text-yellow-400 flex items-center gap-2">
             <SiMiraheze />
-            Birinci Sayı
+            İkinci Sayı
           </p>
           <p>
             Kuran’daki her bir ayetin numarasını yazalım, önüne de her bir sure
