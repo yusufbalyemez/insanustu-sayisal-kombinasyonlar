@@ -203,34 +203,22 @@ const Number2 = () => {
             İkinci Sayı
           </p>
           <p>
-            Kuran’daki her bir ayetin numarasını yazalım, önüne de her bir sure
-            için bu suredeki ayet sayısını yazalım. Böylelikle, yedi ayetten
-            oluşan Sure 1, 7 1234567 sayısı ile temsil edilecektir. Burada
-            yaptığımız şey, ayet sayılarını yan yana yazarak uzun sayılar
-            oluşturmaktır. Sure 2’yi temsil eden sayıyı bulmak için bu suredeki
-            ayet sayısı olan 286, ardından her bir ayetin numarasını yan yana
-            yazılmış şekilde yazarsınız. Böylelikle, Sure 2’yi temsil eden sayı
-            şu şekilde gözükür: 286 12345…284285286. İlk iki sureyi temsil eden
-            iki sayı şunlardır:
+          Her bir suredeki toplam ayet sayısını surenin başına koymak yerine, onu her surenin sonuna koyalım. Böylelikle, Sure 1’i temsil eden sayı 7 1234567 yerine şu şekilde gözükür: 1234567 7. Sure 2’yi temsil eden sayı 286 12345......284285286 yerine şu şekilde gözükür: 12345.....284 285 286 286. İlk iki sureyi temsil eden sayılar şu şekilde gözükür:
           </p>
-          <p>7 1 2 3 4 5 6 7 & 286 1 2 3 4 5….284 285 286.</p>
+          <p className="text-green-300">1 2 3 4 5 6 7 7 & 1 2 3 4 5.....284 285 286 286.</p>
           <p>
-            İlk iki sureyi temsil eden bir sayı oluşturmak için bu iki sayıyı
-            bir araya getirirsek, şu sayıyı alırız:
+          İlk iki sureyi temsil eden bir sayı oluşturmak için bu iki sayıyı bir araya getirirsek, şu şekilde gözüken bir sayı elde ederiz:
           </p>
-          <p>7 1 2 3 4 5 6 7 286 1 2 3 4 5.....284 285 286.</p>
+          <p className="text-green-300">1 2 3 4 5 6 7 7 1 2 3 4 5.....284 285 286 286.</p>
           <p>
-            Bu işlem, Kuran’daki her bir ayet yazılıncaya kadar devam ettirilir,
-            böylece Kuran’daki her ayetin numarasını içine alan çok uzun bir
-            sayı oluşur. Tüm Kuran’ı temsil eden sayı 19’un bir katıdır & 12692
-            basamaklıdır ki bu da 19’un bir katıdır.
+          Her bir suredeki her bir ayetin numarasını, sure başına düşen ayet sayısı takip eder. Burada gösterilen en son 11 basamak son surenin 6 ayetidir, ardından onun ayet sayısı (6) gelir, ardından Kuran’daki numaralı ayetlerin toplam sayısı (6234) gelir. Bütün, çok uzun sayı, 19’un bir katıdır.
           </p>
           <p>
-            Bu çok uzun sayı 12692 (19x668) basmaktan oluşur ve Kuran’daki her
-            bir ayeti içermektedir. Her bir suredeki ayet sayısı, ayetlerinin
-            önünde yer almaktadır. Çok uzun sayıları bölen özel bir bilgisayar
-            programı bu sayının 19’un katı olduğunu gösterdi.
+          Sure başına düşen ayetlerin toplam sayısını her bir surenin sonuna koyduğumuzdan, numaralı ayetlerin toplam sayısını (6324) da Kuran’ın sonuna koymak zorundayız. Bu nedenle, son sureyi temsil eden son sayıları (123456 6) Kuran’daki numaralı ayetlerin toplam sayısı takip eder.
           </p>
+          <p className="text-green-300">1 2 3 4 5 6 7 & 6234 {`> > >`} 1 2 3 4 5 6 7 6234.</p>
+          <p>Tüm surelerin tüm ayetlerini bir araya getirdiğimiz zaman, 12696 basamaktan oluşan ve 19’un bir katı olan uzun bir sayı meydana gelir.</p>
+          <p className="text-green-300">1234567 7 12345…286 286 12345 5…123456 6 6234</p>
         </div>
       )}
     </div>

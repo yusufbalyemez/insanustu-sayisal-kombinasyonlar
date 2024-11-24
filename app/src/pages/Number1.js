@@ -194,12 +194,12 @@ const Number1 = () => {
             şu şekilde gözükür: 286 12345…284285286. İlk iki sureyi temsil eden
             iki sayı şunlardır:
           </p>
-          <p>7 1 2 3 4 5 6 7 & 286 1 2 3 4 5….284 285 286.</p>
+          <p className="text-green-300">7 1 2 3 4 5 6 7 & 286 1 2 3 4 5….284 285 286.</p>
           <p>
             İlk iki sureyi temsil eden bir sayı oluşturmak için bu iki sayıyı
             bir araya getirirsek, şu sayıyı alırız:
           </p>
-          <p>7 1 2 3 4 5 6 7 286 1 2 3 4 5.....284 285 286.</p>
+          <p className="text-green-300">7 1 2 3 4 5 6 7 286 1 2 3 4 5.....284 285 286.</p>
           <p>
             Bu işlem, Kuran’daki her bir ayet yazılıncaya kadar devam ettirilir,
             böylece Kuran’daki her ayetin numarasını içine alan çok uzun bir

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import logo from "../images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
+import { MdOutlineFormatListNumberedRtl } from "react-icons/md";
+import { CiViewList } from "react-icons/ci";
 
 import {
   Button,
@@ -99,11 +101,27 @@ const Navbar = () => {
         <div className="w-20 pt-1">
           <img src={logo} alt="Logo" onClick={toggleDrawer2(true)} />
         </div>
-        <div
-          className="text-white text-3xl border border-gray-400 p-3 rounded-md cursor-pointer"
-          onClick={toggleDrawer(true)}
-        >
-          <GiHamburgerMenu />
+        <div className="flex  items-center justify-center gap-5 text-white text-xl mr-1">
+          <div
+            className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
+            onClick={toggleDrawer2(true)}
+          >
+            <CiViewList />
+            Tablo
+          </div>
+          <div
+            className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
+            onClick={toggleDrawer(true)}
+          >
+            <MdOutlineFormatListNumberedRtl />
+            Sayılar
+          </div>
+          {/* <div
+            className="text-white text-3xl border border-gray-400 p-3 rounded-md cursor-pointer"
+            onClick={toggleDrawer(true)}
+          >
+            <GiHamburgerMenu />
+          </div> */}
         </div>
       </div>
 

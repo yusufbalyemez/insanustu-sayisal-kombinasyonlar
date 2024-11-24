@@ -9,7 +9,7 @@ const CopyAndSelectButtons = ({copyState,goster,handleCopy,setSelectedSurahs}) =
         <div>
           <div className="flex justify-end items-center gap-2">
             <button
-              className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1 hover:bg-green-800 duration-300"
+              className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1 hover:bg-yellow-400 hover:text-blue-900 duration-300"
               onClick={handleCopy}
             >
               {copyState ? (
@@ -25,7 +25,7 @@ const CopyAndSelectButtons = ({copyState,goster,handleCopy,setSelectedSurahs}) =
               )}
             </button>
             <button
-              className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1 hover:bg-green-800 duration-300"
+              className="bg-gray-700 p-2 text-white rounded flex items-center justify-center gap-1 hover:bg-yellow-400 hover:text-blue-900 duration-300"
               onClick={()=> setSelectedSurahs([])}
             >
               <TbSquaresSelected className="text-xl"/>
