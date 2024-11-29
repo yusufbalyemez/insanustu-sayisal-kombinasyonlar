@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   calculateMod19,
   handleTotalClick,
@@ -15,6 +15,7 @@ import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
+import DifferentsButton from "../components/DifferentsButton";
 
 const Number1 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -137,12 +138,7 @@ const Number1 = () => {
         setSelectedSurahs={setSelectedSurahs}
       />
 
-      <button
-        onClick={()=> scrollToDifferent()}
-        className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
-      >
-        İlk Farklılık Konumuna Git
-      </button>
+      <DifferentsButton scrollToDifferent={scrollToDifferent} goster={goster} differentRefs={differentRefs}/>
 
       {goster ? (
         <div

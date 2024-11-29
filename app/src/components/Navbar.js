@@ -18,7 +18,6 @@ import { AiOutlineNumber } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import quran from "../assets/SurahInfo.json";
 import { useQuran } from "../context/quranListContext";
-import { useDifferentRefs } from "../context/DifferentRefsContext";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -26,9 +25,6 @@ const Navbar = () => {
   const [selectedItem, setSelectedItem] = useState(0);
   const { quranList, setQuranList } = useQuran();
   const [tempQuranList, setTempQuranList] = useState([]);
-
-  const differentRefs = useDifferentRefs(); // Context'ten farklı referansları al
-
 
   useEffect(() => {
     const storedQuranList = localStorage.getItem("quranList");
@@ -88,11 +84,6 @@ const Navbar = () => {
   const handleUpdateQuranList = () => {
     setQuranList(tempQuranList);
     localStorage.setItem("quranList", JSON.stringify(tempQuranList));
-     // Referansları temizle
-     Object.keys(differentRefs.current).forEach((key) => {
-      delete differentRefs.current[key];
-    });
-
     setIsLeftDrawerOpen(false);
   };
 
@@ -101,11 +92,6 @@ const Navbar = () => {
     setQuranList(defaultQuranList);
     setTempQuranList(defaultQuranList);
     localStorage.setItem("quranList", JSON.stringify(defaultQuranList));
-    
-     // Referansları temizle
-     Object.keys(differentRefs.current).forEach((key) => {
-      delete differentRefs.current[key];
-    });
     setIsLeftDrawerOpen(false);
   };
 
