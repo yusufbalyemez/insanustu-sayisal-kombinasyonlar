@@ -14,7 +14,6 @@ import { Helmet } from "react-helmet";
 import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
-import { useDifferentRefs } from "../context/DifferentRefsContext";
 
 const Number1 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -41,20 +40,9 @@ const Number1 = () => {
     setCopyState(false);
     setGoster(!goster);
   };
-   // Context üzerinden referanslara erişim
-   const differentRefs = useDifferentRefs();
 
-  const scrollToDifferent = () => {
-    const firstDifferentKey = Object.keys(differentRefs.current)[0];
-    if (firstDifferentKey && differentRefs.current[firstDifferentKey]) {
-      differentRefs.current[firstDifferentKey].scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  };
-
-  console.log(differentRefs)
+  // Farklı elemanları referanslarla saklayacak bir nesne
+  const differentRefs = useRef({});
 
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
@@ -116,6 +104,16 @@ const Number1 = () => {
     setStringSayi(stringBuyukSayi);
   }, [quranList]);
 
+  const scrollToDifferent = () => {
+    const firstDifferentKey = Object.keys(differentRefs.current)[0];
+    if (firstDifferentKey && differentRefs.current[firstDifferentKey]) {
+      differentRefs.current[firstDifferentKey].scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col justify-center items-center gap-5 mt-5">
       {/* Sayfanın başlığını ayarlama */}
@@ -138,7 +136,7 @@ const Number1 = () => {
       />
 
       <button
-        onClick={()=> scrollToDifferent()}
+        onClick={scrollToDifferent}
         className="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-all"
       >
         İlk Farklılık Konumuna Git
@@ -147,9 +145,9 @@ const Number1 = () => {
       {goster ? (
         <div
           className="break-words border border-gray-300 p-4 mb-5
-         w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800
-          rounded-lg text-xl overflow-y-auto hover:ring-4
-           hover:ring-yellow-400 transition-all max-h-[500px] md:max-h-[400px]"
+     w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800
+      rounded-lg text-xl overflow-y-auto hover:ring-4
+       hover:ring-yellow-400 transition-all max-h-[500px] md:max-h-[400px]"
         >
           {olusanDizi.map((eleman, index) => {
             const isDiff = isDifferent(eleman, orginQuranEmptyList);
@@ -158,6 +156,7 @@ const Number1 = () => {
               // Farklı elemanları referans nesnesine kaydet
               differentRefs.current[index] = null;
             }
+
             return (
               <span
                 key={index}
@@ -188,17 +187,15 @@ const Number1 = () => {
                   }
                 }}
                 className={`${
-                  isDifferent(eleman, orginQuranEmptyList)
-                    ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
+                  isDiff
+                    ? "text-red-500 font-bold blink"
                     : eleman.durum === "ayet-sayisi"
-                    ? "text-yellow-400" // Ayet sayısı için sarı
+                    ? "text-yellow-400"
                     : eleman.durum === "ayetNo"
-                    ? "text-white" // Ayet numarası için beyaz
+                    ? "text-white"
                     : eleman.durum === "toplam-ayet-sayisi"
-                    ? "text-blue-600" // Toplam ayet sayısı için mavi
+                    ? "text-blue-600"
                     : ""
-                } ${
-                  selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
                 } mr-1 mb-1 cursor-pointer`}
               >
                 {eleman.deger}
@@ -209,9 +206,9 @@ const Number1 = () => {
       ) : (
         <div
           className="text-white flex flex-col items-center gap-10 break-words
-         border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l
-          from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-[500px] md:max-h-[400px]
-           hover:ring-4 hover:ring-yellow-400 transition-all"
+     border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l
+      from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-[500px] md:max-h-[400px]
+       hover:ring-4 hover:ring-yellow-400 transition-all"
         >
           <p className="text-yellow-400 flex items-center gap-2">
             <SiMiraheze />
