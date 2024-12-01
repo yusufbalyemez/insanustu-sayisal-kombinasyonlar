@@ -16,7 +16,7 @@ export const DifferentRefsProvider = ({ children }) => {
 
   const clearDifferentRefs = () => {
     differentRefs.current = {};
-    console.log("differentRefs temizlendi emir:", differentRefs.current);
+    /* console.log("differentRefs temizlendi emir:", differentRefs.current); */
   };
 
   return (

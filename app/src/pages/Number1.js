@@ -44,7 +44,6 @@ const Number1 = () => {
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
 
-  console.log(differentRefs);
 
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
@@ -132,7 +131,7 @@ const Number1 = () => {
           className="break-words border border-gray-300 p-4 mb-5
          w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800
           rounded-lg text-xl overflow-y-auto hover:ring-4
-           hover:ring-yellow-400 transition-all max-h-[500px] md:max-h-[400px]"
+           hover:ring-yellow-400 transition-all max-h-[60vh]"
         >
           {olusanDizi.map((eleman, index) => {
             const isDiff = isDifferent(eleman, orginQuranEmptyList);
@@ -195,7 +194,7 @@ const Number1 = () => {
         <div
           className="text-white flex flex-col items-center gap-10 break-words
          border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l
-          from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-[500px] md:max-h-[400px]
+          from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-[60vh]
            hover:ring-4 hover:ring-yellow-400 transition-all"
         >
           <p className="text-yellow-400 flex items-center gap-2">
