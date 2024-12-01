@@ -37,7 +37,7 @@ const Navbar = () => {
       setQuranList(quranList);
       setTempQuranList(quranList);
     }
-  }, []);
+  }, []); // Bu bağımlılıklarla `quranList` güncellemelerine doğru tepki verilir
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -84,18 +84,16 @@ const Navbar = () => {
   };
 
   const handleUpdateQuranList = () => {
-    // Referansları temizle ve güncelle
-    clearDifferentRefs();
-    setQuranList(tempQuranList);
-    localStorage.setItem("quranList", JSON.stringify(tempQuranList));
+    clearDifferentRefs(); // Referansları temizle
+    setQuranList(tempQuranList); // Yeni listeyi güncelle
+    localStorage.setItem("quranList", JSON.stringify(tempQuranList)); // Listeyi localStorage'a kaydet
 
-    // Yeni referansları oluşturmak için tabloyu yeniden işleyin
+    // DOM'un güncellenmesini bekle ve scroll'u tetikle
     setTimeout(() => {
-      scrollToDifferent(); // Scroll'u tetikle
-    }, 100); // DOM güncellemelerinin tamamlanmasını beklemek için kısa bir gecikme
+      scrollToDifferent();
+    }, 200); // Daha güvenli bir şekilde DOM değişikliklerini beklemek için kısa bir gecikme ekleyin
     setIsLeftDrawerOpen(false);
   };
-
   const handleDefaultQuranList = () => {
     clearDifferentRefs();
     const defaultQuranList = JSON.parse(JSON.stringify(quran));
@@ -227,6 +225,8 @@ const Navbar = () => {
                 <td>{sura.surahName}</td>
                 <td>
                   <input
+                    id={`ayah-input-${index}`}
+                    name={`ayah-input-${index}`}
                     className="w-10 text-yellow-300 text-center border-b outline-none bg-transparent"
                     type="text"
                     value={sura.totalAyahs}
@@ -235,12 +235,16 @@ const Navbar = () => {
                 </td>
                 <td>
                   <Checkbox
+                    id={`huruf-checkbox-${index}`} // Dinamik id
+                    name={`huruf-checkbox-${index}`} // Dinamik name
                     checked={sura.startsWithHurufMuqattaat}
                     onChange={() => handleHurufCheckboxChange(index)}
                   />
                 </td>
                 <td>
                   <Checkbox
+                    id={`basmala-checkbox-${index}`} // Dinamik id
+                    name={`basmala-checkbox-${index}`} // Dinamik name
                     checked={sura.startsWithBasmala}
                     onChange={() => handleBasmalaCheckboxChange(index)}
                   />
