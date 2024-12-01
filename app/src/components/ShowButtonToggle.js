@@ -5,7 +5,7 @@ const ShowButtonToggle = ({toggleGoster,goster}) => {
   return (
     <button
         onClick={toggleGoster}
-        className={`mb-4 px-4 py-2 font-bold rounded flex items-center justify-center gap-2 ${
+        className={`px-4 py-2 font-bold rounded flex items-center justify-center gap-2 ${
           goster ? "bg-green-900 text-white" : "bg-yellow-400 text-blue-900"
         }`}
       >
