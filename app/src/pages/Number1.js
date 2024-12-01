@@ -15,7 +15,6 @@ import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
-import DifferentsButton from "../components/DifferentsButton";
 
 const Number1 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -42,20 +41,10 @@ const Number1 = () => {
     setCopyState(false);
     setGoster(!goster);
   };
-   // Context üzerinden referanslara erişim
-   const differentRefs = useDifferentRefs();
+  // Context üzerinden referanslara erişim
+  const { differentRefs } = useDifferentRefs();
 
-  const scrollToDifferent = () => {
-    const firstDifferentKey = Object.keys(differentRefs.current)[0];
-    if (firstDifferentKey && differentRefs.current[firstDifferentKey]) {
-      differentRefs.current[firstDifferentKey].scrollIntoView({
-        behavior: "smooth",
-        block: "center",
-      });
-    }
-  };
-
-  console.log(differentRefs)
+  console.log(differentRefs);
 
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
@@ -138,8 +127,6 @@ const Number1 = () => {
         setSelectedSurahs={setSelectedSurahs}
       />
 
-      <DifferentsButton scrollToDifferent={scrollToDifferent} goster={goster} differentRefs={differentRefs}/>
-
       {goster ? (
         <div
           className="break-words border border-gray-300 p-4 mb-5
@@ -159,7 +146,9 @@ const Number1 = () => {
                 key={index}
                 ref={(el) => {
                   if (isDiff) {
-                    differentRefs.current[index] = el;
+                    differentRefs.current[index] = el; // Sadece farklı elemanları ekliyoruz
+                  } else {
+                    delete differentRefs.current[index]; // Farklı olmayanları temizliyoruz
                   }
                 }}
                 onClick={() => {

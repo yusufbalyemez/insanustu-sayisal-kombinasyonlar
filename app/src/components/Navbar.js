@@ -18,6 +18,7 @@ import { AiOutlineNumber } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import quran from "../assets/SurahInfo.json";
 import { useQuran } from "../context/quranListContext";
+import { useDifferentRefs } from "../context/DifferentRefsContext";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -25,6 +26,7 @@ const Navbar = () => {
   const [selectedItem, setSelectedItem] = useState(0);
   const { quranList, setQuranList } = useQuran();
   const [tempQuranList, setTempQuranList] = useState([]);
+  const { scrollToDifferent, clearDifferentRefs } = useDifferentRefs(); // Scroll fonksiyonunu al
 
   useEffect(() => {
     const storedQuranList = localStorage.getItem("quranList");
@@ -82,12 +84,20 @@ const Navbar = () => {
   };
 
   const handleUpdateQuranList = () => {
+    // Referansları temizle ve güncelle
+    clearDifferentRefs();
     setQuranList(tempQuranList);
     localStorage.setItem("quranList", JSON.stringify(tempQuranList));
+
+    // Yeni referansları oluşturmak için tabloyu yeniden işleyin
+    setTimeout(() => {
+      scrollToDifferent(); // Scroll'u tetikle
+    }, 100); // DOM güncellemelerinin tamamlanmasını beklemek için kısa bir gecikme
     setIsLeftDrawerOpen(false);
   };
 
   const handleDefaultQuranList = () => {
+    clearDifferentRefs();
     const defaultQuranList = JSON.parse(JSON.stringify(quran));
     setQuranList(defaultQuranList);
     setTempQuranList(defaultQuranList);
