@@ -15,6 +15,7 @@ import { Helmet } from "react-helmet";
 import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
+import { useDifferentRefs } from "../context/DifferentRefsContext";
 
 const Number2 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -41,6 +42,9 @@ const Number2 = () => {
     setCopyState(false);
     setGoster(!goster);
   };
+
+    // Context üzerinden referanslara erişim
+    const { differentRefs } = useDifferentRefs();
 
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
@@ -147,12 +151,26 @@ const Number2 = () => {
           className="break-words border border-gray-300 p-4 mb-5
          w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800
           rounded-lg text-xl overflow-y-auto hover:ring-4
-           hover:ring-yellow-400 transition-all max-h-[500px] md:max-h-[400px]"
+           hover:ring-yellow-400 transition-all max-h-[60vh]"
         >
-          {olusanDizi.map((eleman, index) => (
-            <span
-              key={index}
-              onClick={() => {
+          {olusanDizi.map((eleman, index) => {
+            const isDiff = isDifferent(eleman, orginQuranEmptyList);
+
+            if (isDiff) {
+              // Farklı elemanları referans nesnesine kaydet
+              differentRefs.current[index] = null;
+            }
+            return (
+              <span
+                key={index}
+                ref={(el) => {
+                  if (isDiff) {
+                    differentRefs.current[index] = el; // Sadece farklı elemanları ekliyoruz
+                  } else {
+                    delete differentRefs.current[index]; // Farklı olmayanları temizliyoruz
+                  }
+                }}
+                onClick={() => {
                 if (eleman.durum === "toplam-ayet-sayisi") {
                   handleTotalAyatClick(eleman.deger);
                 } else if (eleman.durum === "ayet-sayisi") {
@@ -189,7 +207,8 @@ const Number2 = () => {
             >
               {eleman.deger}
             </span>
-          ))}
+           );
+          })}
         </div>
       ) : (
         <div
@@ -220,9 +239,9 @@ const Number2 = () => {
           <p>Tüm surelerin tüm ayetlerini bir araya getirdiğimiz zaman, 12696 basamaktan oluşan ve 19’un bir katı olan uzun bir sayı meydana gelir.</p>
           <p className="text-green-300">1234567 7 12345…286 286 12345 5…123456 6 6234</p>
         </div>
-      )}
-    </div>
-  );
+  )}
+  </div>
+);
 };
 
 export default Number2;
