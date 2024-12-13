@@ -159,6 +159,8 @@ export const handleTotalAyatClick = (value) => {
   }
   
 };
+
+
 export const handleSurahNoClick = (
   surahNumber,
   surahName,
