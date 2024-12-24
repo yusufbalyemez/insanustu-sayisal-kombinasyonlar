@@ -4,6 +4,110 @@ import surahInfo from "../assets/SurahInfo.json";
 
 import { toast } from "react-toastify";
 
+export const suredekiTumAyetSayilariniYazdir = (sure,orjinalBosDizi) => {
+  //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
+  for (let i = 1; i <= sure.totalAyahs; i++) {
+    orjinalBosDizi.push({
+      durum: "ayetNo",
+      sureAdi: sure.surahName,
+      sureNo: sure.surahNumber,
+      deger: i,
+    });
+  }
+  //End
+};
+
+export const sureNumarasiniYazdir = (sure,orjinalBosDizi) => {
+  orjinalBosDizi.push({
+    durum: "sureNo",
+    sureAdi: sure.surahName,
+    sureNo: sure.surahNumber,
+    deger: sure.surahNumber,
+  });
+  //End
+}
+
+export const suredekiToplamAyetSayisiniYazdir = (sure,orjinalBosDizi) => {
+    //Start -Suredeki Toplam Ayet Sayısını Yazdırır
+    orjinalBosDizi.push({
+      durum: "ayet-sayisi",
+      sureAdi: sure.surahName,
+      sureNo: sure.surahNumber,
+      deger: sure.totalAyahs,
+    });
+    //End
+  }
+
+export const kurandakiToplamAyetSayisiniYazdir = (QURAN,orjinalBosDizi) => {
+
+  //Start - Kurandaki Tüm Ayet Numaralarını Toplar
+  const gercekToplam = calculateTotalAyahs(QURAN);
+
+  orjinalBosDizi.push({
+    durum: "toplam-ayet-sayisi",
+    deger: gercekToplam,
+  });
+  //End
+}
+
+export const suredekiTumAyetSayilariniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
+  //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
+  for (let i = 1; i <= sure.totalAyahs; i++) {
+    bosDizi.push({
+      durum: "ayetNo",
+      sureAdi: sure.surahName,
+      sureNo: sure.surahNumber,
+      deger: i,
+    });
+    stringBuyukSayi += i.toString();
+  }
+
+  return {bosDizi,stringBuyukSayi};
+  //End
+}
+
+export const sureNumarasiniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
+  //Sure Numarasını Ekler - Start
+  bosDizi.push({
+    durum: "sureNo",
+    sureAdi: sure.surahName,
+    sureNo: sure.surahNumber,
+    deger: sure.surahNumber,
+  });
+  stringBuyukSayi += sure.surahNumber.toString();
+  //End
+  return {bosDizi,stringBuyukSayi};
+}
+
+export const suredekiToplamAyetSayisiniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
+    //Start -Suredeki Toplam Ayet Sayısını Yazdırır
+    bosDizi.push({
+      durum: "ayet-sayisi",
+      sureAdi: sure.surahName,
+      sureNo: sure.surahNumber,
+      deger: sure.totalAyahs,
+    });
+    stringBuyukSayi += sure.totalAyahs.toString();
+    return {bosDizi,stringBuyukSayi};
+    //End
+    
+  }
+
+  export const kurandakiToplamAyetSayisiniHesaplamaDizisineEkle = (quranList,bosDizi,stringBuyukSayi) => { 
+    //Start - Kurandaki Tüm Ayet Numaralarını Toplar
+    const hesaplananToplam = calculateTotalAyahs(quranList);
+
+    bosDizi.push({
+      durum: "toplam-ayet-sayisi",
+      deger: hesaplananToplam,
+    });
+    stringBuyukSayi += hesaplananToplam.toString();
+    return {bosDizi,stringBuyukSayi};
+    //End
+
+  }
+
+
 //Spanları seçme - eski
 const toggleSurahSelection = (surahNumber, setSelectedSurahs) => {
   setSelectedSurahs((prevSelected) => {
@@ -283,4 +387,10 @@ export const generateSurahDisplay = (
       ? [totalAyatSpan, ...ayatNumberSpans] // Başta toplam ayet sayısı
       : [...ayatNumberSpans, totalAyatSpan]; // Sonda toplam ayet sayısı
   });
+
+
+
+  // Surelerin ayet bilgilerini başa veya sona ayet sayısını ekleyerek birleştiren ana fonksiyon
+
+  
 };

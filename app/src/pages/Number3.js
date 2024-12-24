@@ -4,12 +4,18 @@ import {
   handleTotalClick,
   handleAyatClick,
   handleTotalAyatClick,
-  calculateTotalAyahs,
   isDifferent,
   handleSurahNoClick,
+  suredekiTumAyetSayilariniYazdir,
+  sureNumarasiniYazdir,
+  suredekiToplamAyetSayisiniYazdir,
+  kurandakiToplamAyetSayisiniYazdir,
+  suredekiTumAyetSayilariniHesaplamaDizisineEkle,
+  sureNumarasiniHesaplamaDizisineEkle,
+  suredekiToplamAyetSayisiniHesaplamaDizisineEkle,
+  kurandakiToplamAyetSayisiniHesaplamaDizisineEkle,
 } from "../components/Functions";
 import { useQuran } from "../context/quranListContext";
-import { SiMiraheze } from "react-icons/si";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
@@ -17,6 +23,9 @@ import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
+import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
+import KapsayiciComponent from "../components/KapsayiciComponent";
+import Number3Info from "../Informations/Number3Info";
 
 const Number3 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -47,109 +56,65 @@ const Number3 = () => {
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
 
-  useEffect(() => {
-    const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
-    const orjinalBosDizi = []; //SurahInfo jsonundaki bilgiler buraya yazdırılacak.
-    let stringBuyukSayi = ""; // 19'a bölünecek devasa metinsel sayıyı oluşturur.
+  const buyukSayiyiOlustur = () => {
+    let bosDizi = [];
+    let orjinalBosDizi = [];
+    let stringBuyukSayi = "";
 
-    //SurahInfo Json içerisindeki surelere erişir.
+    //Sayının Gösterildiği Kısım - Start
     QURAN.forEach((sure) => {
-      //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
-      for (let i = 1; i <= sure.totalAyahs; i++) {
-        orjinalBosDizi.push({
-          durum: "ayetNo",
-          sureAdi: sure.surahName,
-          sureNo: sure.surahNumber,
-          deger: i,
-        });
-      }
-      //End
-
-      //Sure Numarasını Ekler - Start
-      orjinalBosDizi.push({
-        durum: "sureNo",
-        sureAdi: sure.surahName,
-        sureNo: sure.surahNumber,
-        deger: sure.surahNumber,
-      });
-      //End
-
-      //Start -Suredeki Toplam Ayet Sayısını Yazdırır
-      orjinalBosDizi.push({
-        durum: "ayet-sayisi",
-        sureAdi: sure.surahName,
-        sureNo: sure.surahNumber,
-        deger: sure.totalAyahs,
-      });
-      //End
+      suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
+      sureNumarasiniYazdir(sure, orjinalBosDizi);
+      suredekiToplamAyetSayisiniYazdir(sure, orjinalBosDizi);
     });
-    //End
 
-    //Start - Kurandaki Tüm Ayet Numaralarını Toplar
-    const gercekToplam = calculateTotalAyahs(QURAN);
+    kurandakiToplamAyetSayisiniYazdir(QURAN, orjinalBosDizi);
+    //Sayının Gösterildiği Kısım - End
 
-    orjinalBosDizi.push({
-      durum: "toplam-ayet-sayisi",
-      deger: gercekToplam,
-    });
-    //End
-
-    //Tüm Kuran içerisindeki surelere erişir.
+    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
     quranList.forEach((sure) => {
-      //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
-      for (let i = 1; i <= sure.totalAyahs; i++) {
-        bosDizi.push({
-          durum: "ayetNo",
-          sureAdi: sure.surahName,
-          sureNo: sure.surahNumber,
-          deger: i,
-        });
-        stringBuyukSayi += i.toString();
-      }
-      //End
-
-      //Sure Numarasını Ekler - Start
-      bosDizi.push({
-        durum: "sureNo",
-        sureAdi: sure.surahName,
-        sureNo: sure.surahNumber,
-        deger: sure.surahNumber,
-      });
-      stringBuyukSayi += sure.surahNumber.toString();
-      //End
-
-      //Start -Suredeki Toplam Ayet Sayısını Yazdırır
-      bosDizi.push({
-        durum: "ayet-sayisi",
-        sureAdi: sure.surahName,
-        sureNo: sure.surahNumber,
-        deger: sure.totalAyahs,
-      });
-      stringBuyukSayi += sure.totalAyahs.toString();
-      //End
+      ({ bosDizi, stringBuyukSayi } =
+        suredekiTumAyetSayilariniHesaplamaDizisineEkle(
+          sure,
+          bosDizi,
+          stringBuyukSayi
+        ));
+      ({ bosDizi, stringBuyukSayi } = sureNumarasiniHesaplamaDizisineEkle(
+        sure,
+        bosDizi,
+        stringBuyukSayi
+      ));
+      ({ bosDizi, stringBuyukSayi } =
+        suredekiToplamAyetSayisiniHesaplamaDizisineEkle(
+          sure,
+          bosDizi,
+          stringBuyukSayi
+        ));
     });
-    //End
 
-    //Start - Kurandaki Tüm Ayet Numaralarını Toplar
-    const hesaplananToplam = calculateTotalAyahs(quranList);
+    ({ bosDizi, stringBuyukSayi } =
+      kurandakiToplamAyetSayisiniHesaplamaDizisineEkle(
+        quranList,
+        bosDizi,
+        stringBuyukSayi
+      ));
 
-    bosDizi.push({
-      durum: "toplam-ayet-sayisi",
-      deger: hesaplananToplam,
-    });
-    stringBuyukSayi += hesaplananToplam.toString();
-    //End
+    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
 
     setOlusanDizi(bosDizi);
     setOrginQuranEmptyList(orjinalBosDizi);
     setStringSayi(stringBuyukSayi);
+  };
+
+  useEffect(() => {
+    buyukSayiyiOlustur();
   }, [quranList]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 mt-5">
+    <KapsayiciComponent>
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
-        <title>Sayı 2</title>
+        <title>Sayı 3</title>
       </Helmet>
 
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
@@ -166,12 +131,7 @@ const Number3 = () => {
         setSelectedSurahs={setSelectedSurahs}
       />
       {goster ? (
-        <div
-          className="break-words border border-gray-300 p-4 mb-5
-       w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800
-        rounded-lg text-xl overflow-y-auto hover:ring-4
-         hover:ring-yellow-400 transition-all max-h-[60vh]"
-        >
+        <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {
             const isDiff = isDifferent(eleman, orginQuranEmptyList);
 
@@ -236,64 +196,12 @@ const Number3 = () => {
               </span>
             );
           })}
-        </div>
+       </SayiyiGosterenComponent>
       ) : (
-        <div
-          className="text-white flex flex-col items-center gap-10 break-words
-         border border-gray-300 p-4 mb-5 w-full md:w-10/12 bg-gradient-to-l
-          from-gray-700 to-gray-800 rounded-lg text-xl overflow-y-auto max-h-[60vh]
-           hover:ring-4 hover:ring-yellow-400 transition-all"
-        >
-          <p className="text-yellow-400 flex items-center gap-2">
-            <SiMiraheze />
-            İkinci Sayı
-          </p>
-          <p>
-            Her bir suredeki toplam ayet sayısını surenin başına koymak yerine,
-            onu her surenin sonuna koyalım. Böylelikle, Sure 1’i temsil eden
-            sayı 7 1234567 yerine şu şekilde gözükür: 1234567 7. Sure 2’yi
-            temsil eden sayı 286 12345......284285286 yerine şu şekilde gözükür:
-            12345.....284 285 286 286. İlk iki sureyi temsil eden sayılar şu
-            şekilde gözükür:
-          </p>
-          <p className="text-green-300">
-            1 2 3 4 5 6 7 7 & 1 2 3 4 5.....284 285 286 286.
-          </p>
-          <p>
-            İlk iki sureyi temsil eden bir sayı oluşturmak için bu iki sayıyı
-            bir araya getirirsek, şu şekilde gözüken bir sayı elde ederiz:
-          </p>
-          <p className="text-green-300">
-            1 2 3 4 5 6 7 7 1 2 3 4 5.....284 285 286 286.
-          </p>
-          <p>
-            Her bir suredeki her bir ayetin numarasını, sure başına düşen ayet
-            sayısı takip eder. Burada gösterilen en son 11 basamak son surenin 6
-            ayetidir, ardından onun ayet sayısı (6) gelir, ardından Kuran’daki
-            numaralı ayetlerin toplam sayısı (6234) gelir. Bütün, çok uzun sayı,
-            19’un bir katıdır.
-          </p>
-          <p>
-            Sure başına düşen ayetlerin toplam sayısını her bir surenin sonuna
-            koyduğumuzdan, numaralı ayetlerin toplam sayısını (6324) da Kuran’ın
-            sonuna koymak zorundayız. Bu nedenle, son sureyi temsil eden son
-            sayıları (123456 6) Kuran’daki numaralı ayetlerin toplam sayısı
-            takip eder.
-          </p>
-          <p className="text-green-300">
-            1 2 3 4 5 6 7 & 6234 {`> > >`} 1 2 3 4 5 6 7 6234.
-          </p>
-          <p>
-            Tüm surelerin tüm ayetlerini bir araya getirdiğimiz zaman, 12696
-            basamaktan oluşan ve 19’un bir katı olan uzun bir sayı meydana
-            gelir.
-          </p>
-          <p className="text-green-300">
-            1234567 7 12345…286 286 12345 5…123456 6 6234
-          </p>
-        </div>
+        //Sayının bilgi metnini gösteren bileşen
+        <Number3Info/>
       )}
-    </div>
+    </KapsayiciComponent>
   );
 };
 
