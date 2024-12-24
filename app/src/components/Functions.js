@@ -147,6 +147,32 @@ export const handleAyatClick = (
   toggleSurahSelection(surahNumber, setSelectedSurahs);
 };
 
+export const handleBasmalaClick = (
+  surahNumber,
+  surahName,
+  currentValue,
+  selectedSurahs,
+  setSelectedSurahs
+) => {
+  
+  if(!selectedSurahs.includes(surahNumber)){ //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
+    const matchedSurah = surahInfo.find(
+      (surah) => surah.surahNumber === surahNumber
+    );
+    if(matchedSurah){
+      if(matchedSurah.startsWithBasmala === currentValue){
+        toast.success(`[${surahNumber}] ${surahName} Suresinin başında besmele olması gerektiğini göstermektedir.`);
+      }else{
+        toast.error(`[${surahNumber}] ${surahName} Suresinin başında besmele olmaması gerektiğini gösteriyor.`);
+      }
+    }
+
+    
+  
+  }
+  toggleSurahSelection(surahNumber, setSelectedSurahs);
+};
+
 export const handleTotalClick = (
   surahNumber,
   surahName,

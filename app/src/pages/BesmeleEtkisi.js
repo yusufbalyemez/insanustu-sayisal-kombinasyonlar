@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   calculateMod19,
   handleTotalClick,
-  handleAyatClick,
+  handleBasmalaClick,
   handleTotalAyatClick,
   isDifferent,
   handleSurahNoClick,
@@ -25,9 +25,10 @@ import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
-import Number4Info from "../Informations/Number4Info";
+import BesmeleEtkisiInfo from "../Informations/BesmeleEtkisiInfo";
 
-const Number4 = () => {
+
+const BesmeleEtkisi = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
   const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
   const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
@@ -64,6 +65,9 @@ const Number4 = () => {
     //Sayının Gösterildiği Kısım - Start
     QURAN.forEach((sure) => {
       suredekiToplamAyetSayisiniYazdir(sure, orjinalBosDizi);
+      if (sure.startsWithBasmala){
+        orjinalBosDizi.push({ durum: "besmele", sureNo: sure.surahNumber, sureAdi: sure.surahName, deger: 0 });
+      }
       suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
       sureNumarasiniYazdir(sure, orjinalBosDizi);
     });
@@ -79,6 +83,10 @@ const Number4 = () => {
           bosDizi,
           stringBuyukSayi
         ));
+        if (sure.startsWithBasmala){
+          bosDizi.push({ durum: "besmele", sureNo: sure.surahNumber, sureAdi: sure.surahName, deger: 0 });
+          stringBuyukSayi += "0";
+        }
       ({ bosDizi, stringBuyukSayi } =
         suredekiTumAyetSayilariniHesaplamaDizisineEkle(
           sure,
@@ -114,7 +122,7 @@ const Number4 = () => {
     <KapsayiciComponent>
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
-        <title>Sayı 4</title>
+        <title>Besmele Etkisi</title>
       </Helmet>
 
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
@@ -152,7 +160,8 @@ const Number4 = () => {
                 onClick={() => {
                   if (eleman.durum === "toplam-ayet-sayisi") {
                     handleTotalAyatClick(eleman.deger);
-                  } else if (eleman.durum === "ayet-sayisi") {
+                  } 
+                   else if (eleman.durum === "ayet-sayisi") {
                     handleTotalClick(
                       eleman.sureNo,
                       eleman.sureAdi,
@@ -167,10 +176,10 @@ const Number4 = () => {
                       setSelectedSurahs
                     );
                   } else {
-                    handleAyatClick(
+                    handleBasmalaClick(
                       eleman.sureNo,
                       eleman.sureAdi,
-                      eleman.deger,
+                      true,
                       selectedSurahs,
                       setSelectedSurahs
                     );
@@ -181,6 +190,8 @@ const Number4 = () => {
                     ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
                     : eleman.durum === "ayet-sayisi"
                     ? "text-yellow-400" // Ayet sayısı için sarı
+                    : eleman.durum === "besmele"
+                    ? "text-orange-400" // Ayet sayısı için sarı
                     : eleman.durum === "ayetNo"
                     ? "text-white" // Ayet numarası için beyaz
                     : eleman.durum === "toplam-ayet-sayisi"
@@ -199,10 +210,10 @@ const Number4 = () => {
         </SayiyiGosterenComponent>
       ) : (
         //Sayının bilgi metnini gösteren bileşen
-        <Number4Info />
+        <BesmeleEtkisiInfo/>
       )}
     </KapsayiciComponent>
   );
 };
 
-export default Number4;
+export default BesmeleEtkisi;

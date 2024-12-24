@@ -10,6 +10,7 @@ import { ToastContainer } from "react-toastify";
 import Number3 from "./pages/Number3";
 import { DifferentRefsProvider } from "./context/DifferentRefsContext";
 import Number4 from "./pages/Number4";
+import BesmeleEtkisi from "./pages/BesmeleEtkisi";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/2" element={<Number2 />} />
           <Route path="/3" element={<Number3 />} />
           <Route path="/4" element={<Number4 />} />
+          <Route path="/basmala" element={<BesmeleEtkisi/>} />
           <Route path="/deneme" element={<DenemeSayfa />} />
         </Routes>
         <ToastContainer autoClose={4000} position="top-center" />
