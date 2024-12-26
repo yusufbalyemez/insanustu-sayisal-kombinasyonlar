@@ -12,6 +12,7 @@ import { DifferentRefsProvider } from "./context/DifferentRefsContext";
 import Number4 from "./pages/Number4";
 import BesmeleEtkisi from "./pages/BesmeleEtkisi";
 import Number5 from "./pages/Number5";
+import Number6 from "./pages/Number6";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/3" element={<Number3 />} />
           <Route path="/4" element={<Number4 />} />
           <Route path="/5" element={<Number5/>} />
+          <Route path="/6" element={<Number6/>} />
           <Route path="/basmala" element={<BesmeleEtkisi/>} />
           <Route path="/deneme" element={<DenemeSayfa />} />
         </Routes>

@@ -22,9 +22,9 @@ import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
-import Number5Info from "../Informations/Number5Info";
+import Number6Info from "../Informations/Number6Info";
 
-const Number5 = () => {
+const Number6 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
   const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
   const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
@@ -60,9 +60,8 @@ const Number5 = () => {
 
     //Sayının Gösterildiği Kısım - Start
     QURAN.forEach((sure) => {
-
-      suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
       suredekiAyetNumaralarinToplaminiYazdir(sure, orjinalBosDizi);
+      suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
 
     });
 
@@ -70,7 +69,8 @@ const Number5 = () => {
 
     //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
     quranList.forEach((sure) => {
-
+      ({ bosDizi, stringBuyukSayi } = suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+      
       ({ bosDizi, stringBuyukSayi } =
         suredekiTumAyetSayilariniHesaplamaDizisineEkle(
           sure,
@@ -78,7 +78,6 @@ const Number5 = () => {
           stringBuyukSayi
         ));        
         
-      ({ bosDizi, stringBuyukSayi } = suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
     });
 
     //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
@@ -196,10 +195,10 @@ const Number5 = () => {
         </SayiyiGosterenComponent>
       ) : (
         //Sayının bilgi metnini gösteren bileşen
-        <Number5Info />
+        <Number6Info/>
       )}
     </KapsayiciComponent>
   );
 };
 
-export default Number5;
+export default Number6;
