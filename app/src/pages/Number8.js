@@ -108,7 +108,7 @@ const Number8 = () => {
     <KapsayiciComponent>
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
-        <title>Sayı 7</title>
+        <title>Sayı 8</title>
       </Helmet>
 
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
