@@ -23,8 +23,9 @@ import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number6Info from "../Informations/Number6Info";
+import Number7Info from "../Informations/Number7Info";
 
-const Number6 = () => {
+const Number7 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
   const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
   const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
@@ -59,17 +60,15 @@ const Number6 = () => {
     let stringBuyukSayi = "";
 
     //Sayının Gösterildiği Kısım - Start
-    QURAN.forEach((sure) => {
-      suredekiAyetNumaralarinToplaminiYazdir(sure, orjinalBosDizi);
+    QURAN.slice().reverse().forEach((sure) => {
       suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
-
+      suredekiAyetNumaralarinToplaminiYazdir(sure, orjinalBosDizi);
     });
 
     //Sayının Gösterildiği Kısım - End
 
     //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
-    quranList.forEach((sure) => {
-      ({ bosDizi, stringBuyukSayi } = suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+    quranList.slice().reverse().forEach((sure) => {
       
       ({ bosDizi, stringBuyukSayi } =
         suredekiTumAyetSayilariniHesaplamaDizisineEkle(
@@ -77,7 +76,7 @@ const Number6 = () => {
           bosDizi,
           stringBuyukSayi
         ));        
-        
+        ({ bosDizi, stringBuyukSayi } = suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
     });
 
     //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
@@ -99,7 +98,7 @@ const Number6 = () => {
     <KapsayiciComponent>
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
-        <title>Sayı 6</title>
+        <title>Sayı 7</title>
       </Helmet>
 
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
@@ -195,10 +194,10 @@ const Number6 = () => {
         </SayiyiGosterenComponent>
       ) : (
         //Sayının bilgi metnini gösteren bileşen
-        <Number6Info/>
+        <Number7Info/>
       )}
     </KapsayiciComponent>
   );
 };
 
-export default Number6;
+export default Number7;
