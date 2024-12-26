@@ -50,6 +50,14 @@ export const kurandakiToplamAyetSayisiniYazdir = (QURAN,orjinalBosDizi) => {
   //End
 }
 
+export const suredekiAyetNumaralarinToplaminiYazdir = (sure,orjinalBosDizi) => {
+  let sayi =0;
+    for(let i=1; i<=sure.totalAyahs; i++){
+      sayi = sayi + i;
+    }
+    orjinalBosDizi.push({ durum: "ayetNo-toplamlari", sureAdi:sure.surahName, sureNo:sure.surahNumber,  deger: sayi });
+}
+
 export const suredekiTumAyetSayilariniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
   //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
   for (let i = 1; i <= sure.totalAyahs; i++) {
@@ -106,6 +114,18 @@ export const suredekiToplamAyetSayisiniHesaplamaDizisineEkle = (sure,bosDizi,str
     //End
 
   }
+
+  export const suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
+    let sayi =0;
+    for(let i=1; i<=sure.totalAyahs; i++){
+      sayi = sayi + i;
+    }
+    bosDizi.push({ durum: "ayetNo-toplamlari", sureAdi:sure.surahName, sureNo:sure.surahNumber,  deger: sayi });
+    stringBuyukSayi += sayi.toString();
+    return {bosDizi,stringBuyukSayi};
+  }
+
+  
 
 
 //Spanları seçme - eski
@@ -205,6 +225,46 @@ export const handleTotalClick = (
 
   toggleSurahSelection(surahNumber, setSelectedSurahs);
 };
+
+export const handleAyahsTotalClick = (
+  surahNumber,
+  surahName,
+  currentValue,
+  selectedSurahs,
+  setSelectedSurahs
+) => {
+  // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+
+  if(!selectedSurahs.includes(surahNumber)){ //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
+    //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
+    const matchedSurah = surahInfo.find(
+      (surah) => surah.surahNumber === surahNumber
+    );
+
+
+    if (matchedSurah) {
+
+      let sayi =0;
+      for(let i=1; i<=matchedSurah.totalAyahs; i++){
+        sayi = sayi + i;
+      }
+      if (sayi === currentValue) {
+        toast.success(
+          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Her bir ayet numaralarının toplamı : ${sayi}` 
+        );
+      } else {
+        toast.error(
+          `[${surahNumber}] ${matchedSurah.surahName} Suresi Ayet Numaralarının Toplamı Yanlış! Doğrusu: ${sayi} olmalıydı. ${currentValue} değil!`
+        );
+      }
+    } else {
+      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+    }
+  }
+
+  toggleSurahSelection(surahNumber, setSelectedSurahs);
+};
+
 
 export const handleTotalAyatClick = (value) => {
   if(value===6234){
