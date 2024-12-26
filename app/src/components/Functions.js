@@ -348,6 +348,18 @@ export const handleTotalAyatClick = (value) => {
 
 };
 
+export const handleTotalAyahsInQuranClick = (value) => {
+  if (value === 333410 ) {
+    toast.success(`Kurandaki tüm ayet numaralarının toplamı : ${value}`);
+  } else {
+    toast.error(`Hata tespit edildi. Kurandaki tüm ayet numaralarının toplamı ${value} değil, 333410 olmalıydı!`);
+  }
+}
+
+export const handleSurahNumberClick = () => {
+  toast.success(`Kuranda 114 Sure bulunmaktadır.`)
+}
+
 
 export const handleSurahNoClick = (
   surahNumber,

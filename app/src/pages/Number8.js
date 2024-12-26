@@ -17,6 +17,8 @@ import {
   suredekiAyetSayisiniYazdir,
   sureNumarasiniHesaplamaDizisineEkle,
   suredekiAyetSayisiniHesaplamaDizisineEkle,
+  handleSurahNumberClick,
+  handleTotalAyahsInQuranClick,
 } from "../components/Functions";
 import { useQuran } from "../context/quranListContext";
 import QURAN from "../assets/SurahInfo.json";
@@ -151,10 +153,17 @@ const Number8 = () => {
                       eleman.deger,
                       selectedSurahs,
                       setSelectedSurahs
-                    );
+                    )} 
 
+                    else if (eleman.durum === "sure-sayisi") {
+                      handleSurahNumberClick();} 
 
-                  } else if (eleman.durum === "ayetNo-toplamlari") {
+                      else if (eleman.durum === "tum-ayet-no-toplamlari") {
+                        handleTotalAyahsInQuranClick(
+                          eleman.deger,
+                        )} 
+                    
+                    else if (eleman.durum === "ayetNo-toplamlari") {
                     handleAyahsTotalClick(
                       eleman.sureNo,
                       eleman.sureAdi,
@@ -183,6 +192,10 @@ const Number8 = () => {
                   ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
                   : eleman.durum === "ayet-sayisi"
                     ? "text-yellow-400" // Ayet sayısı için sarı
+                    : eleman.durum === "tum-ayet-no-toplamlari"
+                    ? "text-cyan-400" // Ayet sayısı için sarı
+                    : eleman.durum === "sure-sayisi"
+                    ? "text-orange-400" // Ayet sayısı için sarı
                     : eleman.durum === "ayetNo-toplamlari"
                       ? "text-yellow-400" // Ayet sayısı için sarı
                       : eleman.durum === "ayetNo"
