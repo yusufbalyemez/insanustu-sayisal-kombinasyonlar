@@ -16,6 +16,7 @@ import Number6 from "./pages/Number6";
 import Number7 from "./pages/Number7";
 import Number8 from "./pages/Number8";
 import Number9 from "./pages/Number9";
+import Number10 from "./pages/Number10";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route path="/7" element={<Number7/>} />
           <Route path="/8" element={<Number8/>} />
           <Route path="/9" element={<Number9/>} />
+          <Route path="/10" element={<Number10/>} />
           <Route path="/basmala" element={<BesmeleEtkisi/>} />
           <Route path="/deneme" element={<DenemeSayfa />} />
         </Routes>
