@@ -72,6 +72,13 @@ export const tumAyetNumaralarininToplaminiYazdir = (QURAN, orjinalBosDizi) => {
   console.log("tumAyetNoToplamlari", tumAyetNoToplamlari);
 }
 
+export const kurandakiSureSayisiniYazdir = (QURAN, orjinalBosDizi) => {
+  orjinalBosDizi.push({
+    durum: "sure-sayisi",
+    deger: QURAN.length,
+  });
+}
+
 export const sureNumaralariniYazdir = (sure, orjinalBosDizi) => {
   orjinalBosDizi.push({ durum: "sureNo", sureNo: sure.surahNumber, sureAdi: sure.surahNumber, deger: sure.surahNumber });
 }
@@ -80,14 +87,19 @@ export const suredekiAyetSayisiniYazdir = (sure, orjinalBosDizi) => {
   orjinalBosDizi.push({ durum: "ayet-sayisi", sureNo: sure.surahNumber, sureAdi: sure.surahNumber, deger: sure.totalAyahs });
 }
 
+export const sureNoVeSuredekiAyetSayilarininToplamlariniYazdir = (sure, orjinalBosDizi) => {
+  let topla=0;
+      topla = sure.totalAyahs + sure.surahNumber;
+      orjinalBosDizi.push({ durum: "sureNo+AyetSayisi", sureAdi:sure.surahName, sureNo:sure.surahNumber, deger: topla });
+}
+
+
+
+
+
 /*HESAPLAMA FONKSİYONLARI */
 
-export const kurandakiSureSayisiniYazdir = (QURAN, orjinalBosDizi) => {
-  orjinalBosDizi.push({
-    durum: "sure-sayisi",
-    deger: QURAN.length,
-  });
-}
+
 
 export const tumAyetNumaralarininToplaminiHesaplamaDizisineEkle = (QURAN, bosDizi,stringBuyukSayi) => {
   let tumAyetNoToplamlari=0;
@@ -182,15 +194,26 @@ export const kurandakiSureSayisiniHesaplamaDizisineEkle = (quranList, bosDizi,st
 
 export const sureNumarlariniHesaplamaDizisineEkle = (sure,bosDizi, stringBuyukSayi) => {
   bosDizi.push({ durum: "sureNo", sureNo: sure.surahNumber, sureAdi: sure.surahNumber, deger: sure.surahNumber });
-  stringBuyukSayi += sure.surahNumber;
+  stringBuyukSayi += sure.surahNumber.toString();
 
   return { bosDizi, stringBuyukSayi };
 }
 
 export const suredekiAyetSayisiniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
   bosDizi.push({ durum: "ayet-sayisi", sureNo: sure.surahNumber, sureAdi: sure.surahNumber, deger: sure.totalAyahs });
-  stringBuyukSayi += sure.totalAyahs;
+  stringBuyukSayi += sure.totalAyahs.toString();
   return { bosDizi, stringBuyukSayi };
+}
+
+
+
+export const sureNoVeSuredekiAyetSayilarininToplamlariniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
+  let topla=0;
+      topla = sure.totalAyahs + sure.surahNumber;
+      bosDizi.push({ durum: "sureNo+AyetSayisi", sureAdi:sure.surahName, sureNo:sure.surahNumber, deger: topla });
+      stringBuyukSayi += topla.toString();
+
+      return { bosDizi, stringBuyukSayi };
 }
 
 
@@ -332,6 +355,40 @@ export const handleAyahsTotalClick = (
       }
     } else {
       toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+    }
+  }
+
+  toggleSurahSelection(surahNumber, setSelectedSurahs);
+};
+
+
+export const handleSurahAndSurahNumberTotalClick = (
+  surahNumber,
+  surahName,
+  currentValue,
+  selectedSurahs,
+  setSelectedSurahs
+) => {
+  // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+
+  if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
+    //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
+    const matchedSurah = surahInfo.find(
+      (surah) => surah.surahNumber === surahNumber
+    );
+
+    if (matchedSurah) {
+      let topla = 0;
+      topla = matchedSurah.totalAyahs + matchedSurah.surahNumber;
+      if (topla === currentValue) {
+        toast.success(
+          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Ayet Sayısı(${matchedSurah.totalAyahs}) ve Sure Numarasının(${matchedSurah.surahNumber}) Toplamı : ${topla}`
+        );
+      } else {
+        toast.error(
+          `[${surahNumber}] ${matchedSurah.surahName} Suresi Ayet Sayısı ve Sure Numarasının Toplamı Yanlış! Doğrusu: ${topla} olmalıydı. ${currentValue} değil!`
+        );
+      }
     }
   }
 
