@@ -150,7 +150,7 @@ const Navbar = () => {
           onKeyDown={toggleDrawer(false)}
           sx={{ color: "white" }}
         >
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map(
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,"basmala"].map(
             (issue, index) => (
               <ListItem
                 key={index}
@@ -166,7 +166,7 @@ const Navbar = () => {
               >
                 <AiOutlineNumber className="mr-1" />
                 <ListItemText
-                  primary={issue === 0 ? "Anasayfa" : `Sayı ${issue}`}
+                  primary={issue === 0 ? "Anasayfa" : issue==="basmala" ? "Besmele Etkisi" : `Sayı ${issue}`}
                 />
               </ListItem>
             )
