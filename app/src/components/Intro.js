@@ -3,7 +3,7 @@ import resim2 from '../assets/images/resim2.jpg';
 
 const Intro = () => {
     return (
-        <div className="p-4 space-y-4 bg-gray-100 lg:w-3/4 lg:mx-auto my-5">
+        <div className="p-4 space-y-4 bg-gray-100 lg:w-3/4 lg:mx-auto my-5 mt-20">
             <h2 className="text-center text-lg font-semibold">Tanrı’nın Sözü ile Oynamak</h2>
 
             <div className="border p-4 bg-gray-50 rounded">
