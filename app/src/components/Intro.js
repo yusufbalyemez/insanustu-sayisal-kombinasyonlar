@@ -42,7 +42,7 @@ const Intro = () => {
             </div>
             <div className="border p-4 bg-gray-50 rounded">
                 <p>Ali’nin protestosu birçok referansta belgelenmiştir ancak ben burada Celalettin Suyuti tarafından yazılmış EL-İTKAN Fİ ULUMİL KURAN, Al-Azhareyyah Press, Kahire, Mısır, Hicri 1318, Sayfa 59 [bkz. İlave 1] klasik referansını alıntılayıp aslına uygun kopyalıyorum.</p>
-                <img src={resim1} alt="resim1" className="w-1/2 mx-auto my-4 border" />
+                <img src={resim1} alt="resim1" className="w-full lg:w-1/2 mx-auto my-4 border" />
                 <p>Tercümesi: Ali’ye soruldu: “Neden evde duruyorsun?” Dedi ki “Kuran’a bir şeyler eklendi ve Kuran eski haline getirilinceye kadar namaz hariç gündelik giysilerimi asla giymeyeceğime söz verdim.”</p>
             </div>
 
@@ -76,7 +76,7 @@ const Intro = () => {
             </div>
 
             <div className="border p-4 bg-gray-50 rounded">
-                <img src={resim2} alt="resim2" className="w-1/2 mx-auto my-4 border" />
+                <img src={resim2} alt="resim2" className="w-full lg:w-1/2 mx-auto my-4 border" />
                 <p>Standart bir Kuran’dan Sure 9’un Başlık Şekli, bu surenin Medenî olduğunu gösteriyor, “son iki ayet hariç; onlar Mekkî’dir”!!! [İlave 2 ]</p>
             </div>
 

@@ -7,7 +7,7 @@ const ResultDisplay = ({stringSayi,calculateMod19}) => {
     className="flex flex-col items-center justify-center p-6
    bg-gradient-to-r from-gray-700 to-gray-800 rounded-lg shadow-2xl
     ring-2 ring-gray-600 hover:ring-4 hover:ring-yellow-400 transition-all
-     duration-300 text-white min-w-72"
+     duration-300 text-white min-w-72 mt-20"
   >
     <div>
       <p className="flex items-center text-lg font-semibold mb-2">
