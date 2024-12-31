@@ -105,7 +105,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between items-center bg-gradient-to-l from-gray-700 to-gray-800 px-2 md:px-10">
+      <div className="fixed top-0 left-0 w-full flex justify-between items-center bg-gradient-to-l from-gray-700 to-gray-800 px-2 md:px-10 z-50">
         <div className="w-20 pt-1">
           <img src={logo} alt="Logo" onClick={toggleDrawer2(true)} />
         </div>

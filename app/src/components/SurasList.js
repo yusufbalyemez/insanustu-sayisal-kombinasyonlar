@@ -4,7 +4,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const SurasList = ({ width = 800 }) => {
   return (
-    <div className="h-96 overflow-auto md:w-3/4">
+    <div className="h-96 overflow-auto md:w-3/4 mt-20">
       <table className="w-full border-collapse">
         <thead className="sticky top-0">
           <tr className="bg-white">
