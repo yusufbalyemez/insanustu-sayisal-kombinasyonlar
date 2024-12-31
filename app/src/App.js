@@ -1,7 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import { QuranProvider } from "./context/quranListContext";
-import DenemeSayfa from "./pages/DenemeSayfa";
 import HomePage from "./pages/HomePage";
 import Number1 from "./pages/Number1";
 import Number2 from "./pages/Number2";
@@ -45,10 +44,7 @@ function App() {
           <Route path="/13" element={<Number13/>} />
           <Route path="/14" element={<Number14/>} />
           <Route path="/15" element={<Number15/>} />
-
-
           <Route path="/basmala" element={<BesmeleEtkisi/>} />
-          <Route path="/deneme" element={<DenemeSayfa />} />
         </Routes>
         <ToastContainer autoClose={4000} position="top-center" />
       </DifferentRefsProvider>
