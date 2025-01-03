@@ -1,9 +1,144 @@
 {
+    "number1Info":
+    {
+        "title":"BİRİNCİ SAYI",
+        "text1":"Kuran’daki her bir ayetin numarasını yazalım, önüne de her bir sure için bu suredeki ayet sayısını yazalım. Böylelikle, yedi ayetten oluşan Sure 1, 7 1234567 sayısı ile temsil edilecektir. Burada yaptığımız şey, ayet sayılarını yan yana yazarak uzun sayılar oluşturmaktır. Sure 2’yi temsil eden sayıyı bulmak için bu suredeki ayet sayısı olan 286, ardından her bir ayetin numarasını yan yana yazılmış şekilde yazarsınız. Böylelikle, Sure 2’yi temsil eden sayı şu şekilde gözükür: 286 12345…284285286. İlk iki sureyi temsil eden iki sayı şunlardır:",
+        "text2" :"İlk iki sureyi temsil eden bir sayı oluşturmak için bu iki sayıyı bir araya getirirsek, şu sayıyı alırız:",
+        "text3" :"Bu işlem, Kuran’daki her bir ayet yazılıncaya kadar devam ettirilir, böylece Kuran’daki her ayetin numarasını içine alan çok uzun bir sayı oluşur. Tüm Kuran’ı temsil eden sayı 19’un bir katıdır & 12692 basamaklıdır ki bu da 19’un bir katıdır.",
+        "text4": "Bu çok uzun sayı 12692 (19x668) basmaktan oluşur ve Kuran’daki her bir ayeti içermektedir. Her bir suredeki ayet sayısı, ayetlerinin önünde yer almaktadır. Çok uzun sayıları bölen özel bir bilgisayar programı bu sayının 19’un katı olduğunu gösterdi."
+    },
+    "number2Info":
+    {
+        "title":"İKİNCİ SAYI",
+        "text1":"Her bir suredeki toplam ayet sayısını surenin başına koymak yerine, onu her surenin sonuna koyalım. Böylelikle, Sure 1’i temsil eden sayı 7 1234567 yerine şu şekilde gözükür: 1234567 7. Sure 2’yi temsil eden sayı 286 12345......284285286 yerine şu şekilde gözükür: 12345.....284 285 286 286. İlk iki sureyi temsil eden sayılar şu şekilde gözükür:",
+        "text2" :"İlk iki sureyi temsil eden bir sayı oluşturmak için bu iki sayıyı bir araya getirirsek, şu şekilde gözüken bir sayı elde ederiz:",
+        "text3" :"Her bir suredeki her bir ayetin numarasını, sure başına düşen ayet sayısı takip eder. Burada gösterilen en son 11 basamak son surenin 6 ayetidir, ardından onun ayet sayısı (6) gelir, ardından Kuran’daki numaralı ayetlerin toplam sayısı (6234) gelir. Bütün, çok uzun sayı, 19’un bir katıdır.",
+        "text4": "Sure başına düşen ayetlerin toplam sayısını her bir surenin sonuna koyduğumuzdan, numaralı ayetlerin toplam sayısını (6324) da Kuran’ın sonuna koymak zorundayız. Bu nedenle, son sureyi temsil eden son sayıları (123456 6) Kuran’daki numaralı ayetlerin toplam sayısı takip eder.",
+        "text5": "Tüm surelerin tüm ayetlerini bir araya getirdiğimiz zaman, 12696 basamaktan oluşan ve 19’un bir katı olan uzun bir sayı meydana gelir."
+    },
     "number3Info":
     {
         "title":"ÜÇÜNCÜ SAYI",
         "text1":"Her ayetin numarası, ardından sure numarası, sonra bu suredeki ayetlerin sayısı. Numaralı ayetlerin toplam sayısı en sona eklenir. (12930 basamaklı) bu uzun sayı 19’un bir katıdır.",
         "text2" :"Şimdi her surenin numarasını dâhil edelim.",
         "text3" :"Her suredeki toplam ayet sayısını sureden sonra koymak yerine, bunu surenin önüne koyalım. Böylelikle, Sure 1’i temsil eden sayı 1234567 1 7 yerine şu şekilde gözükür: 7 1234567 1 ve Sure 2’yi temsil eden sayı 12345.....284 285 286 2 286 yerine şu şekilde gözükür: 286 12345.... 284 285 286 2. Tüm Kuran’ı temsil eden bu çok uzun sayı 19’un bir katıdır."
+    },
+    "number4Info":
+    {
+        "title":"DÖRDÜNCÜ SAYI",
+        "text1":"Her suredeki toplam ayet sayısını sureden sonra koymak yerine, bunu surenin önüne koyalım. Böylelikle, Sure 1’i temsil eden sayı 1234567 1 7 yerine şu şekilde gözükür: 7 1234567 1 ve Sure 2’yi temsil eden sayı 12345.....284 285 286 2 286 yerine şu şekilde gözükür: 286 12345.... 284 285 286 2. Tüm Kuran’ı temsil eden bu çok uzun sayı 19’un bir katıdır.",
+        "text2" :"Her bir suredeki ayetlerin toplam sayısını her bir ayetin numarası, ardından sure numarası takip eder. Aşağıda gösterilen son 14 basamak, son suredeki ayet sayısı (6), ardından altı ayetin numaraları (123456), ardından surenin numarası (114), sonra Kuran’daki toplam numaralı ayet sayısıdır. (12930 basamaktan oluşan) bu çok uzun sayı 19’un bir katıdır."
+        
+    },
+    "number5Info":
+    {
+        "title":"BEŞİNCİ SAYI",
+        "text1":"Her suredeki her ayet numarasını ayet numaralarının toplamı takip eder. Bu uzun sayı 12836 basamaktan oluşur ve 19’un bir katıdır.",
+        "text2" :"Şimdi, her suredeki her ayetin numarasını, ardından her sure için ayet numaralarının toplamını yazalım. Sure 1, 7 ayetten oluşmaktadır ve ayet numaralarının toplamı 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28’dir. Böylelikle, Sure 1’i temsil eden sayı şu şekilde gözükür: 1234567 28.",
+        "text3":"6 ayetten oluşan son sureyi temsil eden sayı şu şekilde gözükür: 123456 21 çünkü 1 + 2 + 3 + 4 + 5 + 6 = 21.",
+        "text4": "Tüm Kuran’ı temsil eden bütün sayı 12836 basamaktan oluşmaktadır ve 19’un bir katıdır. Şu şekilde gözükür."
+    },
+    "number6Info":
+    {
+        "title":"ALTINCI SAYI",
+        "text1":"Dikkat çekici bir şekilde, eğer yukarıda gösterilen “Beşinci Sayıyı” alıp ayet numaraları ile ayet numaralarının toplamını tersine çevirirsek, yani ayet numaralarının toplamını alıp surenin başına koyarsak, ortaya çıkan uzun sayı hala 19’un bir katıdır.",
+        "text2" :"Ayet numaralarının toplamını her bir surenin sonuna yerleştirmek yerine önüne yerleştirmek, 19’un bir katı olan (12836 basamaklı) uzun bir sayı meydana getirir."
+    },
+    "number7Info":
+    {
+        "title":"YEDİNCİ SAYI",
+        "text1":"6 sayıdaki aynı yöntemle sureler geriden gelerek yazıldığında(114.Sure - 113. Sure.... 1. Sure), yani son sureden başlayıp ilk sure ile son bulacak şekilde surelerin sırası tersine çevrildiğinde ve her bir surenin ayetlerinden sonra ayet sayılarının toplamı yerleştirildiğinde, sonuç hala 19’un bir katıdır.",
+        "text2" :"Surelerin sırasını tersine çevirip—son sureden başlayıp ilk sure ile bitirerek—ve her ayetin numarası ile birlikte her sure için ayetlerinden sonra ayet sayılarının toplamı yazıldığında, sonuç 12836 basamaklı uzun bir sayıdır. Bu uzun sayı 19’un bir katıdır."
+    },
+    "number8Info":
+    {
+        "title":"SEKİZİNCİ SAYI",
+        "text1":"Tüm Kuran için ayet numaralarının toplamını (333410), ardından numaralı ayetlerin toplam sayısını (6234), sonra sure sayısını (114) yazın. Her sure sonra kendi numarası ve ayetlerinin sayısı ile temsil edilir. Sure 1 ve 2’yi temsil eden sayılar 1 7 ve 2 286’dır. Kuran’ın tüm surelerini kapsayan tam sayı 474 basamaktan oluşur ve 19’un bir katıdır.",
+        "text2" :"Ayet numaralarının Genel Toplamını (333410) numaralı ayetlerin toplam sayısı (6234), sure sayısı (114), ardından sure numaraları ve her surenin ayet numaraları takip eder. Sayı şu şekilde gözükür."
+    },
+    "number9Info":
+    {
+        "title":"DOKUZUNCU SAYI",
+        "text1":"Şimdi, “Sekizinci Sayıda” gösterildiği gibi, sure numarası ile onun ayet sayısını tersine çevirelim. Böylelikle, ilk iki sureyi temsil eden sayılar 1 7 & 2 286 yerine şu şekilde gözükür: 7 1 & 286 2. Tam sayı yine 474 basamaklıdır ve hala 19’un bir katıdır.",
+        "text2" :"Sure numarası ve ayet sayısını tersine çevirmek hâlâ bize 19’un bir katı olan uzun bir sayı verir. Şu şekilde gözükür:"
+    },
+    "number10Info":
+    {
+        "title":"ONUNCU SAYI",
+        "text1":"Eğer Sure 1 için ayet numaralarının toplamını (28), ardından Sure 2 için ayet numaralarının toplamını (41041) ve Kuran’ın sonuna kadar böyle devam ederek yazarsak ve ayet numaralarının Genel Toplamını (333410) en sona yerleştirirsek, sonuçta çıkan uzun sayı (Onuncu Sayı) 377 basamaktan oluşur ve 19’un bir katıdır.",
+        "text2" :"Kuran’daki her sure için ayet numaralarının toplamı yan yana yazılmıştır, ardından en sona ayet numaralarının Genel Toplamı (333410) yazılmıştır."
+    },
+    "number11Info":
+    {
+        "title":"ONBİRİNCİ SAYI",
+        "text1":"Eğer Kuran’daki sure sayısını (114), ardından numaralı ayetlerin toplam sayısını (6234), ardından her surenin numarasını ve onların ayet numaralarının toplamını yazarsak, bu (612 basamaklı) son uzun sayı 19’un bir katıdır.",
+        "text2" :"Sure sayısı, ardından numaralı ayetlerin toplam sayısı, sonra her surenin numarası ile onun ayet sayılarının toplamı 19’un katı olan (612 basamaklı) bu büyük sayıyı ortaya çıkarır."
+    },
+    "number12Info":
+    {
+        "title":"ONİKİNCİ SAYI",
+        "text1":"Herhangi biri, herhangi bir Kuranî parametrenin bu harika matematiksel kodla korunmadığını düşünebiliyorsa, o halde daha fazla parametreye bakalım. Eğer sure sayısını (114), ardından numaralı ayetlerin toplam sayısını, ardından tüm Kuran’daki ayet numaralarının Genel Toplamını (333410), ardından her surenin numarası ile onun ayetlerini yazarsak, sonunda 19’un katı olan (12712 basamaklı) büyük bir sayı ile karşılaşırız."
+    },
+    "number13Info":
+    {
+        "title":"ONÜÇÜNCÜ SAYI",
+        "text1":"Eğer her suredeki ayet sayılarını yan yana yazarsak, sonunda 235-basamaklı 19’un katı olan bir sayı ile karşılaşırız. Bunu yapmak için, Kuran’daki numaralı ayetlerin toplam sayısını (6234), ardından her suredeki ayet sayısını yazıp, sonra Kuran’daki numaralı ayetlerin toplam sayısı ile kapatın. En son uzun sayı şu şekilde gözükür:",
+        "text2": "(Toplam Ayetler) (ilk 4 sure) (sure 9) (son 4 sure) (toplam ayetler)"
+    },
+    "number14Info":
+    {
+        "title":"ONDÖRDÜNCÜ SAYI",
+        "text1":"Eğer Kuran’daki toplam numaralı ayet sayısını (6234), ardından sure sayısını (114), ardından her suredeki her ayetin numarasını yazıp sonra Kuran’daki toplam numaralı ayet sayısı ve sure sayısı ile kapatırsak, en son sayı 12479 basamaktan oluşur ve 19’un bir katıdır."
+    },
+    "number15Info":
+    {
+        "title":"ONBEŞİNCİ SAYI",
+        "text1":"12774 basamaktan oluşan bir diğer uzun sayı, her suredeki her ayetin numarasını, ardından ayet sayısı eklenmiş her surenin numarasını yazarak oluşturulur. Sure 1, 7 ayetten oluşmaktadır ve toplam 1 + 7 = 8’dir. Bu nedenle, Sure 1’i temsil eden sayı şu şekilde gözükür: 1234567 8. Sure 2 ise 286 ayetten oluştuğundan Sure 2’yi temsil eden sayı şu şekilde gözükür: 12345...286 288. Bu, Kuran’daki her sure için yapılır. Birleştirilmiş son sayı 12774 basamaklıdır ve 19’un bir katıdır."
+    },
+    "basmalaEffect":
+    {
+        "title":"Besmele Etkisi",
+        "text1":"Bazı surelerde besmele bulunmamaktadır. Örneğin 1. Sure(Fatiha) ve 9. Sure(Berâe) Suresinin başında besmele bulunmamaktadır. Fatiha'nın 1. ayeti besmeledir. Fakat 9. Surenin içerisinde ve başında hiçbir şekilde besmele yok. Suredeki toplam ayet sayısı, besmele numarası ve suredeki ayetlerin numarası, sure numarasını ve çıkan sayının en sonunada toplam ayet sayısını yazdığımızda sayı şu şekilde gözükecektir."
+    },
+    "homepage":
+    {
+        "title":"Tanrı’nın Sözü ile Oynamak",
+        "text1":"İnsanüstü matematiksel bir sistem, Kuran’ın her tarafına yayılır ve onun içindeki her bir öğeyi korumaya ve gerçekliğini kanıtlamaya hizmet eder. Peygamberin ölümünden on dokuz yıl sonra, bazı kâtipler, Medine’de vahyolunan son sure olan Sure 9’un sonuna iki sahte ayet sokuşturdular. Bu Ek’te sunulan deliller, tartışmasız bir şekilde bu insan sokuşturmalarını ortadan kaldırır, Kuran’ın bozulmamış saflığına geri döndürür ve Kuran’ın matematiksel kodunun büyük bir işlevini yani Kuran’ın en ufak bir sokuşturmaya karşı korumayı sergiler. Nitekim kod SADECE 9:128-129 sahte sokuşturmalarını reddeder.",
+        "text2":"[15:9] Şüphesiz, bu kutsal yazıyı biz vahyettik ve şüphesiz, onu biz koruyacağız.",
+        "text3": "Kuran, Tanrı’nın Son Ahitidir. Onu mükemmel bir şekilde korumak için verilen ilahi söz bu nedenledir. Hem ilahi yazarlık, hem de Kuran’ın mükemmel korunması hususunda bizleri emin kılmak için, Yüce yazar, Kuran’ı matematiksel olarak oluşturmuştur. Ek 1’de fiziksel delil ile ispatlandığı gibi, böylesi bir matematiksel yapı insan yeteneklerinin çok ötesindedir. Tanrı’nın Son Ahitinin en ufak bozuluşu, göze batan bir uyumsuzlukla dikkat çekmeye mukadderdir. Sadece 1—bir sure, bir ayet, bir kelime, hatta bir harf—ile olan sapma anında ifşa olur.",
+        "text4": "Muhammed Peygamber’in ölümünden on dokuz yıl sonra, Halife Osman’ın halifeliği döneminde, yeni Müslüman topraklara gönderilmek üzere Kuran’ın birkaç kopyasını yapmak için bir yazıcı komitesi atandı. Kopyaların, Muhammed’in eliyle yazılmış olan orijinal Kuran’dan yapılması gerekiyordu (Ek 28).",
+        "text5": "Bu komite, Osman bin Affan, Ali bin Ebu Talip, Zeyd bin Sabit, Ubey bin Kab, Abdullah bin Zübeyr, Saîd bin Âs ve Abdurrahman bin el-Hâris bin Hişâm tarafından gözetilip denetlenmekteydi. Peygamber, elbette ki Kuran’ı kronolojik vahiy sırasına göre (Ek 23), her parçayı uygun pozisyonuna yerleştirmek için gerekli talimatlarla birlikte yazmıştı. Medine’de vahyolunan son sure, Sure 9’du. Sadece çok kısa bir sure olan Sure 110, Sure 9’dan sonra Mina’da vahyedildi.",
+        "text6": "Yazıcılar komitesi nihayet Sure 9’a geldiler ve onu doğru yerine koydular. Yazıcılardan biri, Peygamberi onurlandırmak için birkaç ayet eklemeyi önerdi. Yazıcılardan birçoğu kabul etti. Ali ise öfkelendi. Tanrı’nın, son peygamberinin eli ile kâğıda dökülmüş olan sözünün asla değiştirilmemesi gerektiğini şiddetle savundu.",
+        "text7": "Ali’nin protestosu birçok referansta belgelenmiştir ancak ben burada Celalettin Suyuti tarafından yazılmış EL-İTKAN Fİ ULUMİL KURAN, Al-Azhareyyah Press, Kahire, Mısır, Hicri 1318, Sayfa 59 [bkz. İlave 1] klasik referansını alıntılayıp aslına uygun kopyalıyorum.",
+        "text8": "Tercümesi: Ali’ye soruldu: “Neden evde duruyorsun?” Dedi ki “Kuran’a bir şeyler eklendi ve Kuran eski haline getirilinceye kadar namaz hariç gündelik giysilerimi asla giymeyeceğime söz verdim.”",
+        "text9": "Bu suçun korkunç boyutları, sonuçlara baktığımız an fark edilebilir:",
+        "text10": "(1) Osman suikasta uğradı ve Ali dördüncü Halife olarak başa geçirildi.",
+        "text11": "(2) Bir tarafta yeni Halife ve onun destekçileri ile diğer tarafta Kuran’ın Muhammed-perest tahrifçileri arasında 50 yıl süren bir savaş patlak verdi.",
+        "text12": "(3) Ali şehit edildi ve nihayetinde onun ailesi, yani Muhammed peygamberin ailesi, bazı kadın ve çocuklar hariç öldürüldü.",
+        "text13": "(4) Felaket, Ali’nin oğlu Hüseyin ve ailesinin katledildiği kötü namlı Kerbela Savaşı ile sonuçlandı.",
+        "text14": "(5) Müslümanlar 1400 yıl boyunca saf, değiştirilmemiş Kuran’dan mahrum edildiler.",
+        "text15": "Kuran’ı tahrif edenler sonunda savaşı kazandı ve bize gelen “resmi” tarih, galiplerin bakış açısını temsil ediyordu. Tanrı’nın düşmanları için görünürdeki bu galibiyet, elbette ki Tanrı’nın iradesine göreydi. Peygamberin ölümünden sadece yirmi yıl sonra, Mekke’nin fethinde (MS 632) Peygamber tarafından mağlup edilen puta tapanlar, putperestliğe geri döndüler. İronik bir şekilde, bu kez putları Peygamberin kendisiydi. Bu gibi puta tapanlar belli ki saf Kuran’a sahip olmayı hak etmiyorlardı. Kuran’ı eski haline getirmeye çalışan gerçek imanlıların kutlu şehadeti ve Tanrı sözünü tahrif edenlerin görünüşteki galibiyeti bunun sonucudur.",
+        "text16": "Bu uzun ve felaketli savaşın ardından ilk barış zamanı idarecisi Mervan Bin El-Hakem’di (MS 684/Hicri 65’te öldü). Yaptığı ilk icraatlardan biri de “YENİ anlaşmazlıklara neden olacağından korkarak” Peygamberin kendi eliyle çok titizlikle yazılmış olan orijinal Kuran’ı yok etmekti [bkz. ULUMUL KURAN, Ahmed von Denffer, Islamic Foundation, Leicester, United Kingdom, 1983, Sayfa 56]. Akıllı bir kişinin şu soruyu sorması gerekir: “Eğer orijinal Kuran, o sırada dolaşımda olan Kuran’la aynı ise, neden Mervan Bin El-Hakem onu imha etmek zorundaydı?!",
+        "text17": "En eski İslami referansları inceledikten sonra, 9:128-129 sahte sokuşturmalarının her zaman şüpheli olduğunu fark ediyoruz. Örneğin, Buhari’nin ünlü Hadis’inde ve Suyuti’nin ünlü İtkan’ında Kuran’daki her ayetin çok sayıda tanık tarafından teyit edildiğini okuyoruz, “Sure 9’un 128 ve 129. Ayetleri hariç; onlar sadece Huzeyme bin Sabit El-Ensari’de vardı.” Bazı insanlar bu uygunsuz istisnayı sorguladığında, birileri şunu söyleyen bir Hadis ortaya attılar, “Huzeyme’nin tanıklığı iki adamın tanıklığına eşittir!!!",
+        "text18": "Tuhaf bir şekilde, 9:128-129 sokuşturmaları geleneksel Kuran baskılarında “Mekkî” olarak sınıflandırılmaktadır [bkz. İlave 2].",
+        "text19": "Standart bir Kuran’dan Sure 9’un Başlık Şekli, bu surenin Medenî olduğunu gösteriyor, “son iki ayet hariç; onlar Mekkî’dir”!!! [İlave 2 ]",
+        "text20": "Son dönem ‘Medineli’ bir Müslüman olan Huzeyme’de bu ‘Mekkî’ ayetler nasıl bulunabildi?! Evrensel kabul Peygamberin Mekke’den Hicretinden sonraki tüm vahiyleri “Medeni” olarak sınıflandırmışken, nasıl olur da Medeni bir sure Mekkî ayetler içerebilir?!! Bu tutarsızlıklara, ayrıca 9:128-129 Ayetleri ile alakalı göze çarpan çelişkilere rağmen, hiç kimse onların gerçekliğini sorgulamaya cesaret edemedi. Bununla birlikte, Kuran’ın matematiksel kodunun 1974’te keşfedilmesi, Kuran’daki her unsurun gerçekliğinin kanıtlandığı yeni bir çağ açmıştır (Ek 1).",
+        "text21": "Anlaşıldığı üzere, iki sahte Ayet olan 9:128-129’un sokuşturulması şu sonuçları ortaya çıkardı:",
+        "text22": "(1) Kuran’ın matematiksel sisteminin asıl fonksiyonunu göstermek,",
+        "text23": "(2) başlı başına harika bir mucize ortaya koymak,",
+        "text24": "(3) gerçek imanlıları ikiyüzlülerden ayırmak (onlar geleneklere sarılırlar).",
+        "text25": "İki sahte ayetin tercümesi İlave 3’te gösterilmektedir:",
+        "text26": "“İçinizden size bir elçi gelmiş bulunuyor, ki size hiçbir sıkıntının ilişmesini istemez ve size düşkündür, imanlılara karşı şefkatli, merhametlidir. Eğer yüz çevirirlerse o zaman de ki, ‘Tanrı bana yeter, O’ndan başka tanrı yoktur. Ben O’na güveniyorum. O, büyük tahtın Rabbidir.’ “[İlave 3]",
+        "text27": "Bu konuda daha fazla fiziksel kanıt için Ek 24'e bakınız",
+        "text28": "İnsanüstü sayısal kompozisyonları incelemek için Sayılar menüsüne tıklayın."
+    },
+    "israel":
+    {
+        "title":"İsrailoğullarından Bir Şahit [46:10]",
+        "text1":"İlan et: \"Ya o Tanrı’dan ise ve siz de onu inkâr ettiyseniz? İsrailoğullarından bir şahit benzer bir olguya tanıklık etti ve iman etti, oysa sizler iman etmeyecek kadar kibirlendiniz. Tanrı kötülere rehberlik etmez.\"[46:10]",
+        "text2":"Aşağıdaki alıntı, STUDIES IN JEWISH MYSTICISM’den (YAHUDİ MİSTİSİZMDE ÇALIŞMALAR) alınmıştır (Association for Jewish Studies, Cambridge, Mass., Joseph Dan & Frank Talmage, eds., Page 88, 1982). Bu alıntı, Takva Ehli olan Haham Juda’nın çalışmasına atıf yapmaktadır (MS 12. Yüzyıl):",
+        "text3":"Fransa’daki halk [Yahudiler], [sabah ibadetine] şu sözleri eklemeyi gelenek haline getirdiler:’Ashrei temimei derekh [kutsananlar doğru yolu yürüyenlerdir] ve Kutsanmış bir hafızaya sahip olan bizim takva ehli Haham, onların tamamen ve düpedüz hatalı olduğunu yazdı. Bunların hepsi büyük sahteciliktir çünkü [sabah ibadetinin bu bölümünde] Kutsal İsim sadece on dokuz kez anılır... ve benzer biçimde ’Elohim kelimesini Ve-elle shemut... pasajında on dokuz kez bulursunuz. Benzer şekilde, İsrail’in “oğullar” diye on dokuz kez çağrıldığını görürsünüz ve daha birçok başka örnekler mevcuttur. Tüm bu on dokuz grupları karmaşık bir şekilde içe geçmelidir ve sekizden fazla ciltte yer alan birçok gizemler ve özel anlamlar içermektedir. Dahası, bu bölümde 152 (19x8) kelime vardır.",
+        "text4": "TÜM ÖVGÜ, KÂİNATIN RABBİ OLAN TANRI'YADIR."
     }
+
 }

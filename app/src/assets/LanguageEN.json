@@ -1,9 +1,124 @@
 {
-    "number3Info":
-    {
-        "title":"THİRD NUMBER",
-        "text1":"The number of its verse, then its absolute number, then the number of verses in this surah. The total number of numbered parallels ends. (12930 digits) This long number is a multiple of 19.",
-        "text2" :"Now let's include the number of each sura.",
-        "text3" :"Instead of putting the total number of verses in each sura after the sura, let us put it before the sura. So, the number representing sura 1 would look like this instead of 1234567 1 7: 7 1234567 1, and the number representing sura 2 would look like this instead of 12345.....284 285 286 2 286: 286 12345.... 284 285 286 2. This very long number representing the entire Quran is a multiple of 19."
+    "number1Info": {
+        "title": "FIRST NUMBER",
+        "text1": "Let us write the number of each verse in the Quran, preceded by the number of verses in each surah. Thus, Surah 1, which consists of seven verses, will be represented by the number 7 1234567. What we are doing here is forming long numbers by writing the verse numbers consecutively. To find the number representing Surah 2, write the number of verses in this surah (286), followed by the verse numbers written consecutively. Thus, the number representing Surah 2 appears as follows: 286 12345...284285286. The numbers representing the first two surahs are:",
+        "text2": "To create a number representing the first two surahs, we combine these two numbers and obtain:",
+        "text3": "This process continues until every verse in the Quran is written, forming a very long number that includes all the verse numbers. The number representing the entire Quran is a multiple of 19 & consists of 12692 digits, which is also a multiple of 19.",
+        "text4": "This very long number consists of 12692 (19x668) digits and includes every verse in the Quran. A special computer program dividing large numbers shows that this number is a multiple of 19."
+    },
+    "number2Info": {
+        "title": "SECOND NUMBER",
+        "text1": "Instead of placing the total number of verses at the beginning of each surah, let us place it at the end. Thus, the number representing Surah 1 appears as 1234567 7 instead of 7 1234567. The number representing Surah 2 appears as 12345...284285286 286 instead of 286 12345...284285286. The numbers representing the first two surahs are as follows:",
+        "text2": "To create a number representing the first two surahs, we combine these numbers and obtain:",
+        "text3": "Each verse number in each surah is followed by the total number of verses in that surah. The last 11 digits shown here represent the six verses of the last surah, followed by its verse count (6), and then the total number of numbered verses in the Quran (6234). The entire long number is a multiple of 19.",
+        "text4": "Since we place the total number of verses at the end of each surah, we also need to place the total number of numbered verses (6234) at the end of the Quran. Thus, the final numbers representing the last surah (123456 6) are followed by the total number of numbered verses in the Quran.",
+        "text5": "When we combine all the verses of all the surahs, we obtain a 12696-digit long number that is a multiple of 19."
+    },
+    "number3Info": {
+        "title": "THIRD NUMBER",
+        "text1": "Each verse number is followed by the surah number and then the number of verses in that surah. The total number of numbered verses is added at the end. This long number, consisting of 12930 digits, is a multiple of 19.",
+        "text2": "Now let us include the number of each surah.",
+        "text3": "Instead of placing the total number of verses after each surah, let us place it at the beginning. Thus, the number representing Surah 1 appears as 7 1234567 1 instead of 1234567 1 7, and the number representing Surah 2 appears as 286 12345...284285286 2 instead of 12345...284285286 2 286. This very long number representing the entire Quran is a multiple of 19."
+    },
+    "number4Info": {
+        "title": "FOURTH NUMBER",
+        "text1": "Instead of placing the total number of verses after each surah, let us place it at the beginning. Thus, the number representing Surah 1 appears as 7 1234567 1 instead of 1234567 1 7, and the number representing Surah 2 appears as 286 12345...284285286 2 instead of 12345...284285286 2 286. This very long number representing the entire Quran is a multiple of 19.",
+        "text2": "The total number of verses in each surah is followed by each verse number and then the surah number. The last 14 digits shown here represent the verse count (6) in the last surah, followed by the six verse numbers (123456), then the surah number (114), and finally the total number of numbered verses in the Quran. This long number (12930 digits) is a multiple of 19."
+    },
+    "number5Info": {
+        "title": "FIFTH NUMBER",
+        "text1": "The total of verse numbers follows each verse number in each surah. This long number consists of 12836 digits and is a multiple of 19.",
+        "text2": "Now let us write each verse number, followed by the total of verse numbers for each surah. Surah 1 consists of 7 verses, and the sum of verse numbers is 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28. Thus, the number representing Surah 1 appears as 1234567 28.",
+        "text3": "The number representing the last surah, consisting of 6 verses, appears as 123456 21 because 1 + 2 + 3 + 4 + 5 + 6 = 21.",
+        "text4": "The entire number representing the Quran consists of 12836 digits and is a multiple of 19. It appears as follows."
+    },
+    "number6Info": {
+        "title": "SIXTH NUMBER",
+        "text1": "Interestingly, if we reverse the “Fifth Number” shown above by placing the sum of verse numbers before the verse numbers, the resulting long number is still a multiple of 19.",
+        "text2": "Placing the sum of verse numbers before the verse numbers instead of at the end forms a 12836-digit long number that is a multiple of 19."
+    },
+    "number7Info": {
+        "title": "SEVENTH NUMBER",
+        "text1": "When surahs are written in reverse order (Surah 114 - Surah 113.... Surah 1) using the same method as the six previous numbers, i.e., starting from the last surah and ending with the first surah, and the total of the verse numbers is placed after the verses of each surah, the result is still a multiple of 19.",
+        "text2": "By reversing the order of the surahs—starting from the last surah and ending with the first—and writing each verse number along with the total of the verse numbers for each surah, the result is a 12836-digit long number. This long number is a multiple of 19."
+    },
+    "number8Info": {
+        "title": "EIGHTH NUMBER",
+        "text1": "Write the total of the verse numbers for the entire Quran (333410), followed by the total number of numbered verses (6234), and then the number of surahs (114). Each surah is then represented by its number and the number of its verses. The numbers representing Surahs 1 and 2 are 1 7 and 2 286. The entire number covering all surahs of the Quran consists of 474 digits and is a multiple of 19.",
+        "text2": "The total of the verse numbers (333410), the total number of numbered verses (6234), the number of surahs (114), followed by the surah numbers and the verse numbers of each surah. The number appears as follows."
+    },
+    "number9Info": {
+        "title": "NINTH NUMBER",
+        "text1": "Now, as shown in the \"Eighth Number,\" let us reverse the surah number and its verse count. Thus, the numbers representing the first two surahs appear as 1 7 & 2 286 instead of 7 1 & 286 2. The entire number again consists of 474 digits and is still a multiple of 19.",
+        "text2": "Reversing the surah number and verse count still gives us a long number that is a multiple of 19. It appears as follows."
+    },
+    "number10Info": {
+        "title": "TENTH NUMBER",
+        "text1": "If we write the sum of the verse numbers for Surah 1 (28), followed by the sum of the verse numbers for Surah 2 (41041), and continue in this manner to the end of the Quran, adding the total sum of the verse numbers (333410) at the end, the resulting long number (Tenth Number) consists of 377 digits and is a multiple of 19.",
+        "text2": "The sum of the verse numbers for each surah in the Quran is written consecutively, followed by the total sum of the verse numbers (333410) at the end."
+    },
+    "number11Info": {
+        "title": "ELEVENTH NUMBER",
+        "text1": "If we write the number of Surahs in the Quran (114), followed by the total number of numbered verses (6234), and then the number of each Surah along with the sum of its verse numbers, this final long number (612 digits) is a multiple of 19.",
+        "text2": "The number of Surahs, followed by the total number of numbered verses, then each Surah's number and its total number of verses, reveals this large (612-digit) number which is a multiple of 19."
+    },
+    "number12Info": {
+        "title": "TWELFTH NUMBER",
+        "text1": "If anyone thinks that any Quranic parameter is not protected by this miraculous mathematical code, let us look at more parameters. If we write the number of Surahs (114), followed by the total number of numbered verses, then the Grand Total of all verse numbers in the Quran (333410), and then each Surah's number along with its verses, we end up with a large number (12712 digits) that is a multiple of 19."
+    },
+    "number13Info": {
+        "title": "THIRTEENTH NUMBER",
+        "text1": "If we write the number of verses in each Surah side by side, we end up with a 235-digit number that is a multiple of 19. To do this, write the total number of numbered verses in the Quran (6234), followed by the number of verses in each Surah, and close it with the total number of numbered verses again. The final long number appears as follows:",
+        "text2": "(Total Verses) (first 4 Surahs) (Surah 9) (last 4 Surahs) (total verses)"
+    },
+    "number14Info": {
+        "title": "FOURTEENTH NUMBER",
+        "text1": "If we write the total number of numbered verses in the Quran (6234), followed by the number of Surahs (114), and then each verse number in every Surah, closing with the total number of numbered verses and the number of Surahs, the resulting number has 12479 digits and is a multiple of 19."
+    },
+    "number15Info": {
+        "title": "FIFTEENTH NUMBER",
+        "text1": "Another long number, consisting of 12774 digits, is formed by writing the number of each verse in every Surah, followed by the Surah number with its verse count added. Surah 1 has 7 verses, and the total is 1 + 7 = 8. Therefore, the number representing Surah 1 looks like this: 1234567 8. Surah 2 has 286 verses, so its representation is: 12345...286 288. This is done for each Surah in the Quran. The combined final number is 12774 digits long and is a multiple of 19."
+    },
+    "basmalaEffect": {
+        "title": "Basmala Effect",
+        "text1": "Some Surahs do not contain the Basmala. For example, Surah 1 (Al-Fatiha) and Surah 9 (At-Tawbah) do not have a Basmala at the beginning. The first verse of Al-Fatiha is the Basmala. However, Surah 9 has no Basmala at the beginning or within it. If we write the total number of verses, the Basmala number, and the verse numbers of the Surah, then add the Surah number and close with the total number of verses, the number will appear as follows."
+    },
+    "homepage": {
+        "title": "Tampering with God’s Word",
+        "text1": "A superhuman mathematical system permeates the Quran, serving to preserve and verify its authenticity. Nineteen years after the Prophet’s death, some scribes inserted two false verses at the end of Surah 9, which was the last surah revealed in Medina. The evidence presented in this appendix indisputably eliminates these human insertions, restores the Quran’s pristine purity, and demonstrates a major function of the Quran’s mathematical code—its protection against even the slightest tampering. Indeed, the code rejects ONLY the false insertions of 9:128-129.",
+        "text2": "[15:9] Surely, we have revealed this scripture, and surely, we will preserve it.",
+        "text3": "The Quran is God’s Final Testament. This is why the divine promise to preserve it perfectly was given. To assure us of both divine authorship and the Quran’s perfect preservation, the Almighty Author has mathematically composed the Quran. As proven by physical evidence in Appendix 1, such a mathematical structure is far beyond human capability. The slightest deviation—whether a surah, verse, word, or even a letter—would immediately expose itself with glaring disharmony.",
+        "text4": "Nineteen years after Muhammad’s death, during the caliphate of Uthman, a committee of scribes was appointed to produce copies of the Quran for distribution to newly acquired Muslim territories. The copies were to be made from the original Quran written by Muhammad’s hand (Appendix 28).",
+        "text5": "This committee was supervised and monitored by Uthman bin Affan, Ali bin Abi Talib, Zayd bin Thabit, Ubay bin Ka’b, Abdullah bin Zubayr, Said bin Al-As, and Abdurrahman bin Al-Harith bin Hisham. The Prophet, of course, wrote down the Quran in the chronological order of revelation (Appendix 23) with specific instructions to place each piece in its appropriate position. The last surah revealed in Medina was Surah 9. Only a very short surah, Surah 110, was revealed after Surah 9 in Mina.",
+        "text6": "The scribes’ committee finally reached Surah 9 and placed it in its correct position. One of the scribes proposed adding a few verses to honor the Prophet. Many scribes agreed. However, Ali became furious. He strongly insisted that God’s words, written by the hand of His final prophet, must never be altered.",
+        "text7": "Ali’s protest is documented in numerous references, but I will quote and accurately copy here the classical reference by Jalaluddin Suyuti, AL-ITQAN FI ULOOM AL-QURAN, Al-Azhareyyah Press, Cairo, Egypt, Hijri 1318, Page 59 [see Appendix 1].",
+        "text8": "Translation: Ali was asked, “Why are you staying at home?” He said, “Something has been added to the Quran, and I swore never to wear my daily clothes again until the Quran is restored to its original state.”",
+        "text9": "The horrific dimensions of this crime can be recognized by looking at the consequences:",
+        "text10": "(1) Uthman was assassinated, and Ali became the fourth Caliph.",
+        "text11": "(2) A 50-year-long war erupted between the new Caliph and his supporters and those who corrupted the Quran to idolize Muhammad.",
+        "text12": "(3) Ali was martyred, and ultimately his family, the family of Prophet Muhammad, was killed except for some women and children.",
+        "text13": "(4) The tragedy culminated in the infamous Battle of Karbala, where Ali’s son Husayn and his family were massacred.",
+        "text14": "(5) Muslims were deprived of the pure, unaltered Quran for 1,400 years.",
+        "text15": "The corrupters of the Quran eventually won the war, and the ‘official’ history that came to us represents the victors’ perspective. This apparent victory for God’s enemies was, of course, in accordance with God’s will. Only twenty years after the Prophet’s death, the idol worshippers defeated by Muhammad during the conquest of Mecca (632 AD) reverted to idolatry. Ironically, this time their idol was the Prophet himself. Such idol worshippers clearly did not deserve to possess the pure Quran. The blessed martyrdom of the true believers who tried to restore God’s word and the apparent victory of those who corrupted it is the result.",
+        "text16": "After this long and catastrophic war, the first peaceful ruler was Marwan Bin Al-Hakam (died 684 AD / Hijri 65). One of his first actions was to destroy the original Quran meticulously written by the Prophet’s own hand, ‘fearing it might cause NEW disputes’ [see ULUMUL QURAN, Ahmed von Denffer, Islamic Foundation, Leicester, United Kingdom, 1983, Page 56]. A thoughtful person should ask: ‘If the original Quran was identical to the Quran circulating at the time, why did Marwan Bin Al-Hakam have to destroy it?!’",
+        "text17": "After examining the oldest Islamic references, we find that the false insertions of 9:128-129 have always been suspicious. For example, in Bukhari’s famous Hadith and Suyuti’s famous Itqan, we read that every verse in the Quran was confirmed by multiple witnesses, ‘except verses 128 and 129 of Surah 9; they were found only with Khuzaymah bin Thabit Al-Ansari.’ When some people questioned this odd exception, a Hadith was fabricated stating, ‘The testimony of Khuzaymah equals the testimony of two men!!!’",
+        "text18": "Strangely, the insertions 9:128-129 are classified as ‘Meccan’ in traditional Quran editions [see Appendix 2].",
+        "text19": "The standard Quran heading for Surah 9 states that it is ‘Medinan,’ except for the last two verses, which are classified as ‘Meccan’!!! [Appendix 2]",
+        "text20": "How could these ‘Meccan’ verses have been found with Khuzaymah, a later ‘Medinan’ Muslim?! How can a Medinan surah contain Meccan verses when universal acceptance classifies all revelations after the Prophet’s migration to Medina as ‘Medinan’?!! Despite these contradictions and striking inconsistencies regarding 9:128-129, no one dared question their authenticity. However, the discovery of the Quran’s mathematical code in 1974 ushered in a new era where the authenticity of every element in the Quran is proven (Appendix 1).",
+        "text21": "It turns out that the insertion of the two false verses, 9:128-129, served the following purposes:",
+        "text22": "(1) To demonstrate the primary function of the Quran’s mathematical system,",
+        "text23": "(2) To provide an extraordinary miracle,",
+        "text24": "(3) To distinguish true believers from hypocrites (who cling to traditions).",
+        "text25": "The translation of the two false verses is shown in Appendix 3:",
+        "text26": "‘A messenger has come to you from among yourselves. He is deeply concerned about your suffering, and he is full of kindness and mercy towards the believers. If they turn away, then say, “God suffices me. There is no god except Him. I trust Him. He is the Lord of the Great Throne.”’ [Appendix 3]",
+        "text27": "For more physical evidence, see Appendix 24.",
+        "text28": "To examine the superhuman numerical compositions, click on the Numbers menu."
+    },
+    "israel": {
+        "title": "A Witness from the Children of Israel [46:10]",
+        "text1": "Proclaim: \"What if it is from God and you disbelieved in it? A witness from the Children of Israel has testified to a similar event and believed, while you acted arrogantly, refusing to believe. God does not guide the wicked.\" [46:10]",
+        "text2": "The following excerpt is taken from STUDIES IN JEWISH MYSTICISM (Association for Jewish Studies, Cambridge, Mass., Joseph Dan & Frank Talmage, eds., Page 88, 1982). This excerpt references the work of the righteous Rabbi Juda (MS 12th Century):",
+        "text3": "The people [Jews] in France made it a tradition to add the following words to the [morning prayer]: 'Ashrei temimei derekh [blessed are those who walk in the righteous path] and our righteous Rabbi, who had a blessed memory, wrote that they were completely and utterly wrong. All of these are great falsifications because [in this part of the morning prayer] the Holy Name is mentioned only nineteen times... and similarly, you will find the word 'Elohim' nineteen times in the passage 'Ve-elle shemut...' Likewise, you will see that the 'sons' of Israel are referred to nineteen times, and many other examples exist. All these groups of nineteen must intricately interconnect and contain many mysteries and specific meanings spread across more than eight volumes. Furthermore, there are 152 (19x8) words in this section.",
+        "text4": "ALL PRAISE IS DUE TO GOD, LORD OF THE UNIVERSE."
     }
 }
