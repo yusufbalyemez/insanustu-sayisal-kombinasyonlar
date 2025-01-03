@@ -29,8 +29,9 @@
         "title": "FIFTH NUMBER",
         "text1": "The total of verse numbers follows each verse number in each surah. This long number consists of 12836 digits and is a multiple of 19.",
         "text2": "Now let us write each verse number, followed by the total of verse numbers for each surah. Surah 1 consists of 7 verses, and the sum of verse numbers is 1 + 2 + 3 + 4 + 5 + 6 + 7 = 28. Thus, the number representing Surah 1 appears as 1234567 28.",
-        "text3": "The number representing the last surah, consisting of 6 verses, appears as 123456 21 because 1 + 2 + 3 + 4 + 5 + 6 = 21.",
-        "text4": "The entire number representing the Quran consists of 12836 digits and is a multiple of 19. It appears as follows."
+        "text3": "The total of the verse numbers for Surah 2 is 41,041 (1 + 2 + 3 + ... + 286). Thus, the number representing Surah 2 appears as follows: 12345…284 285 286 41041.",
+        "text4": "The number representing the last surah, consisting of 6 verses, appears as 123456 21 because 1 + 2 + 3 + 4 + 5 + 6 = 21.",
+        "text5": "The entire number representing the Quran consists of 12836 digits and is a multiple of 19. It appears as follows."
     },
     "number6Info": {
         "title": "SIXTH NUMBER",
