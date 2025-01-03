@@ -71,13 +71,15 @@ const Number15 = () => {
     });
     //Sayının Gösterildiği Kısım - End
 
+    
+
     //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
     quranList.forEach((sure) => {
-      ({ bosDizi, stringBuyukSayi } = suredekiTumAyetSayilariniHesaplamaDizisineEkle(sure, bosDizi,stringBuyukSayi))
-     ({ bosDizi, stringBuyukSayi } = sureNoVeSuredekiAyetSayilarininToplamlariniHesaplamaDizisineEkle(sure, bosDizi,stringBuyukSayi))
+      ({ bosDizi, stringBuyukSayi } = suredekiTumAyetSayilariniHesaplamaDizisineEkle(sure, bosDizi,stringBuyukSayi));
+     ({ bosDizi, stringBuyukSayi } = sureNoVeSuredekiAyetSayilarininToplamlariniHesaplamaDizisineEkle(sure, bosDizi,stringBuyukSayi));
     });
 
-
+    console.log("orjinalBosDizi", orjinalBosDizi);
     //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
     setOlusanDizi(bosDizi);
     setOrginQuranEmptyList(orjinalBosDizi);
@@ -96,7 +98,7 @@ const Number15 = () => {
     <KapsayiciComponent>
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
-        <title>Sayı 14</title>
+        <title>Sayı 15</title>
       </Helmet>
 
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
