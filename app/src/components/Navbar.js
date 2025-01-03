@@ -119,15 +119,7 @@ const Navbar = () => {
           <img src={logo} alt="Logo" onClick={toggleDrawer2(true)} />
         </div>
         <div className="flex  items-center justify-center gap-5 text-white text-xl mr-1">
-          {/* Dil Seçme Dropdown */}
-          <select
-            value={language}
-            onChange={handleLanguageChange}
-            className="bg-gray-800 text-white border rounded px-2 py-1"
-          >
-            <option value="tr">Türkçe</option>
-            <option value="en">English</option>
-          </select>
+          
           <div
             className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
             onClick={toggleDrawer2(true)}
@@ -148,6 +140,15 @@ const Navbar = () => {
           >
             <GiHamburgerMenu />
           </div> */}
+          {/* Dil Seçme Dropdown */}
+          <select
+            value={language}
+            onChange={handleLanguageChange}
+            className="bg-gray-800 text-white border rounded px-2 py-1"
+          >
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+          </select>
         </div>
       </div>
 

@@ -2,8 +2,8 @@
     "number3Info":
     {
         "title":"THİRD NUMBER",
-        "text1":"Her ayetin numarası, ardından sure numarası, sonra bu suredeki ayetlerin sayısı. Numaralı ayetlerin toplam sayısı en sona eklenir. (12930 basamaklı) bu uzun sayı 19’un bir katıdır.",
-        "text2" :"Şimdi her surenin numarasını dâhil edelim.",
-        "text3" :"Her suredeki toplam ayet sayısını sureden sonra koymak yerine, bunu surenin önüne koyalım. Böylelikle, Sure 1’i temsil eden sayı 1234567 1 7 yerine şu şekilde gözükür: 7 1234567 1 ve Sure 2’yi temsil eden sayı 12345.....284 285 286 2 286 yerine şu şekilde gözükür: 286 12345.... 284 285 286 2. Tüm Kuran’ı temsil eden bu çok uzun sayı 19’un bir katıdır."
+        "text1":"The number of its verse, then its absolute number, then the number of verses in this surah. The total number of numbered parallels ends. (12930 digits) This long number is a multiple of 19.",
+        "text2" :"Now let's include the number of each sura.",
+        "text3" :"Instead of putting the total number of verses in each sura after the sura, let us put it before the sura. So, the number representing sura 1 would look like this instead of 1234567 1 7: 7 1234567 1, and the number representing sura 2 would look like this instead of 12345.....284 285 286 2 286: 286 12345.... 284 285 286 2. This very long number representing the entire Quran is a multiple of 19."
     }
 }
