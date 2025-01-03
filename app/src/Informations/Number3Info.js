@@ -1,13 +1,16 @@
 import React from "react";
 import BilgiMetniniGosterenComponent from "../components/BilgiMetniniGosterenComponent";
 import { SiMiraheze } from "react-icons/si";
+import { useLanguage } from "../context/LanguageContext";
+
 
 const Number3Info = () => {
+  const { translations } = useLanguage(); // Çeviri verilerini al
   return (
     <BilgiMetniniGosterenComponent>
       <p className="text-yellow-400 flex items-center gap-2">
         <SiMiraheze />
-        Üçüncü Sayı
+        {translations.number3Info.title}
       </p>
       <p>
         Her ayetin numarası, ardından sure numarası, sonra bu suredeki ayetlerin

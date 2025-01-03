@@ -21,9 +21,11 @@ import Number12 from "./pages/Number12";
 import Number13 from "./pages/Number13";
 import Number14 from "./pages/Number14";
 import Number15 from "./pages/Number15";
+import { LanguageProvider } from "./context/LanguageContext";
 
 function App() {
   return (
+    <LanguageProvider>
     <QuranProvider>
       <DifferentRefsProvider>
         <Navbar />
@@ -49,6 +51,7 @@ function App() {
         <ToastContainer autoClose={4000} position="top-center" />
       </DifferentRefsProvider>
     </QuranProvider>
+    </LanguageProvider>
   );
 }
 

@@ -20,6 +20,8 @@ import quran from "../assets/SurahInfo.json";
 import { useQuran } from "../context/quranListContext";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 
+import { useLanguage } from "../context/LanguageContext";
+
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(false);
@@ -27,6 +29,13 @@ const Navbar = () => {
   const { quranList, setQuranList } = useQuran();
   const [tempQuranList, setTempQuranList] = useState([]);
   const { scrollToDifferent, clearDifferentRefs } = useDifferentRefs(); // Scroll fonksiyonunu al
+
+  // Dil Context'i
+  const { language, setLanguage } = useLanguage();
+
+  const handleLanguageChange = (e) => {
+    setLanguage(e.target.value); // Dili değiştir
+  };
 
   useEffect(() => {
     const storedQuranList = localStorage.getItem("quranList");
@@ -110,6 +119,15 @@ const Navbar = () => {
           <img src={logo} alt="Logo" onClick={toggleDrawer2(true)} />
         </div>
         <div className="flex  items-center justify-center gap-5 text-white text-xl mr-1">
+          {/* Dil Seçme Dropdown */}
+          <select
+            value={language}
+            onChange={handleLanguageChange}
+            className="bg-gray-800 text-white border rounded px-2 py-1"
+          >
+            <option value="tr">Türkçe</option>
+            <option value="en">English</option>
+          </select>
           <div
             className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
             onClick={toggleDrawer2(true)}
@@ -150,27 +168,49 @@ const Navbar = () => {
           onKeyDown={toggleDrawer(false)}
           sx={{ color: "white" }}
         >
-          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,"basmala"].map(
-            (issue, index) => (
-              <ListItem
-                key={index}
-                component={Link}
-                to={issue === 0 ? "/" : `/${issue}`}
-                onClick={() => handleListItemClick(issue)}
-                sx={{
-                  bgcolor: selectedItem === issue ? "black" : "inherit",
-                  "&:hover": {
-                    bgcolor: "black",
-                  },
-                }}
-              >
-                <AiOutlineNumber className="mr-1" />
-                <ListItemText
-                  primary={issue === 0 ? "Anasayfa" : issue==="basmala" ? "Besmele Etkisi" : `Sayı ${issue}`}
-                />
-              </ListItem>
-            )
-          )}
+          {[
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            "basmala",
+          ].map((issue, index) => (
+            <ListItem
+              key={index}
+              component={Link}
+              to={issue === 0 ? "/" : `/${issue}`}
+              onClick={() => handleListItemClick(issue)}
+              sx={{
+                bgcolor: selectedItem === issue ? "black" : "inherit",
+                "&:hover": {
+                  bgcolor: "black",
+                },
+              }}
+            >
+              <AiOutlineNumber className="mr-1" />
+              <ListItemText
+                primary={
+                  issue === 0
+                    ? "Anasayfa"
+                    : issue === "basmala"
+                    ? "Besmele Etkisi"
+                    : `Sayı ${issue}`
+                }
+              />
+            </ListItem>
+          ))}
         </List>
       </Drawer>
 
