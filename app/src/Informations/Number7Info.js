@@ -1,22 +1,25 @@
 import React from "react";
 import BilgiMetniniGosterenComponent from "../components/BilgiMetniniGosterenComponent";
 import { SiMiraheze } from "react-icons/si";
+import { useLanguage } from "../context/LanguageContext";
 
 const Number7Info = () => {
+  const { translations } = useLanguage();
+
   return (
     <BilgiMetniniGosterenComponent>
       <p className="text-yellow-400 flex items-center gap-2">
         <SiMiraheze />
-        Yedinci Sayı
+        {translations.number7Info.title}
       </p>
       <p>
-      6 sayıdaki aynı yöntemle sureler geriden gelerek yazıldığında(114.Sure - 113. Sure.... 1. Sure), yani son sureden başlayıp ilk sure ile son bulacak şekilde surelerin sırası tersine çevrildiğinde ve her bir surenin ayetlerinden sonra ayet sayılarının toplamı yerleştirildiğinde, sonuç hala 19’un bir katıdır.
+      {translations.number7Info.text1}
       </p>
       <p>
-      Surelerin sırasını tersine çevirip—son sureden başlayıp ilk sure ile bitirerek—ve her ayetin numarası ile birlikte her sure için ayetlerinden sonra ayet sayılarının toplamı yazıldığında, sonuç 12836 basamaklı uzun bir sayıdır. Bu uzun sayı 19’un bir katıdır.
+      {translations.number7Info.text2}
       </p>
       <p className="text-green-300">
-      123456 21 12345 15..12345..286 41041 1234567 28
+        123456 21 12345 15..12345..286 41041 1234567 28
       </p>
     </BilgiMetniniGosterenComponent>
   );
