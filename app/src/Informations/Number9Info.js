@@ -1,20 +1,23 @@
 import React from "react";
 import BilgiMetniniGosterenComponent from "../components/BilgiMetniniGosterenComponent";
 import { SiMiraheze } from "react-icons/si";
+import { useLanguage } from "../context/LanguageContext";
+
 
 const Number9Info = () => {
+  const { translations } = useLanguage();
+
   return (
     <BilgiMetniniGosterenComponent>
       <p className="text-yellow-400 flex items-center gap-2">
         <SiMiraheze />
-        Dokuzuncu Sayı
+        {translations.number9Info.title}
       </p>
       <p>
-        Şimdi, “Sekizinci Sayıda” gösterildiği gibi, sure numarası ile onun ayet sayısını tersine çevirelim. Böylelikle, ilk iki sureyi temsil eden sayılar 1 7 & 2 286 yerine şu şekilde gözükür: 7 1 & 286 2. Tam sayı yine 474 basamaklıdır ve hala 19’un bir katıdır.
-      </p>
+        {translations.number9Info.text1}    
+       </p>
       <p>
-        Sure numarası ve ayet sayısını tersine çevirmek hâlâ bize 19’un bir katı olan uzun bir sayı verir. Şu şekilde gözükür:
-
+      {translations.number9Info.text2}  
       </p>
       <p className="text-green-300">
         333410 6234 114 7 1 286 2 200 3…5 113 6 114
