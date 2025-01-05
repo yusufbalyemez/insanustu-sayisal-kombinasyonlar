@@ -16,6 +16,9 @@ const Number15Info = () => {
       <p>
       {translations.number15Info.text1}
       </p>
+      <p>
+      {translations.number15Info.text2}
+      </p>
       <p className="text-green-300">
         1234567 8 12345….286 288 ………12345 120
       </p>
