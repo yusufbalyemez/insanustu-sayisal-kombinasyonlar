@@ -1,8 +1,10 @@
 import { FaCopy } from "react-icons/fa";
 import { FaCircleCheck } from "react-icons/fa6";
 import { TbSquaresSelected } from "react-icons/tb";
+import { useLanguage } from "../context/LanguageContext";
 
 const CopyAndSelectButtons = ({copyState,goster,handleCopy,setSelectedSurahs}) => {
+    const { translations } = useLanguage(); // Çeviri verilerini al
   return (
     <>
     {goster && (
@@ -15,12 +17,12 @@ const CopyAndSelectButtons = ({copyState,goster,handleCopy,setSelectedSurahs}) =
               {copyState ? (
                 <>
                   <FaCircleCheck />
-                  Kopyalandı
+                  {translations.buttons.copied}
                 </>
               ) : (
                 <>
                   <FaCopy />
-                  Sayıyı Kopyala
+                  {translations.buttons.copy}
                 </>
               )}
             </button>
@@ -29,7 +31,7 @@ const CopyAndSelectButtons = ({copyState,goster,handleCopy,setSelectedSurahs}) =
               onClick={()=> setSelectedSurahs([])}
             >
               <TbSquaresSelected className="text-xl"/>
-              Seçimleri Kaldır
+              {translations.buttons.clearSelection}
             </button>
           </div>
         </div>

@@ -22,7 +22,9 @@ import { useDifferentRefs } from "../context/DifferentRefsContext";
 
 import { useLanguage } from "../context/LanguageContext";
 
+
 const Navbar = () => {
+  const { translations } = useLanguage(); // Çeviri verilerini al
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
@@ -162,7 +164,7 @@ const Navbar = () => {
         }}
       >
         <div className="flex flex-col items-center justify-center text-center text-white">
-          <span className="my-2 border-b">SUPERHUMAN NUMBERS</span>
+          <span className="my-2 border-b">{translations.navbar.title}</span>
         </div>
         <List
           onClick={toggleDrawer(false)}

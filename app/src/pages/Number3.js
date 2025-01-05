@@ -26,8 +26,10 @@ import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number3Info from "../Informations/Number3Info";
+import { useLanguage } from "../context/LanguageContext";
 
 const Number3 = () => {
+  const { translations } = useLanguage(); // Çeviri verilerini al
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
   const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
   const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
@@ -40,10 +42,10 @@ const Number3 = () => {
     navigator.clipboard
       .writeText(stringSayi)
       .then(() => {
-        toast.success("Sayı Kopyalandı.");
+        toast.success(`${translations.toastMessages.copied}`);
       })
       .catch((err) => {
-        toast.error("Kopyalama başarısız.");
+        toast.error(`${translations.toastMessages.copiedError}`);
       });
     setCopyState(true);
   };
@@ -118,7 +120,7 @@ const Number3 = () => {
       </Helmet>
 
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
-      <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
+      <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} translations={translations} />
 
       {/* Sayıyı yada Açıklama Metnini Gösteren Bileşen */}
       <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
@@ -176,30 +178,28 @@ const Number3 = () => {
                     );
                   }
                 }}
-                className={`${
-                  isDifferent(eleman, orginQuranEmptyList)
+                className={`${isDifferent(eleman, orginQuranEmptyList)
                     ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
                     : eleman.durum === "ayet-sayisi"
-                    ? "text-yellow-400" // Ayet sayısı için sarı
-                    : eleman.durum === "ayetNo"
-                    ? "text-white" // Ayet numarası için beyaz
-                    : eleman.durum === "toplam-ayet-sayisi"
-                    ? "text-green-300" // Toplam ayet sayısı için mavi
-                    : eleman.durum === "sureNo"
-                    ? "text-blue-500" // sure numarası için mavi
-                    : ""
-                } ${
-                  selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
-                } mr-1 mb-1 cursor-pointer`}
+                      ? "text-yellow-400" // Ayet sayısı için sarı
+                      : eleman.durum === "ayetNo"
+                        ? "text-white" // Ayet numarası için beyaz
+                        : eleman.durum === "toplam-ayet-sayisi"
+                          ? "text-green-300" // Toplam ayet sayısı için mavi
+                          : eleman.durum === "sureNo"
+                            ? "text-blue-500" // sure numarası için mavi
+                            : ""
+                  } ${selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
+                  } mr-1 mb-1 cursor-pointer`}
               >
                 {eleman.deger}
               </span>
             );
           })}
-       </SayiyiGosterenComponent>
+        </SayiyiGosterenComponent>
       ) : (
         //Sayının bilgi metnini gösteren bileşen
-        <Number3Info/>
+        <Number3Info />
       )}
     </KapsayiciComponent>
   );

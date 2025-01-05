@@ -4,6 +4,8 @@ import surahInfo from "../assets/SurahInfo.json";
 
 import { toast } from "react-toastify";
 
+
+
 export const suredekiTumAyetSayilariniYazdir = (sure, orjinalBosDizi) => {
   //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
   for (let i = 1; i <= sure.totalAyahs; i++) {

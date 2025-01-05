@@ -123,5 +123,25 @@
         "text2": "The following quotation is taken from STUDIES IN JEWISH MYSTICISM, (Association for Jewish Studies, Cambridge, Mass., Joseph Dan & Frank Talmage, eds., Page 88, 1982). The quotation refers to the work of Rabbi Judah the Pious (12th Century AD):",
         "text3": "The people [Jews] in France made it a custom to add [in the morning prayer] the words: “ ’Ashrei temimei derekh [blessed are those who walk the righteous way],” and our Rabbi, the Pious, of blessed memory, wrote that they were completely and utterly wrong. It is all gross falsehood, because there are only nineteen times that the Holy Name is mentioned [in that portion of the morning prayer]... and similarly you find the word ’Elohim nineteen times in the pericope of Ve-’elleh shemot. . . . Similarly, you find that Israel were called “sons” nineteen times, and there are many other examples. All these sets of nineteen are intricately intertwined, and they contain many secrets and esoteric meanings, which are contained in more than eight large volumes... Furthermore, in this section there are 152 (19x8) words.",
         "text4": "ALL PRAISE IS DUE TO GOD, LORD OF THE UNIVERSE."
+    },
+    "navbar": {
+        "title": "Superhuman Mathematical System",
+        "home": "Homepage",
+        "numbers": "Numbers"
+    },
+    "resultDisplay": {
+        "text1": "Number of Steps:",
+        "text2": "Remaining from division to 19:"
+    },
+    "toastMessages": {
+        "copied": "Copied.",
+        "copiedError": "Copy failed."
+    },
+    "buttons": {
+        "copy": "Copy Number",
+        "copied": "Copied",
+        "clearSelection": "Clear Selections",
+        "text1": "Show Number",
+        "text2": "Show Text"
     }
 }
