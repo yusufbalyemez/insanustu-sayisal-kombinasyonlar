@@ -21,7 +21,7 @@
         "title":"ÜÇÜNCÜ SAYI",
         "text1":"Her ayetin numarası, ardından sure numarası, sonra bu suredeki ayetlerin sayısı. Numaralı ayetlerin toplam sayısı en sona eklenir. (12930 basamaklı) bu uzun sayı 19’un bir katıdır.",
         "text2" :"Şimdi her surenin numarasını dâhil edelim.",
-        "text3" :"Her suredeki toplam ayet sayısını sureden sonra koymak yerine, bunu surenin önüne koyalım. Böylelikle, Sure 1’i temsil eden sayı 1234567 1 7 yerine şu şekilde gözükür: 7 1234567 1 ve Sure 2’yi temsil eden sayı 12345.....284 285 286 2 286 yerine şu şekilde gözükür: 286 12345.... 284 285 286 2. Tüm Kuran’ı temsil eden bu çok uzun sayı 19’un bir katıdır."
+        "text3" :"Her suredeki her ayetin numarasını, ardından sure numarasını, ardından suredeki ayetlerin sayısını yazın. Böylelikle, Sure 1’i temsil eden sayı şu şekilde gözükür: 1234567 1 7. Sure 2’yi temsil eden sayı şu şekilde gözükür: 1 2 3 4 5......284 285 286 2 286. Son sureyi (No. 114) temsil eden sayı ise şu şekilde gözükür: 1 2 3 4 5 6 114 6. Tekrar, numaralı ayetlerin toplam sayısı (6234) en sona eklenir. Bu sayı, tüm Kuran’ı temsil eder, 19’un bir katıdır; şu şekilde gözükür:"
     },
     "number4Info":
     {
@@ -48,7 +48,7 @@
     "number7Info":
     {
         "title":"YEDİNCİ SAYI",
-        "text1":"6 sayıdaki aynı yöntemle sureler geriden gelerek yazıldığında(114.Sure - 113. Sure.... 1. Sure), yani son sureden başlayıp ilk sure ile son bulacak şekilde surelerin sırası tersine çevrildiğinde ve her bir surenin ayetlerinden sonra ayet sayılarının toplamı yerleştirildiğinde, sonuç hala 19’un bir katıdır.",
+        "text1":"Hatta geriden gelerek yazıldığında, yani son sureden başlayıp ilk sure ile son bulacak şekilde surelerin sırası tersine çevrildiğinde ve her bir surenin ayetlerinden sonra ayet sayılarının toplamı yerleştirildiğinde, sonuç hâlâ 19’un bir katıdır.",
         "text2" :"Surelerin sırasını tersine çevirip—son sureden başlayıp ilk sure ile bitirerek—ve her ayetin numarası ile birlikte her sure için ayetlerinden sonra ayet sayılarının toplamı yazıldığında, sonuç 12836 basamaklı uzun bir sayıdır. Bu uzun sayı 19’un bir katıdır."
     },
     "number8Info":
@@ -78,7 +78,8 @@
     "number12Info":
     {
         "title":"ONİKİNCİ SAYI",
-        "text1":"Herhangi biri, herhangi bir Kuranî parametrenin bu harika matematiksel kodla korunmadığını düşünebiliyorsa, o halde daha fazla parametreye bakalım. Eğer sure sayısını (114), ardından numaralı ayetlerin toplam sayısını, ardından tüm Kuran’daki ayet numaralarının Genel Toplamını (333410), ardından her surenin numarası ile onun ayetlerini yazarsak, sonunda 19’un katı olan (12712 basamaklı) büyük bir sayı ile karşılaşırız."
+        "text1":"Herhangi biri, herhangi bir Kuranî parametrenin bu harika matematiksel kodla korunmadığını düşünebiliyorsa, o halde daha fazla parametreye bakalım. Eğer sure sayısını (114), ardından numaralı ayetlerin toplam sayısını, ardından tüm Kuran’daki ayet numaralarının Genel Toplamını (333410), ardından her surenin numarası ile onun ayetlerini yazarsak, sonunda 19’un katı olan (12712 basamaklı) büyük bir sayı ile karşılaşırız.",
+        "text2": "Eğer sure sayısını (114), ardından numaralı ayetlerin toplam sayısını, ardından tüm Kuran’daki ayet numaralarının Genel Toplamını (333410), ardından her surenin numarası ile onun ayetlerini yazarsak, sonunda 19’un katı olan (12712 basamaklı) büyük bir sayı ile karşılaşırız."
     },
     "number13Info":
     {
