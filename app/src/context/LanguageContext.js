@@ -8,7 +8,7 @@ const LanguageContext = createContext();
 // Provider bileşeni
 export const LanguageProvider = ({ children }) => {
   // Varsayılan dili localStorage'dan kontrol et, yoksa 'tr' kullan
-  const initialLanguage = localStorage.getItem('language') || 'tr';
+  const initialLanguage = localStorage.getItem('lang_quran_evidence') || 'tr';
   const [language, setLanguage] = useState(initialLanguage);
   const [translations, setTranslations] = useState(initialLanguage === 'tr' ? LanguageTR : LanguageEN);
 
@@ -19,7 +19,7 @@ export const LanguageProvider = ({ children }) => {
     } else if (language === 'en') {
       setTranslations(LanguageEN);
     }
-    localStorage.setItem('language', language); // Seçilen dili localStorage'a kaydet
+    localStorage.setItem('lang_quran_evidence', language); // Seçilen dili localStorage'a kaydet
   }, [language]);
 
   return (

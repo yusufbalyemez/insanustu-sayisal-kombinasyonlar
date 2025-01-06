@@ -61,7 +61,7 @@ export const suredekiAyetNumaralarinToplaminiYazdir = (sure, orjinalBosDizi) => 
 }
 
 export const tumAyetNumaralarininToplaminiYazdir = (QURAN, orjinalBosDizi) => {
-  let tumAyetNoToplamlari=0;
+  let tumAyetNoToplamlari = 0;
   QURAN.forEach((sure) => {
     for (let i = 1; i <= sure.totalAyahs; i++) {
       tumAyetNoToplamlari += i;
@@ -90,9 +90,9 @@ export const suredekiAyetSayisiniYazdir = (sure, orjinalBosDizi) => {
 }
 
 export const sureNoVeSuredekiAyetSayilarininToplamlariniYazdir = (sure, orjinalBosDizi) => {
-  let topla=0;
-      topla = sure.totalAyahs + sure.surahNumber;
-      orjinalBosDizi.push({ durum: "sureNo+AyetSayisi", sureAdi:sure.surahName, sureNo:sure.surahNumber, deger: topla });
+  let topla = 0;
+  topla = sure.totalAyahs + sure.surahNumber;
+  orjinalBosDizi.push({ durum: "sureNo+AyetSayisi", sureAdi: sure.surahName, sureNo: sure.surahNumber, deger: topla });
 }
 
 
@@ -103,8 +103,8 @@ export const sureNoVeSuredekiAyetSayilarininToplamlariniYazdir = (sure, orjinalB
 
 
 
-export const tumAyetNumaralarininToplaminiHesaplamaDizisineEkle = (QURAN, bosDizi,stringBuyukSayi) => {
-  let tumAyetNoToplamlari=0;
+export const tumAyetNumaralarininToplaminiHesaplamaDizisineEkle = (QURAN, bosDizi, stringBuyukSayi) => {
+  let tumAyetNoToplamlari = 0;
   QURAN.forEach((sure) => {
     for (let i = 1; i <= sure.totalAyahs; i++) {
       tumAyetNoToplamlari += i;
@@ -185,7 +185,7 @@ export const suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle = (sure, bosD
   return { bosDizi, stringBuyukSayi };
 }
 
-export const kurandakiSureSayisiniHesaplamaDizisineEkle = (quranList, bosDizi,stringBuyukSayi) => {
+export const kurandakiSureSayisiniHesaplamaDizisineEkle = (quranList, bosDizi, stringBuyukSayi) => {
   bosDizi.push({
     durum: "sure-sayisi",
     deger: quranList.length,
@@ -194,14 +194,14 @@ export const kurandakiSureSayisiniHesaplamaDizisineEkle = (quranList, bosDizi,st
   return { bosDizi, stringBuyukSayi };
 }
 
-export const sureNumarlariniHesaplamaDizisineEkle = (sure,bosDizi, stringBuyukSayi) => {
+export const sureNumarlariniHesaplamaDizisineEkle = (sure, bosDizi, stringBuyukSayi) => {
   bosDizi.push({ durum: "sureNo", sureNo: sure.surahNumber, sureAdi: sure.surahNumber, deger: sure.surahNumber });
   stringBuyukSayi += sure.surahNumber.toString();
 
   return { bosDizi, stringBuyukSayi };
 }
 
-export const suredekiAyetSayisiniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
+export const suredekiAyetSayisiniHesaplamaDizisineEkle = (sure, bosDizi, stringBuyukSayi) => {
   bosDizi.push({ durum: "ayet-sayisi", sureNo: sure.surahNumber, sureAdi: sure.surahNumber, deger: sure.totalAyahs });
   stringBuyukSayi += sure.totalAyahs.toString();
   return { bosDizi, stringBuyukSayi };
@@ -209,13 +209,13 @@ export const suredekiAyetSayisiniHesaplamaDizisineEkle = (sure,bosDizi,stringBuy
 
 
 
-export const sureNoVeSuredekiAyetSayilarininToplamlariniHesaplamaDizisineEkle = (sure,bosDizi,stringBuyukSayi) => {
-  let topla=0;
-      topla = sure.totalAyahs + sure.surahNumber;
-      bosDizi.push({ durum: "sureNo+AyetSayisi", sureAdi:sure.surahName, sureNo:sure.surahNumber, deger: topla });
-      stringBuyukSayi += topla.toString();
+export const sureNoVeSuredekiAyetSayilarininToplamlariniHesaplamaDizisineEkle = (sure, bosDizi, stringBuyukSayi) => {
+  let topla = 0;
+  topla = sure.totalAyahs + sure.surahNumber;
+  bosDizi.push({ durum: "sureNo+AyetSayisi", sureAdi: sure.surahName, sureNo: sure.surahNumber, deger: topla });
+  stringBuyukSayi += topla.toString();
 
-      return { bosDizi, stringBuyukSayi };
+  return { bosDizi, stringBuyukSayi };
 }
 
 
@@ -244,6 +244,7 @@ export const handleAyatClick = (
   selectedSurahs,
   setSelectedSurahs
 ) => {
+  const language = localStorage.getItem('lang_quran_evidence');
 
   if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
     const matchedSurah = surahInfo.find(
@@ -251,14 +252,31 @@ export const handleAyatClick = (
     );
     if (matchedSurah) {
       if (ayatNumber > matchedSurah.totalAyahs) {
-        toast.error(
-          `Ekleme tespit edildi. [${surahNumber}] ${surahName} Suresinde böyle bir ayet olmamalıydı.`
-        );
+        if (language === "tr") {
+          toast.error(
+            `Ekleme tespit edildi. ${surahNumber}. surede böyle bir ayet olmamalıydı.`
+          );
+        } else if (language === "en") {
+          toast.error(
+            `Addition detected. There should not be such an ayah in ${surahNumber}. surah.`
+          );
+
+        }
       } else {
-        toast.success(`[${surahNumber}] ${surahName} ${ayatNumber}. Ayet`);
+        if (language === "tr") {
+          toast.success(`${surahNumber}. Surenin ${ayatNumber}. Ayeti`);
+        } else if (language === "en") {
+          toast.success(`${ayatNumber}. Ayah of ${surahNumber}. Surah`);
+        }
+
       }
     } else {
-      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      if (language === "tr") {
+        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      } else if (language === "en") {
+        toast.error(`Invalid Surah Number: ${surahNumber}`);
+      }
+
     }
 
   }
@@ -272,16 +290,25 @@ export const handleBasmalaClick = (
   selectedSurahs,
   setSelectedSurahs
 ) => {
-
+  const language = localStorage.getItem('lang_quran_evidence');
   if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
     const matchedSurah = surahInfo.find(
       (surah) => surah.surahNumber === surahNumber
     );
     if (matchedSurah) {
       if (matchedSurah.startsWithBasmala === currentValue) {
-        toast.success(`[${surahNumber}] ${surahName} Suresinin başında besmele olması gerektiğini göstermektedir.`);
+        if (language === "tr") {
+          toast.success(`${surahNumber}. surenin başında besmele olması gerektiğini göstermektedir.`);
+        } else if (language === "en") {
+          toast.success(`It shows that the ${surahNumber}. surah should start with Basmala.`);
+        }
+
       } else {
-        toast.error(`[${surahNumber}] ${surahName} Suresinin başında besmele olmaması gerektiğini gösteriyor.`);
+        if (language === "tr") {
+          toast.error(`${surahNumber} surenin başında besmele olmaması gerektiğini gösteriyor.`);
+        } else if (language === "en") {
+          toast.error(`It shows that the ${surahNumber} surah should not start with Basmala.`);
+        }
       }
     }
 
@@ -298,6 +325,7 @@ export const handleTotalClick = (
   selectedSurahs,
   setSelectedSurahs
 ) => {
+  const language = localStorage.getItem('lang_quran_evidence');
   // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
 
   if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
@@ -308,16 +336,33 @@ export const handleTotalClick = (
 
     if (matchedSurah) {
       if (matchedSurah.totalAyahs === currentValue) {
-        toast.success(
-          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Ayet Sayısı : ${matchedSurah.totalAyahs}`
-        );
+        if (language === "tr") {
+          toast.success(
+            `${surahNumber}. Surenin Ayet Sayısı : ${matchedSurah.totalAyahs}`
+          );
+        } else if (language === "en") {
+          toast.success(
+            `The Number of Verses in ${surahNumber}. Surah : ${matchedSurah.totalAyahs}`);
+        }
+
       } else {
-        toast.error(
-          `[${surahNumber}] ${matchedSurah.surahName} Suresi Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${currentValue} değil!`
-        );
+        if (language === "tr") {
+          toast.error(
+            `${surahNumber}. Suresinin Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${currentValue} değil!`
+          );
+        } else if (language === "en") {
+          toast.error(
+            `The Number of Verses in ${surahNumber}. Surah is Wrong! It should be ${matchedSurah.totalAyahs} not ${currentValue}!`
+          );
+        }
+
       }
     } else {
-      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      if (language === "tr") {
+        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      } else if (language === "en") {
+        toast.error(`Invalid Surah Number: ${surahNumber}`);
+      }
     }
   }
 
@@ -332,6 +377,7 @@ export const handleAyahsTotalClick = (
   setSelectedSurahs
 ) => {
   // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+  const language = localStorage.getItem('lang_quran_evidence');
 
   if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
     //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
@@ -347,16 +393,33 @@ export const handleAyahsTotalClick = (
         sayi = sayi + i;
       }
       if (sayi === currentValue) {
-        toast.success(
-          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Her bir ayet numaralarının toplamı : ${sayi}`
-        );
+        if (language === "tr") {
+          toast.success(
+            `${surahNumber}. surenin her bir ayet numaralarının toplamı : ${sayi}`
+          );
+        } else if (language === "en") {
+          toast.success(
+            `The sum of the verse numbers of each verse of ${surahNumber}. surah : ${sayi}`
+          );
+        }
       } else {
-        toast.error(
-          `[${surahNumber}] ${matchedSurah.surahName} Suresi Ayet Numaralarının Toplamı Yanlış! Doğrusu: ${sayi} olmalıydı. ${currentValue} değil!`
-        );
+        if (language === "tr") {
+          toast.error(
+            `${surahNumber}. Surenin Ayet Numaralarının Toplamı Yanlış! Doğrusu: ${sayi} olmalıydı. ${currentValue} değil!`
+          );
+        } else if (language === "en") {
+          toast.error(
+            `The sum of the verse numbers of ${surahNumber}. Surah is Wrong! It should be ${sayi} not ${currentValue}!`
+          );
+        }
       }
     } else {
-      toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      if (language === "tr") {
+        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+      } else if (language === "en") {
+        toast.error(`Invalid Surah Number: ${surahNumber}`);
+      }
+
     }
   }
 
@@ -372,6 +435,7 @@ export const handleSurahAndSurahNumberTotalClick = (
   setSelectedSurahs
 ) => {
   // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
+  const language = localStorage.getItem('lang_quran_evidence');
 
   if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
     //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
@@ -383,13 +447,26 @@ export const handleSurahAndSurahNumberTotalClick = (
       let topla = 0;
       topla = matchedSurah.totalAyahs + matchedSurah.surahNumber;
       if (topla === currentValue) {
-        toast.success(
-          `[${surahNumber}] ${matchedSurah.surahName} Suresinin Ayet Sayısı(${matchedSurah.totalAyahs}) ve Sure Numarasının(${matchedSurah.surahNumber}) Toplamı : ${topla}`
-        );
+        if (language === "tr") {
+          toast.success(
+            `${surahNumber}. Surenin Ayet Sayısı(${matchedSurah.totalAyahs}) ve Sure Numarasının(${matchedSurah.surahNumber}) Toplamı : ${topla}`
+          );
+        } else if (language === "en") {
+          toast.success(
+            `${surahNumber}. Surah's Ayah Number(${matchedSurah.totalAyahs}) and Surah Number(${matchedSurah.surahNumber}) Total : ${topla}`
+          );
+        }
       } else {
-        toast.error(
-          `[${surahNumber}] ${matchedSurah.surahName} Suresi Ayet Sayısı ve Sure Numarasının Toplamı Yanlış! Doğrusu: ${topla} olmalıydı. ${currentValue} değil!`
-        );
+        if (language === "tr") {
+          toast.error(
+            `${surahNumber}. Surenin Ayet Sayısı ve Sure Numarasının Toplamı Yanlış! Doğrusu: ${topla} olmalıydı. ${currentValue} değil!`
+          );
+        } else if (language === "en") {
+          toast.error(
+            `The sum of the number of verses and the number of the surah of ${surahNumber}. Surah is Wrong! It should be ${topla} not ${currentValue}!`
+          );
+        }
+        
       }
     }
   }
@@ -399,24 +476,50 @@ export const handleSurahAndSurahNumberTotalClick = (
 
 
 export const handleTotalAyatClick = (value) => {
+  const language = localStorage.getItem('lang_quran_evidence');
   if (value === 6234) {
-    toast.success(`Kurandaki Numaralı Ayet Sayısı: ${value}, Numarasız 112(Besmele) 6234+112=6346 ayetten oluşmaktadır.`);
+    if (language === "tr") {
+      toast.success(`Kurandaki Numaralı Ayet Sayısı: ${value}, Numarasız 112(Besmele) 6234+112=6346 ayetten oluşmaktadır.`);
+    } else if (language === "en") {
+      toast.success(`Numbered Verses in the Quran: ${value}, Unnumbered 112(Basmala) 6234+112=6346 verses.`);
+    }
   } else {
-    toast.error(`Hata tespit edildi. Kurandaki numaralı toplam ayet sayısı ${value} değil, 6234 olmalıydı!`);
+    if(language === "tr") {
+      toast.error(`Hata tespit edildi. Kurandaki numaralı toplam ayet sayısı ${value} değil, 6234 olmalıydı!`);
+    } else if (language === "en") {
+      toast.error(`Error detected. The total number of numbered verses in the Quran should be 6234, not ${value}!`);
+    }
+   
   }
 
 };
 
 export const handleTotalAyahsInQuranClick = (value) => {
-  if (value === 333410 ) {
-    toast.success(`Kurandaki tüm ayet numaralarının toplamı : ${value}`);
+  const language = localStorage.getItem('lang_quran_evidence');
+  if (value === 333410) {
+    if (language === "tr") {
+      toast.success(`Kurandaki tüm ayet numaralarının toplamı : ${value}`);
+    } else if (language === "en") {
+      toast.success(`The total of all verse numbers in the Quran : ${value}`);
+    }
   } else {
-    toast.error(`Hata tespit edildi. Kurandaki tüm ayet numaralarının toplamı ${value} değil, 333410 olmalıydı!`);
+    if(language === "tr") {
+      toast.error(`Hata tespit edildi. Kurandaki tüm ayet numaralarının toplamı ${value} değil, 333410 olmalıydı!`);
+    } else if (language === "en") {
+      toast.error(`Error detected. The total of all verse numbers in the Quran should be 333410, not ${value}!`);
+    }
+    
   }
 }
 
 export const handleSurahNumberClick = () => {
-  toast.success(`Kuranda 114 Sure bulunmaktadır.`)
+  const language = localStorage.getItem('lang_quran_evidence');
+  if(language === "tr") {
+    toast.success(`Kuranda 114 Sure bulunmaktadır.`)
+  } else if (language === "en") {
+    toast.success(`There are 114 Surahs in the Quran.`)
+  }
+
 }
 
 
@@ -425,15 +528,23 @@ export const handleSurahNoClick = (
   surahName,
   setSelectedSurahs
 ) => {
+  const language = localStorage.getItem('lang_quran_evidence');
   setSelectedSurahs((prevSelected) => {
     const isSelected = prevSelected.includes(surahNumber);
     const newSelected = isSelected
       ? prevSelected.filter((num) => num !== surahNumber)
       : [...prevSelected, surahNumber];
     if (!isSelected) {
-      toast.success(
-        `Tıklanan ${surahNumber} sayısı ${surahName} suresinin sıra numarasıdır.`
-      );
+      if (language === "tr") {
+        toast.success(
+          ` ${surahNumber}. surenin kurandaki sırası.`
+        );
+      } else if (language === "en") {
+        toast.success(
+          `The order of ${surahNumber}. surah in the Quran.`
+        );
+      }
+     
     }
     return newSelected;
   });
