@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "../images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
-import { MdOutlineFormatListNumberedRtl } from "react-icons/md";
+import { MdOutlineFormatListNumberedRtl, MdOutlineLanguage } from "react-icons/md";
 import { CiViewList } from "react-icons/ci";
 
 import {
@@ -31,6 +31,7 @@ const Navbar = () => {
   const { quranList, setQuranList } = useQuran();
   const [tempQuranList, setTempQuranList] = useState([]);
   const { scrollToDifferent, clearDifferentRefs } = useDifferentRefs(); // Scroll fonksiyonunu al
+  const lang = localStorage.getItem('lang_quran_evidence');
 
   // Dil Context'i
   const { language, setLanguage } = useLanguage();
@@ -121,20 +122,20 @@ const Navbar = () => {
           <img src={logo} alt="Logo" onClick={toggleDrawer2(true)} />
         </div>
         <div className="flex  items-center justify-center gap-5 text-white text-xl mr-1">
-          
+
           <div
             className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
             onClick={toggleDrawer2(true)}
           >
-            <CiViewList />
-            Tablo
+            <CiViewList style={{ marginTop: '3px' }}/>
+            {lang === 'tr' ? "Sure Listesi" : "Surah List"}
           </div>
           <div
             className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
             onClick={toggleDrawer(true)}
           >
-            <MdOutlineFormatListNumberedRtl />
-            Sayılar
+            <MdOutlineFormatListNumberedRtl style={{ marginTop: '3px' }}/>
+            {lang === 'tr' ? "Sayılar" : "Numbers"}
           </div>
           {/* <div
             className="text-white text-3xl border border-gray-400 p-3 rounded-md cursor-pointer"
@@ -206,12 +207,19 @@ const Navbar = () => {
               <ListItemText
                 primary={
                   issue === 0
-                    ? "Anasayfa"
+                    ? lang === 'tr'
+                      ? "Anasayfa"
+                      : "Home"
                     : issue === "basmala"
-                    ? "Besmele Etkisi"
-                    : `Sayı ${issue}`
+                      ? lang === 'tr'
+                        ? "Besmele Etkisi"
+                        : "Effect of Basmala"
+                      : lang === 'tr'
+                        ? `Sayı ${issue}`
+                        : `Number ${issue}`
                 }
               />
+
             </ListItem>
           ))}
         </List>
@@ -237,7 +245,7 @@ const Navbar = () => {
 
         <div className="flex flex-col items-center justify-center text-center text-white">
           <span className="my-2 text-blue-300 font-bold">
-            SUPERHUMAN NUMBERS
+          {lang === 'tr' ? "İNSANÜSTÜ SAYILAR" : "SUPERHUMAN NUMBERS"}
           </span>
         </div>
         <div className="flex flex-col gap-2 mt-2">
@@ -247,18 +255,18 @@ const Navbar = () => {
             color="success"
             onClick={handleDefaultQuranList}
           >
-            Varsayılana Ayarla
+             {lang === 'tr' ? "Varsayılana Ayarla" : "Set Default"}
           </Button>
         </div>
         <table className="text-white text-center">
           <thead>
             <tr className="h-10 bg-gray-600">
               <th>No</th>
-              <th>Sure</th>
-              <th>Ayetler</th>
+              <th> {lang === 'tr' ? "Sure" : "Sura"}</th>
+              <th>{lang === 'tr' ? "Ayetler" : "Ayahs"}</th>
               <th>Huruf</th>
-              <th>Besmele</th>
-              <th>Değiştir</th>
+              <th>{lang === 'tr' ? "Besmele" : "Basmala"}</th>
+              <th>{lang === 'tr' ? "Değiştir" : "Change"}</th>
             </tr>
           </thead>
           <tbody>
@@ -312,7 +320,7 @@ const Navbar = () => {
             color="success"
             onClick={handleDefaultQuranList}
           >
-            Varsayılana Ayarla
+             {lang === 'tr' ? "Varsayılana Ayarla" : "Set Default"}
           </Button>
         </div>
       </Drawer>
