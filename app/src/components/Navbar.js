@@ -17,6 +17,7 @@ import {
 import { AiOutlineNumber } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import quran from "../assets/SurahInfo.json";
+import tr_quran from "../assets/SurahInfo_tr.json";
 import { useQuran } from "../context/quranListContext";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 
@@ -108,7 +109,13 @@ const Navbar = () => {
   };
   const handleDefaultQuranList = () => {
     clearDifferentRefs();
-    const defaultQuranList = JSON.parse(JSON.stringify(quran));
+    let defaultQuranList = [];
+    if(language === 'tr'){
+      defaultQuranList = JSON.parse(JSON.stringify(tr_quran));
+    }else{
+      defaultQuranList = JSON.parse(JSON.stringify(quran));
+    }
+
     setQuranList(defaultQuranList);
     setTempQuranList(defaultQuranList);
     localStorage.setItem("quranList", JSON.stringify(defaultQuranList));
@@ -273,7 +280,7 @@ const Navbar = () => {
             {tempQuranList.map((sura, index) => (
               <tr key={index} className="odd:bg-gray-700 even:bg-gray-600">
                 <td>{sura.surahNumber}</td>
-                <td>{sura.surahName}</td>
+                <td>{language === "tr" ? tr_quran[index].surahName : quran[index].surahName}</td>
                 <td>
                   <input
                     id={`ayah-input-${index}`}
