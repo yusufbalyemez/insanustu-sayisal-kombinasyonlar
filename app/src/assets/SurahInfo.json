@@ -282,42 +282,42 @@
   },
   {
     "surahNumber": 41,
-    "surahName": "Fussilat",
+    "surahName": "Detailed (Fussilat)",
     "totalAyahs": 54,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 42,
-    "surahName": "Ash-Shura",
+    "surahName": "Consultation (Al-Shoorã)",
     "totalAyahs": 53,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 43,
-    "surahName": "Az-Zukhruf",
+    "surahName": "Ornaments (Al-Zukhruf)",
     "totalAyahs": 89,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 44,
-    "surahName": "Ad-Dukhan",
+    "surahName": "Smoke (Al-Dukhãn)",
     "totalAyahs": 59,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 45,
-    "surahName": "Al-Jathiyah",
+    "surahName": "Kneeling (Al-Jãtheyah)",
     "totalAyahs": 37,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 46,
-    "surahName": "Al-Ahqaf",
+    "surahName": "The Dunes (Al-Ahqãf)",
     "totalAyahs": 35,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
@@ -331,471 +331,473 @@
   },
   {
     "surahNumber": 48,
-    "surahName": "Al-Fath",
+    "surahName": "Victory (Al-Fatt-h)",
     "totalAyahs": 29,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 49,
-    "surahName": "Al-Hujurat",
+    "surahName": "The Walls (Al-Hujurãt)",
     "totalAyahs": 18,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 50,
-    "surahName": "Qaf",
+    "surahName": "Q (Qãf)",
     "totalAyahs": 45,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 51,
-    "surahName": "Adh-Dhariyat",
+    "surahName": "Drivers of the Winds (Al-Dhãreyãt)",
     "totalAyahs": 60,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 52,
-    "surahName": "At-Tur",
+    "surahName": "Mt. Sinai (Al-Toor)",
     "totalAyahs": 49,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 53,
-    "surahName": "An-Najm",
+    "surahName": "The Stars (El-Necm)",
     "totalAyahs": 62,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 54,
-    "surahName": "Al-Qamar",
+    "surahName": "The Moon (Al-Qamar)",
     "totalAyahs": 55,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 55,
-    "surahName": "Ar-Rahman",
+    "surahName": "Most Gracious (Al-Rahmaan)",
     "totalAyahs": 78,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 56,
-    "surahName": "Al-Waqi'ah",
+    "surahName": "The Inevitable (Al-Waaqe‘ah)",
     "totalAyahs": 96,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 57,
-    "surahName": "Al-Hadid",
+    "surahName": "Iron (Al-Hadeed)",
     "totalAyahs": 29,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 58,
-    "surahName": "Al-Mujadila",
+    "surahName": "The Debate (Al-Mujaadalah)",
     "totalAyahs": 22,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 59,
-    "surahName": "Al-Hashr",
+    "surahName": "Exodus (Al-Hashr)",
     "totalAyahs": 24,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 60,
-    "surahName": "Al-Mumtahina",
+    "surahName": "The Test (Al-Mumtahanah)",
     "totalAyahs": 13,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 61,
-    "surahName": "As-Saff",
+    "surahName": "The Column (Al-Suff)",
     "totalAyahs": 14,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 62,
-    "surahName": "Al-Jumu'ah",
+    "surahName": "Friday (Al-Jumu‘ah)",
     "totalAyahs": 11,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 63,
-    "surahName": "Al-Munafiqun",
+    "surahName": "The Hypocrites (Al-Munaafeqoon)",
     "totalAyahs": 11,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 64,
-    "surahName": "At-Taghabun",
+    "surahName": "Mutual Blaming (Al-Taghaabun)",
     "totalAyahs": 18,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 65,
-    "surahName": "At-Talaq",
+    "surahName": "Divorce (Al-Talaaq)",
     "totalAyahs": 12,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 66,
-    "surahName": "At-Tahrim",
+    "surahName": "Prohibition (Al-Tahreem)",
     "totalAyahs": 12,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 67,
-    "surahName": "Al-Mulk",
+    "surahName": "Kingship (Al-Mulk)",
     "totalAyahs": 30,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 68,
-    "surahName": "Al-Qalam",
+    "surahName": "The Pen (Al-Qalam)",
     "totalAyahs": 52,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": true
   },
   {
     "surahNumber": 69,
-    "surahName": "Al-Haqqah",
+    "surahName": "Incontestable (Al-Haaqqah)",
     "totalAyahs": 52,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 70,
-    "surahName": "Al-Ma'arij",
+    "surahName": "The Heights (Al-Ma‘aarej)",
     "totalAyahs": 44,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 71,
-    "surahName": "Nuh",
+    "surahName": "Noah",
     "totalAyahs": 28,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 72,
-    "surahName": "Al-Jinn",
+    "surahName": "Jinns (Al-Jinn)",
     "totalAyahs": 28,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 73,
-    "surahName": "Al-Muzzammil",
+    "surahName": "Cloaked (Al-Muzzammil)",
     "totalAyahs": 20,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 74,
-    "surahName": "Al-Muddaththir",
+    "surahName": "The Hidden Secret (Al-Muddath-thir)",
     "totalAyahs": 56,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 75,
-    "surahName": "Al-Qiyamah",
+    "surahName": "Resurrection (Al-Qeyaamah)",
     "totalAyahs": 40,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 76,
-    "surahName": "Al-Insan",
+    "surahName": "The Human (Al-Insaan)",
     "totalAyahs": 31,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 77,
-    "surahName": "Al-Mursalat",
+    "surahName": "Dispatched (Al-Mursalaat)",
     "totalAyahs": 50,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 78,
-    "surahName": "An-Naba'",
+    "surahName": "The Event (Al-Naba’)",
     "totalAyahs": 40,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 79,
-    "surahName": "An-Nazi'at",
+    "surahName": "The Snatchers (Al-Naaze‘aat)",
     "totalAyahs": 46,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 80,
-    "surahName": "'Abasa",
+    "surahName": "He Frowned (‘Abasa)",
     "totalAyahs": 42,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 81,
-    "surahName": "At-Takwir",
+    "surahName": "The Rolling (Al-Takweer)",
     "totalAyahs": 29,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 82,
-    "surahName": "Al-Infitar",
+    "surahName": "The Shattering (Al-Infitaar)",
     "totalAyahs": 19,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 83,
-    "surahName": "Al-Mutaffifin",
+    "surahName": "The Cheaters (Al-Mutaffifeen)",
     "totalAyahs": 36,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 84,
-    "surahName": "Al-Inshiqaq",
+    "surahName": "The Rupture (Al-Inshiqaaq)",
     "totalAyahs": 25,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 85,
-    "surahName": "Al-Buruj",
+    "surahName": "The Galaxies (Al-Burooj)",
     "totalAyahs": 22,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 86,
-    "surahName": "At-Tariq",
+    "surahName": "The Bright Star (Al-Taareq)",
     "totalAyahs": 17,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 87,
-    "surahName": "Al-A'la",
+    "surahName": "The Most High (Al-A‘alaa)",
     "totalAyahs": 19,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 88,
-    "surahName": "Al-Ghashiyah",
+    "surahName": "Overwhelming (Al-Ghaasheyah)",
     "totalAyahs": 26,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 89,
-    "surahName": "Al-Fajr",
+    "surahName": "Dawn (Al-Fajr)",
     "totalAyahs": 30,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 90,
-    "surahName": "Al-Balad",
+    "surahName": "The Town (Al-Balad)",
     "totalAyahs": 20,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
+
   {
     "surahNumber": 91,
-    "surahName": "Ash-Shams",
+    "surahName": "The Sun (Al-Shams)",
     "totalAyahs": 15,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 92,
-    "surahName": "Al-Lail",
+    "surahName": "The Night (Al-Layl)",
     "totalAyahs": 21,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 93,
-    "surahName": "Ad-Duha",
+    "surahName": "The Forenoon (Al-Duhaa)",
     "totalAyahs": 11,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 94,
-    "surahName": "Ash-Sharh",
+    "surahName": "Cooling the Temper (Al-Sharrhh)",
     "totalAyahs": 8,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 95,
-    "surahName": "At-Tin",
+    "surahName": "The Fig (Al-Teen)",
     "totalAyahs": 8,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 96,
-    "surahName": "Al-Alaq",
+    "surahName": "The Embryo (Al-‘Alaq)",
     "totalAyahs": 19,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 97,
-    "surahName": "Al-Qadr",
+    "surahName": "Destiny (Al-Qadr)",
     "totalAyahs": 5,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 98,
-    "surahName": "Al-Bayyina",
+    "surahName": "Proof (Al-Bayyinah)",
     "totalAyahs": 8,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 99,
-    "surahName": "Az-Zalzala",
+    "surahName": "The Quake (Al-Zalzalah)",
     "totalAyahs": 8,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 100,
-    "surahName": "Al-Adiyat",
+    "surahName": "The Gallopers (Al-‘Aadeyaat)",
     "totalAyahs": 11,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 101,
-    "surahName": "Al-Qariah",
+    "surahName": "The Shocker (Al-Qariah)",
     "totalAyahs": 11,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 102,
-    "surahName": "At-Takathur",
+    "surahName": "Hoarding (Al-Takaathur)",
     "totalAyahs": 8,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 103,
-    "surahName": "Al-Asr",
+    "surahName": "The Afternoon (Al-‘Asr)",
     "totalAyahs": 3,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 104,
-    "surahName": "Al-Humazah",
+    "surahName": "The Backbiter (Al-Humazah)",
     "totalAyahs": 9,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 105,
-    "surahName": "Al-Fil",
+    "surahName": "The Elephant (Al-Fil)",
     "totalAyahs": 5,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 106,
-    "surahName": "Quraish",
+    "surahName": "Quraish (The Quraish Tribe)",
     "totalAyahs": 4,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 107,
-    "surahName": "Al-Ma'un",
+    "surahName": "Charity (Al-Maa‘oon)",
     "totalAyahs": 7,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 108,
-    "surahName": "Al-Kawthar",
+    "surahName": "Bounty (Al-Kawthar)",
     "totalAyahs": 3,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 109,
-    "surahName": "Al-Kafirun",
+    "surahName": "The Disbelievers (Al-Kaaferoon)",
     "totalAyahs": 6,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 110,
-    "surahName": "An-Nasr",
+    "surahName": "Triumph (Al-Nassr)",
     "totalAyahs": 3,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 111,
-    "surahName": "Al-Masad",
+    "surahName": "Thorns (Al-Masad)",
     "totalAyahs": 5,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 112,
-    "surahName": "Al-Ikhlas",
+    "surahName": "Absoluteness (Al-Ikhlaas)",
     "totalAyahs": 4,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 113,
-    "surahName": "Al-Falaq",
+    "surahName": "Daybreak (Al-Falaq)",
     "totalAyahs": 5,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   },
   {
     "surahNumber": 114,
-    "surahName": "An-Nas",
+    "surahName": "People (An-Nas)",
     "totalAyahs": 6,
     "startsWithBasmala": true,
     "startsWithHurufMuqattaat": false
   }
+  
 ]
