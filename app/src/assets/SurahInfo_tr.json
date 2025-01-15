@@ -1,0 +1,803 @@
+[
+  {
+    "surahNumber": 1,
+    "surahName": "The Key (Al-Fãtehah)",
+    "totalAyahs": 7,
+    "startsWithBasmala": false,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 2,
+    "surahName": "The Heifer (Al-Baqarah)",
+    "totalAyahs": 286,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 3,
+    "surahName": "The Amramites (Ãli-‘Imrãn)",
+    "totalAyahs": 200,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 4,
+    "surahName": "Women (Al-Nesã’)",
+    "totalAyahs": 176,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 5,
+    "surahName": "The Feast (Al-Mã’edah)",
+    "totalAyahs": 120,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 6,
+    "surahName": "Livestock (Al-An‘ãm)",
+    "totalAyahs": 165,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 7,
+    "surahName": "The Purgatory (Al-A‘arãf) ",
+    "totalAyahs": 206,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 8,
+    "surahName": "The Spoils of War (Al-Anfãl)",
+    "totalAyahs": 75,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 9,
+    "surahName": "Ultimatum (Barã’ah)",
+    "totalAyahs": 127,
+    "startsWithBasmala": false,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 10,
+    "surahName": "Jonah (Younus)",
+    "totalAyahs": 109,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 11,
+    "surahName": "Hûd (Hûd)",
+    "totalAyahs": 123,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 12,
+    "surahName": "Joseph (Yousuf)",
+    "totalAyahs": 111,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 13,
+    "surahName": "Thunder (Ar-Ra‘d)",
+    "totalAyahs": 43,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 14,
+    "surahName": "Abraham (Ibrãhîm)",
+    "totalAyahs": 52,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 15,
+    "surahName": "Al-Hijr Valley (Al-Hijr)",
+    "totalAyahs": 99,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 16,
+    "surahName": "The Bee (An-Nahl)",
+    "totalAyahs": 128,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 17,
+    "surahName": "The Children of Israel (Banî Israel)",
+    "totalAyahs": 111,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 18,
+    "surahName": "The Cave (Al-Kahf)",
+    "totalAyahs": 110,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 19,
+    "surahName": "Mary (Maryam)",
+    "totalAyahs": 98,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 20,
+    "surahName": "T.H. (Tã-Hã)",
+    "totalAyahs": 135,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 21,
+    "surahName": "The Prophets (Al-Anbyã’)",
+    "totalAyahs": 112,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 22,
+    "surahName": "Pilgrimage (Al-Hajj)",
+    "totalAyahs": 78,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 23,
+    "surahName": "The Believers (Al Mu’minûn)",
+    "totalAyahs": 118,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+
+  {
+    "surahNumber": 24,
+    "surahName": "Light (Al-Noor)",
+    "totalAyahs": 64,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 25,
+    "surahName": "The Statute Book (Al-Furqãn)",
+    "totalAyahs": 77,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 26,
+    "surahName": "The Poets (Al-Shu‘arã’)",
+    "totalAyahs": 227,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 27,
+    "surahName": "The Ant (Al-Naml)",
+    "totalAyahs": 93,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 28,
+    "surahName": "History (Al-Qasas)",
+    "totalAyahs": 88,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 29,
+    "surahName": "The Spider (Al-‘Ankaboot)",
+    "totalAyahs": 69,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 30,
+    "surahName": "Romans (Al-Room)",
+    "totalAyahs": 60,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 31,
+    "surahName": "Luqmãn (Luqmãn)",
+    "totalAyahs": 34,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 32,
+    "surahName": "Prostration (Al-Sajdah)",
+    "totalAyahs": 30,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 33,
+    "surahName": "The Parties (Al-Ahzãb) ",
+    "totalAyahs": 73,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 34,
+    "surahName": "Sheba (Saba’)",
+    "totalAyahs": 54,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 35,
+    "surahName": "Initiator (Fãter)",
+    "totalAyahs": 45,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 36,
+    "surahName": "Y. S. (Yã Sîn)",
+    "totalAyahs": 83,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 37,
+    "surahName": "The Arrangers (Al-Sãffãt)",
+    "totalAyahs": 182,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 38,
+    "surahName": "S (Saad)",
+    "totalAyahs": 88,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 39,
+    "surahName": "The Throngs (Al-Zumar)",
+    "totalAyahs": 75,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 40,
+    "surahName": "Forgiver (Ghãfer)",
+    "totalAyahs": 85,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 41,
+    "surahName": "Detailed (Fussilat)",
+    "totalAyahs": 54,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 42,
+    "surahName": "Consultation (Al-Shoorã)",
+    "totalAyahs": 53,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 43,
+    "surahName": "Ornaments (Al-Zukhruf)",
+    "totalAyahs": 89,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 44,
+    "surahName": "Smoke (Al-Dukhãn)",
+    "totalAyahs": 59,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 45,
+    "surahName": "Kneeling (Al-Jãtheyah)",
+    "totalAyahs": 37,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 46,
+    "surahName": "The Dunes (Al-Ahqãf)",
+    "totalAyahs": 35,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 47,
+    "surahName": "Muhammad",
+    "totalAyahs": 38,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 48,
+    "surahName": "Victory (Al-Fatt-h)",
+    "totalAyahs": 29,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 49,
+    "surahName": "The Walls (Al-Hujurãt)",
+    "totalAyahs": 18,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 50,
+    "surahName": "Q (Qãf)",
+    "totalAyahs": 45,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 51,
+    "surahName": "Drivers of the Winds (Al-Dhãreyãt)",
+    "totalAyahs": 60,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 52,
+    "surahName": "Mt. Sinai (Al-Toor)",
+    "totalAyahs": 49,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 53,
+    "surahName": "The Stars (El-Necm)",
+    "totalAyahs": 62,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 54,
+    "surahName": "The Moon (Al-Qamar)",
+    "totalAyahs": 55,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 55,
+    "surahName": "Most Gracious (Al-Rahmaan)",
+    "totalAyahs": 78,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 56,
+    "surahName": "The Inevitable (Al-Waaqe‘ah)",
+    "totalAyahs": 96,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 57,
+    "surahName": "Iron (Al-Hadeed)",
+    "totalAyahs": 29,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 58,
+    "surahName": "The Debate (Al-Mujaadalah)",
+    "totalAyahs": 22,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 59,
+    "surahName": "Exodus (Al-Hashr)",
+    "totalAyahs": 24,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 60,
+    "surahName": "The Test (Al-Mumtahanah)",
+    "totalAyahs": 13,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 61,
+    "surahName": "The Column (Al-Suff)",
+    "totalAyahs": 14,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 62,
+    "surahName": "Friday (Al-Jumu‘ah)",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 63,
+    "surahName": "The Hypocrites (Al-Munaafeqoon)",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 64,
+    "surahName": "Mutual Blaming (Al-Taghaabun)",
+    "totalAyahs": 18,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 65,
+    "surahName": "Divorce (Al-Talaaq)",
+    "totalAyahs": 12,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 66,
+    "surahName": "Prohibition (Al-Tahreem)",
+    "totalAyahs": 12,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 67,
+    "surahName": "Kingship (Al-Mulk)",
+    "totalAyahs": 30,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 68,
+    "surahName": "The Pen (Al-Qalam)",
+    "totalAyahs": 52,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": true
+  },
+  {
+    "surahNumber": 69,
+    "surahName": "Incontestable (Al-Haaqqah)",
+    "totalAyahs": 52,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 70,
+    "surahName": "The Heights (Al-Ma‘aarej)",
+    "totalAyahs": 44,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 71,
+    "surahName": "Noah",
+    "totalAyahs": 28,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 72,
+    "surahName": "Jinns (Al-Jinn)",
+    "totalAyahs": 28,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 73,
+    "surahName": "Cloaked (Al-Muzzammil)",
+    "totalAyahs": 20,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 74,
+    "surahName": "The Hidden Secret (Al-Muddath-thir)",
+    "totalAyahs": 56,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 75,
+    "surahName": "Resurrection (Al-Qeyaamah)",
+    "totalAyahs": 40,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 76,
+    "surahName": "The Human (Al-Insaan)",
+    "totalAyahs": 31,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 77,
+    "surahName": "Dispatched (Al-Mursalaat)",
+    "totalAyahs": 50,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 78,
+    "surahName": "The Event (Al-Naba’)",
+    "totalAyahs": 40,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 79,
+    "surahName": "The Snatchers (Al-Naaze‘aat)",
+    "totalAyahs": 46,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 80,
+    "surahName": "He Frowned (‘Abasa)",
+    "totalAyahs": 42,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 81,
+    "surahName": "The Rolling (Al-Takweer)",
+    "totalAyahs": 29,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 82,
+    "surahName": "The Shattering (Al-Infitaar)",
+    "totalAyahs": 19,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 83,
+    "surahName": "The Cheaters (Al-Mutaffifeen)",
+    "totalAyahs": 36,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 84,
+    "surahName": "The Rupture (Al-Inshiqaaq)",
+    "totalAyahs": 25,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 85,
+    "surahName": "The Galaxies (Al-Burooj)",
+    "totalAyahs": 22,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 86,
+    "surahName": "The Bright Star (Al-Taareq)",
+    "totalAyahs": 17,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 87,
+    "surahName": "The Most High (Al-A‘alaa)",
+    "totalAyahs": 19,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 88,
+    "surahName": "Overwhelming (Al-Ghaasheyah)",
+    "totalAyahs": 26,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 89,
+    "surahName": "Dawn (Al-Fajr)",
+    "totalAyahs": 30,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 90,
+    "surahName": "The Town (Al-Balad)",
+    "totalAyahs": 20,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+
+  {
+    "surahNumber": 91,
+    "surahName": "The Sun (Al-Shams)",
+    "totalAyahs": 15,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 92,
+    "surahName": "The Night (Al-Layl)",
+    "totalAyahs": 21,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 93,
+    "surahName": "The Forenoon (Al-Duhaa)",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 94,
+    "surahName": "Cooling the Temper (Al-Sharrhh)",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 95,
+    "surahName": "The Fig (Al-Teen)",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 96,
+    "surahName": "The Embryo (Al-‘Alaq)",
+    "totalAyahs": 19,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 97,
+    "surahName": "Destiny (Al-Qadr)",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 98,
+    "surahName": "Proof (Al-Bayyinah)",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 99,
+    "surahName": "The Quake (Al-Zalzalah)",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 100,
+    "surahName": "The Gallopers (Al-‘Aadeyaat)",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 101,
+    "surahName": "The Shocker (Al-Qariah)",
+    "totalAyahs": 11,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 102,
+    "surahName": "Hoarding (Al-Takaathur)",
+    "totalAyahs": 8,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 103,
+    "surahName": "The Afternoon (Al-‘Asr)",
+    "totalAyahs": 3,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 104,
+    "surahName": "The Backbiter (Al-Humazah)",
+    "totalAyahs": 9,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 105,
+    "surahName": "The Elephant (Al-Fil)",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 106,
+    "surahName": "Quraish (The Quraish Tribe)",
+    "totalAyahs": 4,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 107,
+    "surahName": "Charity (Al-Maa‘oon)",
+    "totalAyahs": 7,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 108,
+    "surahName": "Bounty (Al-Kawthar)",
+    "totalAyahs": 3,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 109,
+    "surahName": "The Disbelievers (Al-Kaaferoon)",
+    "totalAyahs": 6,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 110,
+    "surahName": "Triumph (Al-Nassr)",
+    "totalAyahs": 3,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 111,
+    "surahName": "Thorns (Al-Masad)",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 112,
+    "surahName": "Absoluteness (Al-Ikhlaas)",
+    "totalAyahs": 4,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 113,
+    "surahName": "Daybreak (Al-Falaq)",
+    "totalAyahs": 5,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  },
+  {
+    "surahNumber": 114,
+    "surahName": "People (An-Nas)",
+    "totalAyahs": 6,
+    "startsWithBasmala": true,
+    "startsWithHurufMuqattaat": false
+  }
+  
+]
