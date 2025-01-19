@@ -31,6 +31,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/insanustu-sayisal-kombinasyonlar" element={<HomePage />} />
           <Route path="/1" element={<Number1 />} />
           <Route path="/2" element={<Number2 />} />
           <Route path="/3" element={<Number3 />} />
