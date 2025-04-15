@@ -4,7 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
 import { MdOutlineFormatListNumberedRtl, MdOutlineLanguage } from "react-icons/md";
 import { CiViewList } from "react-icons/ci";
-
+import { motion } from "framer-motion";
 import {
   Button,
   Checkbox,
@@ -12,17 +12,17 @@ import {
   List,
   ListItem,
   ListItemText,
+  Select,
+  MenuItem,
+  IconButton,
 } from "@mui/material";
-/* import { FaHome } from "react-icons/fa"; */
 import { AiOutlineNumber } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import quran from "../assets/SurahInfo.json";
 import tr_quran from "../assets/SurahInfo_tr.json";
 import { useQuran } from "../context/quranListContext";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
-
 import { useLanguage } from "../context/LanguageContext";
-
 
 const Navbar = () => {
   const { translations } = useLanguage(); // Çeviri verilerini al
@@ -124,43 +124,68 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full flex justify-between items-center bg-gradient-to-l from-gray-700 to-gray-800 px-2 md:px-10 z-50">
-        <div className="w-20 pt-1">
-          <img src={logo} alt="Logo" onClick={toggleDrawer2(true)} />
-        </div>
-        <div className="flex  items-center justify-center gap-5 text-white text-xl mr-1">
+      <motion.div 
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="fixed top-0 left-0 w-full flex justify-between items-center bg-gradient-to-r from-gray-900 to-gray-800 px-4 md:px-8 py-3 z-50 shadow-lg"
+      >
+        <motion.div 
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="w-16 md:w-20 cursor-pointer"
+          onClick={toggleDrawer2(true)}
+        >
+          <img src={logo} alt="Logo" className="w-full h-auto" />
+        </motion.div>
 
-          <div
-            className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
+        <div className="flex items-center justify-center gap-4 md:gap-6 text-white">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 cursor-pointer hover:text-yellow-400 transition-colors duration-300"
             onClick={toggleDrawer2(true)}
           >
-            <CiViewList style={{ marginTop: '3px' }}/>
-            {lang === 'tr' ? "Sure Listesi" : "Surah List"}
-          </div>
-          <div
-            className=" cursor-pointer flex gap-1 items-center justify-center hover:text-yellow-300 duration-300"
+            <CiViewList className="text-xl" />
+            <span className="hidden md:inline-block">
+              {lang === 'tr' ? "Sure Listesi" : "Surah List"}
+            </span>
+          </motion.div>
+
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="flex items-center gap-2 cursor-pointer hover:text-yellow-400 transition-colors duration-300"
             onClick={toggleDrawer(true)}
           >
-            <MdOutlineFormatListNumberedRtl style={{ marginTop: '3px' }}/>
-            {lang === 'tr' ? "Sayılar" : "Numbers"}
-          </div>
-          {/* <div
-            className="text-white text-3xl border border-gray-400 p-3 rounded-md cursor-pointer"
-            onClick={toggleDrawer(true)}
-          >
-            <GiHamburgerMenu />
-          </div> */}
-          {/* Dil Seçme Dropdown */}
-          <select
+            <MdOutlineFormatListNumberedRtl className="text-xl" />
+            <span className="hidden md:inline-block">
+              {lang === 'tr' ? "Sayılar" : "Numbers"}
+            </span>
+          </motion.div>
+
+          <Select
             value={language}
             onChange={handleLanguageChange}
-            className="bg-gray-800 text-white border rounded px-2 py-1"
+            className="bg-gray-700 text-white border-0 rounded-lg"
+            sx={{
+              color: 'white',
+              '& .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'transparent',
+              },
+              '&:hover .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'yellow',
+              },
+              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                borderColor: 'yellow',
+              },
+            }}
           >
-            <option value="tr">Türkçe</option>
-            <option value="en">English</option>
-          </select>
+            <MenuItem value="tr">Türkçe</MenuItem>
+            <MenuItem value="en">English</MenuItem>
+          </Select>
         </div>
-      </div>
+      </motion.div>
 
       {/* Sağ Drawer */}
       <Drawer
@@ -168,17 +193,20 @@ const Navbar = () => {
         open={isDrawerOpen}
         onClose={toggleDrawer(false)}
         PaperProps={{
-          sx: { width: 240, bgcolor: "#374151", padding: "5px" },
+          sx: { 
+            width: 280, 
+            bgcolor: "#1a1a1a",
+            padding: "20px",
+            borderLeft: "2px solid #ffd700"
+          },
         }}
       >
-        <div className="flex flex-col items-center justify-center text-center text-white">
-          <span className="my-2 border-b">{translations.navbar.title}</span>
+        <div className="flex flex-col items-center justify-center text-center text-white mb-6">
+          <span className="text-xl font-bold text-yellow-400 border-b-2 border-yellow-400 pb-2">
+            {translations.navbar.title}
+          </span>
         </div>
-        <List
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-          sx={{ color: "white" }}
-        >
+        <List sx={{ color: "white" }}>
           {[
             0,
             1,
@@ -202,15 +230,20 @@ const Navbar = () => {
               key={index}
               component={Link}
               to={issue === 0 ? "/" : `/${issue}`}
-              onClick={() => handleListItemClick(issue)}
+              onClick={() => {
+                handleListItemClick(issue);
+                toggleDrawer(false);
+              }}
               sx={{
-                bgcolor: selectedItem === issue ? "black" : "inherit",
+                bgcolor: selectedItem === issue ? "rgba(255, 215, 0, 0.2)" : "inherit",
+                marginBottom: "8px",
+                borderRadius: "8px",
                 "&:hover": {
-                  bgcolor: "black",
+                  bgcolor: "rgba(255, 215, 0, 0.1)",
                 },
               }}
             >
-              <AiOutlineNumber className="mr-1" />
+              <AiOutlineNumber className="mr-2 text-yellow-400" />
               <ListItemText
                 primary={
                   issue === 0
@@ -225,8 +258,11 @@ const Navbar = () => {
                         ? `Sayı ${issue}`
                         : `Number ${issue}`
                 }
+                sx={{
+                  color: selectedItem === issue ? "#ffd700" : "white",
+                  fontWeight: selectedItem === issue ? "bold" : "normal",
+                }}
               />
-
             </ListItem>
           ))}
         </List>
@@ -238,96 +274,139 @@ const Navbar = () => {
         open={isLeftDrawerOpen}
         onClose={toggleDrawer2(false)}
         PaperProps={{
-          sx: { width: 425, bgcolor: "#374151", padding: "5px" },
+          sx: { 
+            width: { xs: "100%", sm: 800 },
+            bgcolor: "#1a1a1a",
+            padding: { xs: "15px", sm: "30px" },
+            borderRight: "2px solid #ffd700"
+          },
         }}
       >
-        <div className="absolute top-2 right-5 border px-2 border-yellow-400 rounded-md">
-          <button
+        <div className="absolute top-4 right-4">
+          <IconButton
             onClick={toggleDrawer2(false)}
-            className="text-yellow-400 text-xl font-bold cursor-pointer"
+            sx={{
+              color: "#ffd700",
+              "&:hover": {
+                backgroundColor: "rgba(255, 215, 0, 0.1)",
+              },
+            }}
           >
             ×
-          </button>
+          </IconButton>
         </div>
 
-        <div className="flex flex-col items-center justify-center text-center text-white">
-          <span className="my-2 text-blue-300 font-bold">
-          {lang === 'tr' ? "İNSANÜSTÜ SAYILAR" : "SUPERHUMAN NUMBERS"}
+        <div className="flex flex-col items-center justify-center text-center text-white mb-8">
+          <span className="text-2xl sm:text-3xl font-bold text-yellow-400">
+            {lang === 'tr' ? "İNSANÜSTÜ SAYILAR" : "SUPERHUMAN NUMBERS"}
           </span>
         </div>
-        <div className="flex flex-col gap-2 mt-2">
+
+        <div className="flex flex-col gap-4 mb-8">
           <Button
-            type="submit"
             variant="contained"
             color="success"
             onClick={handleDefaultQuranList}
+            sx={{
+              backgroundColor: "#4caf50",
+              "&:hover": {
+                backgroundColor: "#388e3c",
+              },
+            }}
           >
-             {lang === 'tr' ? "Varsayılana Ayarla" : "Set Default"}
+            {lang === 'tr' ? "Varsayılana Ayarla" : "Set Default"}
           </Button>
         </div>
-        <table className="text-white text-center">
-          <thead>
-            <tr className="h-10 bg-gray-600">
-              <th>No</th>
-              <th> {lang === 'tr' ? "Sure" : "Sura"}</th>
-              <th>{lang === 'tr' ? "Ayetler" : "Ayahs"}</th>
-              <th>Huruf</th>
-              <th>{lang === 'tr' ? "Besmele" : "Basmala"}</th>
-              <th>{lang === 'tr' ? "Değiştir" : "Change"}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {tempQuranList.map((sura, index) => (
-              <tr key={index} className="odd:bg-gray-700 even:bg-gray-600">
-                <td>{sura.surahNumber}</td>
-                <td>{language === "tr" ? tr_quran[index].surahName : quran[index].surahName}</td>
-                <td>
-                  <input
-                    id={`ayah-input-${index}`}
-                    name={`ayah-input-${index}`}
-                    className="w-10 text-yellow-300 text-center border-b outline-none bg-transparent"
-                    type="text"
-                    value={sura.totalAyahs}
-                    onChange={(e) => handleAyahChange(index, e.target.value)}
-                  />
-                </td>
-                <td>
-                  <Checkbox
-                    id={`huruf-checkbox-${index}`} // Dinamik id
-                    name={`huruf-checkbox-${index}`} // Dinamik name
-                    checked={sura.startsWithHurufMuqattaat}
-                    onChange={() => handleHurufCheckboxChange(index)}
-                  />
-                </td>
-                <td>
-                  <Checkbox
-                    id={`basmala-checkbox-${index}`} // Dinamik id
-                    name={`basmala-checkbox-${index}`} // Dinamik name
-                    checked={sura.startsWithBasmala}
-                    onChange={() => handleBasmalaCheckboxChange(index)}
-                  />
-                </td>
-                <td>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    onClick={handleUpdateQuranList}
-                  >
-                    <FaExchangeAlt />
-                  </Button>
-                </td>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-white text-base sm:text-lg">
+            <thead>
+              <tr className="h-12 sm:h-14 bg-gray-800">
+                <th className="px-2 sm:px-4 text-sm sm:text-base">No</th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Sure" : "Sura"}</th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Ayetler" : "Ayahs"}</th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">Huruf</th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Besmele" : "Basmala"}</th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Değiştir" : "Change"}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="flex flex-col gap-2 mt-2">
+            </thead>
+            <tbody>
+              {tempQuranList.map((sura, index) => (
+                <tr key={index} className="h-12 sm:h-14 even:bg-gray-800 odd:bg-gray-900">
+                  <td className="px-2 sm:px-4 text-center text-sm sm:text-base">{sura.surahNumber}</td>
+                  <td className="px-2 sm:px-4 text-center text-sm sm:text-base">
+                    {language === "tr" ? tr_quran[index].surahName : quran[index].surahName}
+                  </td>
+                  <td className="px-2 sm:px-4">
+                    <input
+                      id={`ayah-input-${index}`}
+                      name={`ayah-input-${index}`}
+                      className="w-16 sm:w-24 text-yellow-400 text-center border-b-2 border-yellow-400 outline-none bg-transparent text-sm sm:text-base"
+                      type="text"
+                      value={sura.totalAyahs}
+                      onChange={(e) => handleAyahChange(index, e.target.value)}
+                    />
+                  </td>
+                  <td className="px-2 sm:px-4 text-center">
+                    <Checkbox
+                      checked={sura.startsWithHurufMuqattaat}
+                      onChange={() => handleHurufCheckboxChange(index)}
+                      sx={{
+                        color: "#ffd700",
+                        "&.Mui-checked": {
+                          color: "#ffd700",
+                        },
+                        transform: { xs: "scale(1)", sm: "scale(1.2)" },
+                      }}
+                    />
+                  </td>
+                  <td className="px-2 sm:px-4 text-center">
+                    <Checkbox
+                      checked={sura.startsWithBasmala}
+                      onChange={() => handleBasmalaCheckboxChange(index)}
+                      sx={{
+                        color: "#ffd700",
+                        "&.Mui-checked": {
+                          color: "#ffd700",
+                        },
+                        transform: { xs: "scale(1)", sm: "scale(1.2)" },
+                      }}
+                    />
+                  </td>
+                  <td className="px-2 sm:px-4 text-center">
+                    <IconButton
+                      onClick={handleUpdateQuranList}
+                      sx={{
+                        color: "#ffd700",
+                        "&:hover": {
+                          backgroundColor: "rgba(255, 215, 0, 0.1)",
+                        },
+                        transform: { xs: "scale(1)", sm: "scale(1.2)" },
+                      }}
+                    >
+                      <FaExchangeAlt />
+                    </IconButton>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="flex flex-col gap-4 mt-6">
           <Button
-            type="submit"
             variant="contained"
-            color="success"
-            onClick={handleDefaultQuranList}
+            color="primary"
+            onClick={handleUpdateQuranList}
+            sx={{
+              backgroundColor: "#ffd700",
+              color: "#1a1a1a",
+              "&:hover": {
+                backgroundColor: "#ffc107",
+              },
+            }}
           >
-             {lang === 'tr' ? "Varsayılana Ayarla" : "Set Default"}
+            {lang === 'tr' ? "Ayeti Değiştir" : "Change Ayah"}
           </Button>
         </div>
       </Drawer>
