@@ -23,6 +23,7 @@ import tr_quran from "../assets/SurahInfo_tr.json";
 import { useQuran } from "../context/quranListContext";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import { useLanguage } from "../context/LanguageContext";
+import { useDifference } from "../context/DifferenceContext";
 
 const Navbar = () => {
   const { translations } = useLanguage(); // Çeviri verilerini al
@@ -36,6 +37,24 @@ const Navbar = () => {
 
   // Dil Context'i
   const { language, setLanguage } = useLanguage();
+
+  const { differences, calculateDifferences } = useDifference();
+  
+  // Farklılıkları hesapla
+  useEffect(() => {
+    calculateDifferences(quranList);
+  }, [quranList, calculateDifferences]);
+
+  // Değişiklik göstergesi için yeni bir fonksiyon
+  const getDifferenceIndicator = (surahNumber) => {
+    const diff = differences.find(d => d.surahNumber === surahNumber);
+    if (!diff) return null;
+
+    return (
+      <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full" 
+           title={lang === 'tr' ? "Bu surede değişiklik var" : "This surah has changes"} />
+    );
+  };
 
   const handleLanguageChange = (e) => {
     setLanguage(e.target.value); // Dili değiştir
@@ -332,8 +351,11 @@ const Navbar = () => {
             </thead>
             <tbody>
               {tempQuranList.map((sura, index) => (
-                <tr key={index} className="h-12 sm:h-14 even:bg-gray-800 odd:bg-gray-900">
-                  <td className="px-2 sm:px-4 text-center text-sm sm:text-base">{sura.surahNumber}</td>
+                <tr key={index} className="h-14 even:bg-gray-800 odd:bg-gray-900">
+                  <td className="px-8 text-center relative">
+                    {sura.surahNumber}
+                    {getDifferenceIndicator(sura.surahNumber)}
+                  </td>
                   <td className="px-2 sm:px-4 text-center text-sm sm:text-base">
                     {language === "tr" ? tr_quran[index].surahName : quran[index].surahName}
                   </td>

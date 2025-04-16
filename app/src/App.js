@@ -22,34 +22,37 @@ import Number13 from "./pages/Number13";
 import Number14 from "./pages/Number14";
 import Number15 from "./pages/Number15";
 import { LanguageProvider } from "./context/LanguageContext";
+import { DifferenceProvider } from "./context/DifferenceContext";
 
 function App() {
   return (
     <LanguageProvider>
     <QuranProvider>
       <DifferentRefsProvider>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/insanustu-sayisal-kombinasyonlar" element={<HomePage />} />
-          <Route path="/1" element={<Number1 />} />
-          <Route path="/2" element={<Number2 />} />
-          <Route path="/3" element={<Number3 />} />
-          <Route path="/4" element={<Number4 />} />
-          <Route path="/5" element={<Number5/>} />
-          <Route path="/6" element={<Number6/>} />
-          <Route path="/7" element={<Number7/>} />
-          <Route path="/8" element={<Number8/>} />
-          <Route path="/9" element={<Number9/>} />
-          <Route path="/10" element={<Number10/>} />
-          <Route path="/11" element={<Number11/>} />
-          <Route path="/12" element={<Number12/>} />
-          <Route path="/13" element={<Number13/>} />
-          <Route path="/14" element={<Number14/>} />
-          <Route path="/15" element={<Number15/>} />
-          <Route path="/basmala" element={<BesmeleEtkisi/>} />
-        </Routes>
-        <ToastContainer autoClose={4000} position="top-center" />
+        <DifferenceProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/insanustu-sayisal-kombinasyonlar" element={<HomePage />} />
+            <Route path="/1" element={<Number1 />} />
+            <Route path="/2" element={<Number2 />} />
+            <Route path="/3" element={<Number3 />} />
+            <Route path="/4" element={<Number4 />} />
+            <Route path="/5" element={<Number5/>} />
+            <Route path="/6" element={<Number6/>} />
+            <Route path="/7" element={<Number7/>} />
+            <Route path="/8" element={<Number8/>} />
+            <Route path="/9" element={<Number9/>} />
+            <Route path="/10" element={<Number10/>} />
+            <Route path="/11" element={<Number11/>} />
+            <Route path="/12" element={<Number12/>} />
+            <Route path="/13" element={<Number13/>} />
+            <Route path="/14" element={<Number14/>} />
+            <Route path="/15" element={<Number15/>} />
+            <Route path="/basmala" element={<BesmeleEtkisi/>} />
+          </Routes>
+          <ToastContainer autoClose={4000} position="top-center" />
+        </DifferenceProvider>
       </DifferentRefsProvider>
     </QuranProvider>
     </LanguageProvider>
