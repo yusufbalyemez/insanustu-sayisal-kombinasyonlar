@@ -348,11 +348,11 @@ export const handleTotalClick = (
       } else {
         if (language === "tr") {
           toast.error(
-            `${surahNumber}. Suresinin Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${currentValue} değil!`
+            `${surahNumber}. Surenin Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${currentValue} değil!`
           );
         } else if (language === "en") {
           toast.error(
-            `The Number of Verses in ${surahNumber}. Surah is Wrong! It should be ${matchedSurah.totalAyahs} not ${currentValue}!`
+            `The Number of Verses in The ${surahNumber}. Surah is Wrong! It should be ${matchedSurah.totalAyahs} not ${currentValue}!`
           );
         }
 
