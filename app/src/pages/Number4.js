@@ -56,12 +56,9 @@ const Number4 = () => {
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
 
-  const buyukSayiyiOlustur = () => {
-    let bosDizi = [];
-    let orjinalBosDizi = [];
-    let stringBuyukSayi = "";
+  useEffect(() => {
+    const orjinalBosDizi = [];
 
-    //Sayının Gösterildiği Kısım - Start
     QURAN.forEach((sure) => {
       suredekiToplamAyetSayisiniYazdir(sure, orjinalBosDizi);
       suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
@@ -69,9 +66,14 @@ const Number4 = () => {
     });
 
     kurandakiToplamAyetSayisiniYazdir(QURAN, orjinalBosDizi);
-    //Sayının Gösterildiği Kısım - End
 
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
+    setOrginQuranEmptyList(orjinalBosDizi);
+  }, []);
+
+  useEffect(() => {
+    let bosDizi = [];
+    let stringBuyukSayi = "";
+
     quranList.forEach((sure) => {
       ({ bosDizi, stringBuyukSayi } =
         suredekiToplamAyetSayisiniHesaplamaDizisineEkle(
@@ -99,15 +101,8 @@ const Number4 = () => {
         stringBuyukSayi
       ));
 
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
-
     setOlusanDizi(bosDizi);
-    setOrginQuranEmptyList(orjinalBosDizi);
     setStringSayi(stringBuyukSayi);
-  };
-
-  useEffect(() => {
-    buyukSayiyiOlustur();
   }, [quranList]);
 
   return (
