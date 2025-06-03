@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   calculateMod19,
   handleTotalClick,
@@ -7,7 +7,6 @@ import {
   isDifferent,
 } from "../components/Functions";
 import { useQuran } from "../context/quranListContext";
-import { SiMiraheze } from "react-icons/si";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
@@ -45,7 +44,30 @@ const Number1 = () => {
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
 
+  useEffect(() => {
+  const orjinalBosDizi = [];
 
+  QURAN.forEach((sure) => {
+    orjinalBosDizi.push({
+      durum: "ayet-sayisi",
+      sureAdi: sure.surahName,
+      sureNo: sure.surahNumber,
+      deger: sure.totalAyahs,
+    });
+
+    for (let i = 1; i <= sure.totalAyahs; i++) {
+      orjinalBosDizi.push({
+        durum: "ayetNo",
+        sureAdi: sure.surahName,
+        sureNo: sure.surahNumber,
+        deger: i,
+      });
+    }
+  });
+
+  setOrginQuranEmptyList(orjinalBosDizi);
+}, []); // ← sadece ilk açılışta çalışır
+  
   useEffect(() => {
     const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
     const orjinalBosDizi = []; //SurahInfo jsonundaki bilgiler buraya yazdırılacak.
@@ -102,12 +124,12 @@ const Number1 = () => {
     //End
 
     setOlusanDizi(bosDizi);
-    setOrginQuranEmptyList(orjinalBosDizi);
     setStringSayi(stringBuyukSayi);
+
   }, [quranList]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 mt-5">
+    <div className="flex flex-col justify-center items-center gap-2 mt-5 md:mt-10">
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
         <title>Sayı 1</title>
