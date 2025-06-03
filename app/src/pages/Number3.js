@@ -58,59 +58,39 @@ const Number3 = () => {
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
 
-  const buyukSayiyiOlustur = () => {
-    let bosDizi = [];
-    let orjinalBosDizi = [];
-    let stringBuyukSayi = "";
-
-    //Sayının Gösterildiği Kısım - Start
-    QURAN.forEach((sure) => {
-      suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
-      sureNumarasiniYazdir(sure, orjinalBosDizi);
-      suredekiToplamAyetSayisiniYazdir(sure, orjinalBosDizi);
-    });
-
-    kurandakiToplamAyetSayisiniYazdir(QURAN, orjinalBosDizi);
-    //Sayının Gösterildiği Kısım - End
-
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
-    quranList.forEach((sure) => {
-      ({ bosDizi, stringBuyukSayi } =
-        suredekiTumAyetSayilariniHesaplamaDizisineEkle(
-          sure,
-          bosDizi,
-          stringBuyukSayi
-        ));
-      ({ bosDizi, stringBuyukSayi } = sureNumarasiniHesaplamaDizisineEkle(
-        sure,
-        bosDizi,
-        stringBuyukSayi
-      ));
-      ({ bosDizi, stringBuyukSayi } =
-        suredekiToplamAyetSayisiniHesaplamaDizisineEkle(
-          sure,
-          bosDizi,
-          stringBuyukSayi
-        ));
-    });
-
-    ({ bosDizi, stringBuyukSayi } =
-      kurandakiToplamAyetSayisiniHesaplamaDizisineEkle(
-        quranList,
-        bosDizi,
-        stringBuyukSayi
-      ));
-
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
-
-    setOlusanDizi(bosDizi);
-    setOrginQuranEmptyList(orjinalBosDizi);
-    setStringSayi(stringBuyukSayi);
-  };
-
   useEffect(() => {
-    buyukSayiyiOlustur();
-  }, [quranList]);
+  const orjinalBosDizi = [];
+
+  QURAN.forEach((sure) => {
+    suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
+    sureNumarasiniYazdir(sure, orjinalBosDizi);
+    suredekiToplamAyetSayisiniYazdir(sure, orjinalBosDizi);
+  });
+
+  kurandakiToplamAyetSayisiniYazdir(QURAN, orjinalBosDizi);
+
+  setOrginQuranEmptyList(orjinalBosDizi);
+}, []);
+
+ useEffect(() => {
+  let bosDizi = [];
+  let stringBuyukSayi = "";
+
+  quranList.forEach((sure) => {
+    ({ bosDizi, stringBuyukSayi } =
+      suredekiTumAyetSayilariniHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+    ({ bosDizi, stringBuyukSayi } =
+      sureNumarasiniHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+    ({ bosDizi, stringBuyukSayi } =
+      suredekiToplamAyetSayisiniHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+  });
+
+  ({ bosDizi, stringBuyukSayi } =
+    kurandakiToplamAyetSayisiniHesaplamaDizisineEkle(quranList, bosDizi, stringBuyukSayi));
+
+  setOlusanDizi(bosDizi);
+  setStringSayi(stringBuyukSayi);
+}, [quranList]);
 
   return (
     <KapsayiciComponent>
