@@ -121,7 +121,7 @@ const Number2 = () => {
   }, [quranList]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 mt-5">
+    <div className="flex flex-col justify-center items-center gap-2 mt-5 md:mt-10">
       {/* Sayfanın başlığını ayarlama */}
       <Helmet>
         <title>Sayı 2</title>
