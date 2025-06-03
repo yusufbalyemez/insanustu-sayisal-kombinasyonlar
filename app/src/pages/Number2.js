@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   calculateMod19,
   handleTotalClick,
@@ -8,7 +8,6 @@ import {
   isDifferent,
 } from "../components/Functions";
 import { useQuran } from "../context/quranListContext";
-import { SiMiraheze } from "react-icons/si";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
@@ -46,15 +45,10 @@ const Number2 = () => {
 
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
-
   useEffect(() => {
-    const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
-    const orjinalBosDizi = []; //SurahInfo jsonundaki bilgiler buraya yazdırılacak.
-    let stringBuyukSayi = ""; // 19'a bölünecek devasa metinsel sayıyı oluşturur.
+    const orjinalBosDizi = [];
 
-    //SurahInfo Json içerisindeki surelere erişir.
     QURAN.forEach((sure) => {
-      //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
       for (let i = 1; i <= sure.totalAyahs; i++) {
         orjinalBosDizi.push({
           durum: "ayetNo",
@@ -63,27 +57,28 @@ const Number2 = () => {
           deger: i,
         });
       }
-      //End
 
-      //Start -Suredeki Toplam Ayet Sayısını Yazdırır
       orjinalBosDizi.push({
         durum: "ayet-sayisi",
         sureAdi: sure.surahName,
         sureNo: sure.surahNumber,
         deger: sure.totalAyahs,
       });
-      //End
     });
-    //End
 
-    //Start - Kurandaki Tüm Ayet Numaralarını Toplar
-    const gercekToplam = calculateTotalAyahs(QURAN);
+    const toplam = calculateTotalAyahs(QURAN);
 
     orjinalBosDizi.push({
       durum: "toplam-ayet-sayisi",
-      deger: gercekToplam,
+      deger: toplam,
     });
-    //End
+
+    setOrginQuranEmptyList(orjinalBosDizi); // ✅ SADECE BİR KERE
+  }, []); // ✅ SADECE İLK AÇILIŞTA
+
+  useEffect(() => {
+    const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
+    let stringBuyukSayi = ""; // 19'a bölünecek devasa metinsel sayıyı oluşturur.
 
     //Tüm Kuran içerisindeki surelere erişir.
     quranList.forEach((sure) => {
@@ -122,7 +117,6 @@ const Number2 = () => {
     //End
 
     setOlusanDizi(bosDizi);
-    setOrginQuranEmptyList(orjinalBosDizi);
     setStringSayi(stringBuyukSayi);
   }, [quranList]);
 
@@ -211,7 +205,7 @@ const Number2 = () => {
           })}
         </div>
       ) : (
-        <Number2Info/>
+        <Number2Info />
       )}
     </div>
   );

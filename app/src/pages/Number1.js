@@ -45,46 +45,16 @@ const Number1 = () => {
   const { differentRefs } = useDifferentRefs();
 
   useEffect(() => {
-  const orjinalBosDizi = [];
+    const orjinalBosDizi = [];
 
-  QURAN.forEach((sure) => {
-    orjinalBosDizi.push({
-      durum: "ayet-sayisi",
-      sureAdi: sure.surahName,
-      sureNo: sure.surahNumber,
-      deger: sure.totalAyahs,
-    });
-
-    for (let i = 1; i <= sure.totalAyahs; i++) {
-      orjinalBosDizi.push({
-        durum: "ayetNo",
-        sureAdi: sure.surahName,
-        sureNo: sure.surahNumber,
-        deger: i,
-      });
-    }
-  });
-
-  setOrginQuranEmptyList(orjinalBosDizi);
-}, []); // ← sadece ilk açılışta çalışır
-  
-  useEffect(() => {
-    const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
-    const orjinalBosDizi = []; //SurahInfo jsonundaki bilgiler buraya yazdırılacak.
-    let stringBuyukSayi = ""; // 19'a bölünecek devasa metinsel sayıyı oluşturur.
-
-    //SurahInfo Json içerisindeki surelere erişir.
     QURAN.forEach((sure) => {
-      //Start -Suredeki Toplam Ayet Sayısını Yazdırır
       orjinalBosDizi.push({
         durum: "ayet-sayisi",
         sureAdi: sure.surahName,
         sureNo: sure.surahNumber,
         deger: sure.totalAyahs,
       });
-      //End
 
-      //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
       for (let i = 1; i <= sure.totalAyahs; i++) {
         orjinalBosDizi.push({
           durum: "ayetNo",
@@ -93,9 +63,14 @@ const Number1 = () => {
           deger: i,
         });
       }
-      //End
     });
-    //End
+
+    setOrginQuranEmptyList(orjinalBosDizi);
+  }, []); // ← sadece ilk açılışta çalışır
+
+  useEffect(() => {
+    const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
+    let stringBuyukSayi = ""; // 19'a bölünecek devasa metinsel sayıyı oluşturur.
 
     //Tüm Kuran içerisindeki surelere erişir.
     quranList.forEach((sure) => {
@@ -125,7 +100,6 @@ const Number1 = () => {
 
     setOlusanDizi(bosDizi);
     setStringSayi(stringBuyukSayi);
-
   }, [quranList]);
 
   return (
@@ -214,7 +188,7 @@ const Number1 = () => {
           })}
         </div>
       ) : (
-        <Number1Info/>
+        <Number1Info />
       )}
     </div>
   );
