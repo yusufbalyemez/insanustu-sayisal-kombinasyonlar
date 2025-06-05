@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import logo from "../images/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaExchangeAlt } from "react-icons/fa";
-import { MdOutlineFormatListNumberedRtl, MdOutlineLanguage } from "react-icons/md";
+import {
+  MdOutlineFormatListNumberedRtl,
+  MdOutlineLanguage,
+} from "react-icons/md";
 import { CiViewList } from "react-icons/ci";
 import { motion } from "framer-motion";
 import {
@@ -33,13 +36,13 @@ const Navbar = () => {
   const { quranList, setQuranList } = useQuran();
   const [tempQuranList, setTempQuranList] = useState([]);
   const { scrollToDifferent, clearDifferentRefs } = useDifferentRefs(); // Scroll fonksiyonunu al
-  const lang = localStorage.getItem('lang_quran_evidence');
+  const lang = localStorage.getItem("lang_quran_evidence");
 
   // Dil Context'i
   const { language, setLanguage } = useLanguage();
 
   const { differences, calculateDifferences } = useDifference();
-  
+
   // Farklılıkları hesapla
   useEffect(() => {
     calculateDifferences(quranList);
@@ -47,12 +50,16 @@ const Navbar = () => {
 
   // Değişiklik göstergesi için yeni bir fonksiyon
   const getDifferenceIndicator = (surahNumber) => {
-    const diff = differences.find(d => d.surahNumber === surahNumber);
+    const diff = differences.find((d) => d.surahNumber === surahNumber);
     if (!diff) return null;
 
     return (
-      <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full" 
-           title={lang === 'tr' ? "Bu surede değişiklik var" : "This surah has changes"} />
+      <div
+        className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full"
+        title={
+          lang === "tr" ? "Bu surede değişiklik var" : "This surah has changes"
+        }
+      />
     );
   };
 
@@ -129,9 +136,9 @@ const Navbar = () => {
   const handleDefaultQuranList = () => {
     clearDifferentRefs();
     let defaultQuranList = [];
-    if(language === 'tr'){
+    if (language === "tr") {
       defaultQuranList = JSON.parse(JSON.stringify(tr_quran));
-    }else{
+    } else {
       defaultQuranList = JSON.parse(JSON.stringify(quran));
     }
 
@@ -139,17 +146,19 @@ const Navbar = () => {
     setTempQuranList(defaultQuranList);
     localStorage.setItem("quranList", JSON.stringify(defaultQuranList));
     setIsLeftDrawerOpen(false);
+    // İşlemler tamamlandığı anda sayfayı baştan yükle:
+    window.location.reload();
   };
 
   return (
     <>
-      <motion.div 
+      <motion.div
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         className="fixed top-0 left-0 w-full flex justify-between items-center bg-gradient-to-r from-gray-900 to-gray-800 px-4 md:px-8 py-3 z-50 shadow-lg"
       >
-        <motion.div 
+        <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="w-16 md:w-20 cursor-pointer"
@@ -167,7 +176,7 @@ const Navbar = () => {
           >
             <CiViewList className="text-xl" />
             <span className="hidden md:inline-block">
-              {lang === 'tr' ? "Sure Listesi" : "Surah List"}
+              {lang === "tr" ? "Sure Listesi" : "Surah List"}
             </span>
           </motion.div>
 
@@ -179,7 +188,7 @@ const Navbar = () => {
           >
             <MdOutlineFormatListNumberedRtl className="text-xl" />
             <span className="hidden md:inline-block">
-              {lang === 'tr' ? "Sayılar" : "Numbers"}
+              {lang === "tr" ? "Sayılar" : "Numbers"}
             </span>
           </motion.div>
 
@@ -188,15 +197,15 @@ const Navbar = () => {
             onChange={handleLanguageChange}
             className="bg-gray-700 text-white border-0 rounded-lg"
             sx={{
-              color: 'white',
-              '& .MuiOutlinedInput-notchedOutline': {
-                borderColor: 'transparent',
+              color: "white",
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "transparent",
               },
-              '&:hover .MuiOutlinedInput-notchedOutline': {
-                borderColor: 'yellow',
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: "yellow",
               },
-              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                borderColor: 'yellow',
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "yellow",
               },
             }}
           >
@@ -212,11 +221,11 @@ const Navbar = () => {
         open={isDrawerOpen}
         onClose={toggleDrawer(false)}
         PaperProps={{
-          sx: { 
-            width: 280, 
+          sx: {
+            width: 280,
             bgcolor: "#1a1a1a",
             padding: "20px",
-            borderLeft: "2px solid #ffd700"
+            borderLeft: "2px solid #ffd700",
           },
         }}
       >
@@ -254,7 +263,8 @@ const Navbar = () => {
                 toggleDrawer(false);
               }}
               sx={{
-                bgcolor: selectedItem === issue ? "rgba(255, 215, 0, 0.2)" : "inherit",
+                bgcolor:
+                  selectedItem === issue ? "rgba(255, 215, 0, 0.2)" : "inherit",
                 marginBottom: "8px",
                 borderRadius: "8px",
                 "&:hover": {
@@ -266,16 +276,16 @@ const Navbar = () => {
               <ListItemText
                 primary={
                   issue === 0
-                    ? lang === 'tr'
+                    ? lang === "tr"
                       ? "Anasayfa"
                       : "Home"
                     : issue === "basmala"
-                      ? lang === 'tr'
-                        ? "Besmele Etkisi"
-                        : "Effect of Basmala"
-                      : lang === 'tr'
-                        ? `Sayı ${issue}`
-                        : `Number ${issue}`
+                    ? lang === "tr"
+                      ? "Besmele Etkisi"
+                      : "Effect of Basmala"
+                    : lang === "tr"
+                    ? `Sayı ${issue}`
+                    : `Number ${issue}`
                 }
                 sx={{
                   color: selectedItem === issue ? "#ffd700" : "white",
@@ -293,11 +303,11 @@ const Navbar = () => {
         open={isLeftDrawerOpen}
         onClose={toggleDrawer2(false)}
         PaperProps={{
-          sx: { 
+          sx: {
             width: { xs: "100%", sm: 800 },
             bgcolor: "#1a1a1a",
             padding: { xs: "15px", sm: "30px" },
-            borderRight: "2px solid #ffd700"
+            borderRight: "2px solid #ffd700",
           },
         }}
       >
@@ -317,7 +327,7 @@ const Navbar = () => {
 
         <div className="flex flex-col items-center justify-center text-center text-white mb-8">
           <span className="text-2xl sm:text-3xl font-bold text-yellow-400">
-            {lang === 'tr' ? "İNSANÜSTÜ SAYILAR" : "SUPERHUMAN NUMBERS"}
+            {lang === "tr" ? "İNSANÜSTÜ SAYILAR" : "SUPERHUMAN NUMBERS"}
           </span>
         </div>
 
@@ -333,7 +343,7 @@ const Navbar = () => {
               },
             }}
           >
-            {lang === 'tr' ? "Varsayılana Ayarla" : "Set Default"}
+            {lang === "tr" ? "Varsayılana Ayarla" : "Set Default"}
           </Button>
         </div>
 
@@ -342,22 +352,35 @@ const Navbar = () => {
             <thead>
               <tr className="h-12 sm:h-14 bg-gray-800">
                 <th className="px-2 sm:px-4 text-sm sm:text-base">No</th>
-                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Sure" : "Sura"}</th>
-                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Ayetler" : "Ayahs"}</th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">
+                  {lang === "tr" ? "Sure" : "Sura"}
+                </th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">
+                  {lang === "tr" ? "Ayetler" : "Ayahs"}
+                </th>
                 <th className="px-2 sm:px-4 text-sm sm:text-base">Huruf</th>
-                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Besmele" : "Basmala"}</th>
-                <th className="px-2 sm:px-4 text-sm sm:text-base">{lang === 'tr' ? "Değiştir" : "Change"}</th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">
+                  {lang === "tr" ? "Besmele" : "Basmala"}
+                </th>
+                <th className="px-2 sm:px-4 text-sm sm:text-base">
+                  {lang === "tr" ? "Değiştir" : "Change"}
+                </th>
               </tr>
             </thead>
             <tbody>
               {tempQuranList.map((sura, index) => (
-                <tr key={index} className="h-14 even:bg-gray-800 odd:bg-gray-900">
+                <tr
+                  key={index}
+                  className="h-14 even:bg-gray-800 odd:bg-gray-900"
+                >
                   <td className="px-8 text-center relative">
                     {sura.surahNumber}
                     {getDifferenceIndicator(sura.surahNumber)}
                   </td>
                   <td className="px-2 sm:px-4 text-center text-sm sm:text-base">
-                    {language === "tr" ? tr_quran[index].surahName : quran[index].surahName}
+                    {language === "tr"
+                      ? tr_quran[index].surahName
+                      : quran[index].surahName}
                   </td>
                   <td className="px-2 sm:px-4">
                     <input
@@ -428,7 +451,7 @@ const Navbar = () => {
               },
             }}
           >
-            {lang === 'tr' ? "Ayeti Değiştir" : "Change Ayah"}
+            {lang === "tr" ? "Ayeti Değiştir" : "Change Ayah"}
           </Button>
         </div>
       </Drawer>

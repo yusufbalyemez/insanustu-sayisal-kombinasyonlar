@@ -149,11 +149,10 @@ const Number4 = () => {
                     handleTotalAyatClick(eleman.deger);
                   } else if (eleman.durum === "ayet-sayisi") {
                     handleTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   } else if (eleman.durum === "sureNo") {
                     handleSurahNoClick(
@@ -163,11 +162,10 @@ const Number4 = () => {
                     );
                   } else {
                     handleAyatClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList // ekstra parametre
                     );
                   }
                 }}

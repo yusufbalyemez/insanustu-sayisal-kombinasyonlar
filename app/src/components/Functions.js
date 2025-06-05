@@ -238,49 +238,63 @@ const toggleSurahSelection = (surahNumber, setSelectedSurahs) => {
 
 
 export const handleAyatClick = (
-  surahNumber,
-  surahName,
-  ayatNumber,
+  eleman,
   selectedSurahs,
-  setSelectedSurahs
+  setSelectedSurahs,
+  orginQuranEmptyList
 ) => {
   const language = localStorage.getItem('lang_quran_evidence');
 
-  if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
+  // --- EKLENDİ ---
+  if (isDifferent(eleman, orginQuranEmptyList)) {
+    // Eğer farklıysa direkt olarak hata ver
+    if (language === "tr") {
+      toast.error(
+        `Ekleme tespit edildi. ${eleman.sureNo}. surede böyle bir ayet olmamalıydı.`
+      );
+    } else if (language === "en") {
+      toast.error(
+        `Addition detected. There should not be such an ayah in ${eleman.sureNo}. surah.`
+      );
+    }
+    toggleSurahSelection(eleman.sureNo, setSelectedSurahs);
+    return;
+  }
+  // ----------------
+
+  // Normal logic (artık sadece orijinalde olanlar için çalışır)
+  if (!selectedSurahs.includes(eleman.sureNo)) {
     const matchedSurah = surahInfo.find(
-      (surah) => surah.surahNumber === surahNumber
+      (surah) => surah.surahNumber === eleman.sureNo
     );
     if (matchedSurah) {
-      if (ayatNumber > matchedSurah.totalAyahs) {
+      if (eleman.deger > matchedSurah.totalAyahs) {
+        // Normalde burası "farklı" olmaz ama ekstra kontrol olarak bırakabilirsin
         if (language === "tr") {
           toast.error(
-            `Ekleme tespit edildi. ${surahNumber}. surede böyle bir ayet olmamalıydı.`
+            `Ekleme tespit edildi. ${eleman.sureNo}. surede böyle bir ayet olmamalıydı.`
           );
         } else if (language === "en") {
           toast.error(
-            `Addition detected. There should not be such an ayah in ${surahNumber}. surah.`
+            `Addition detected. There should not be such an ayah in ${eleman.sureNo}. surah.`
           );
-
         }
       } else {
         if (language === "tr") {
-          toast.success(`${surahNumber}. Surenin ${ayatNumber}. Ayeti`);
+          toast.success(`${eleman.sureNo}. Surenin ${eleman.deger}. Ayeti`);
         } else if (language === "en") {
-          toast.success(`${ayatNumber}. Ayah of ${surahNumber}. Surah`);
+          toast.success(`${eleman.deger}. Ayah of ${eleman.sureNo}. Surah`);
         }
-
       }
     } else {
       if (language === "tr") {
-        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+        toast.error(`Geçersiz Sure Numarası: ${eleman.sureNo}`);
       } else if (language === "en") {
-        toast.error(`Invalid Surah Number: ${surahNumber}`);
+        toast.error(`Invalid Surah Number: ${eleman.sureNo}`);
       }
-
     }
-
   }
-  toggleSurahSelection(surahNumber, setSelectedSurahs);
+  toggleSurahSelection(eleman.sureNo, setSelectedSurahs);
 };
 
 export const handleBasmalaClick = (
@@ -319,54 +333,71 @@ export const handleBasmalaClick = (
 };
 
 export const handleTotalClick = (
-  surahNumber,
-  surahName,
-  currentValue,
+  eleman,
   selectedSurahs,
-  setSelectedSurahs
+  setSelectedSurahs,
+  orginQuranEmptyList
 ) => {
   const language = localStorage.getItem('lang_quran_evidence');
-  // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
 
-  if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
-    //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
+  // 1. Farklıysa (orjinalde yoksa)
+  if (isDifferent(eleman, orginQuranEmptyList)) {
+    const original = orginQuranEmptyList.find(e =>
+      e.sureNo === eleman.sureNo && e.durum === eleman.durum
+    );
+    if (language === "tr") {
+      toast.error(
+        `${eleman.sureNo}. Surenin Ayet Sayısı Yanlış! Doğrusu: ${original?.deger} olmalıydı. ${eleman.deger} değil!`
+      );
+    } else if (language === "en") {
+      toast.error(
+        `The Number of Verses in The ${eleman.sureNo}. Surah is Wrong! It should be ${original?.deger} not ${eleman.deger}!`
+      );
+    }
+    toggleSurahSelection(eleman.sureNo, setSelectedSurahs);
+    return;
+  }
+
+  // 2. Seçilmemişse klasik kontrol
+  if (!selectedSurahs.includes(eleman.sureNo)) {
     const matchedSurah = surahInfo.find(
-      (surah) => surah.surahNumber === surahNumber
+      (surah) => surah.surahNumber === eleman.sureNo
     );
 
     if (matchedSurah) {
-      if (matchedSurah.totalAyahs === currentValue) {
+      if (matchedSurah.totalAyahs === eleman.deger) {
         if (language === "tr") {
           toast.success(
-            `${surahNumber}. Surenin Ayet Sayısı : ${matchedSurah.totalAyahs}`
+            `${eleman.sureNo}. Surenin Ayet Sayısı : ${matchedSurah.totalAyahs}`
           );
         } else if (language === "en") {
           toast.success(
-            `The Number of Verses in ${surahNumber}. Surah : ${matchedSurah.totalAyahs}`);
+            `The Number of Verses in ${eleman.sureNo}. Surah : ${matchedSurah.totalAyahs}`
+          );
         }
 
       } else {
         if (language === "tr") {
           toast.error(
-            `${surahNumber}. Surenin Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${currentValue} değil!`
+            `${eleman.sureNo}. Surenin Ayet Sayısı Yanlış! Doğrusu: ${matchedSurah.totalAyahs} olmalıydı. ${eleman.deger} değil!`
           );
         } else if (language === "en") {
           toast.error(
-            `The Number of Verses in The ${surahNumber}. Surah is Wrong! It should be ${matchedSurah.totalAyahs} not ${currentValue}!`
+            `The Number of Verses in The ${eleman.sureNo}. Surah is Wrong! It should be ${matchedSurah.totalAyahs} not ${eleman.deger}!`
           );
         }
 
       }
     } else {
       if (language === "tr") {
-        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
+        toast.error(`Geçersiz Sure Numarası: ${eleman.sureNo}`);
       } else if (language === "en") {
-        toast.error(`Invalid Surah Number: ${surahNumber}`);
+        toast.error(`Invalid Surah Number: ${eleman.sureNo}`);
       }
     }
   }
 
-  toggleSurahSelection(surahNumber, setSelectedSurahs);
+  toggleSurahSelection(eleman.sureNo, setSelectedSurahs);
 };
 
 export const handleAyahsTotalClick = (
