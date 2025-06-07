@@ -156,8 +156,7 @@ const Number4 = () => {
                     );
                   } else if (eleman.durum === "sureNo") {
                     handleSurahNoClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
+                      eleman,
                       setSelectedSurahs
                     );
                   } else {

@@ -555,32 +555,30 @@ export const handleSurahNumberClick = () => {
 
 
 export const handleSurahNoClick = (
-  surahNumber,
-  surahName,
+  eleman,
   setSelectedSurahs
 ) => {
   const language = localStorage.getItem('lang_quran_evidence');
+  const surahNumber = eleman.sureNo;
+
+
   setSelectedSurahs((prevSelected) => {
     const isSelected = prevSelected.includes(surahNumber);
     const newSelected = isSelected
       ? prevSelected.filter((num) => num !== surahNumber)
       : [...prevSelected, surahNumber];
+
     if (!isSelected) {
       if (language === "tr") {
-        toast.success(
-          ` ${surahNumber}. surenin kurandaki sırası.`
-        );
+        toast.success(`${surahNumber}. surenin kurandaki sırası.`);
       } else if (language === "en") {
-        toast.success(
-          `The order of ${surahNumber}. surah in the Quran.`
-        );
+        toast.success(`The order of ${surahNumber}. surah in the Quran.`);
       }
-     
     }
+
     return newSelected;
   });
 };
-
 export const calculateTotalAyahs = (surahInfo) => {
   return surahInfo.reduce((total, surah) => total + surah.totalAyahs, 0);
 };
