@@ -55,7 +55,7 @@ const Navbar = () => {
 
     return (
       <div
-        className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full"
+        className="absolute top-1/2 left-5 -translate-y-1/2 -translate-x-2 w-2.5 h-2.5 bg-red-700 rounded-full"
         title={
           lang === "tr" ? "Bu surede değişiklik var" : "This surah has changes"
         }
