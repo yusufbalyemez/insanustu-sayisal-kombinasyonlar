@@ -5,6 +5,7 @@ import {
   handleAyatClick,
   handleTotalAyatClick,
   isDifferent,
+  handleSurahNoClick,
 } from "../components/Functions";
 import { useQuran } from "../context/quranListContext";
 import QURAN from "../assets/SurahInfo.json";
@@ -14,26 +15,26 @@ import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
+import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
+import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number1Info from "../Informations/Number1Info";
 
 const Number1 = () => {
-  const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
-  const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
-  const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
+  const { quranList } = useQuran();
+  const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]);
+  const [olusanDizi, setOlusanDizi] = useState([]);
   const [stringSayi, setStringSayi] = useState("");
   const [goster, setGoster] = useState(false);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
   const [copyState, setCopyState] = useState(false);
 
+  const { differentRefs } = useDifferentRefs();
+
   const handleCopy = () => {
     navigator.clipboard
       .writeText(stringSayi)
-      .then(() => {
-        toast.success("Sayı Kopyalandı.");
-      })
-      .catch((err) => {
-        toast.error("Kopyalama başarısız.");
-      });
+      .then(() => toast.success("Sayı Kopyalandı."))
+      .catch(() => toast.error("Kopyalama başarısız."));
     setCopyState(true);
   };
 
@@ -41,8 +42,6 @@ const Number1 = () => {
     setCopyState(false);
     setGoster(!goster);
   };
-  // Context üzerinden referanslara erişim
-  const { differentRefs } = useDifferentRefs();
 
   useEffect(() => {
     const orjinalBosDizi = [];
@@ -66,15 +65,13 @@ const Number1 = () => {
     });
 
     setOrginQuranEmptyList(orjinalBosDizi);
-  }, []); // ← sadece ilk açılışta çalışır
+  }, []);
 
   useEffect(() => {
-    const bosDizi = []; //Yeniden sıralanacak boş dizi oluşturur
-    let stringBuyukSayi = ""; // 19'a bölünecek devasa metinsel sayıyı oluşturur.
+    const bosDizi = [];
+    let stringBuyukSayi = "";
 
-    //Tüm Kuran içerisindeki surelere erişir.
     quranList.forEach((sure) => {
-      //Start -Suredeki Toplam Ayet Sayısını Yazdırır
       bosDizi.push({
         durum: "ayet-sayisi",
         sureAdi: sure.surahName,
@@ -82,9 +79,7 @@ const Number1 = () => {
         deger: sure.totalAyahs,
       });
       stringBuyukSayi += sure.totalAyahs.toString();
-      //End
 
-      //Start - Suredeki Tüm Ayet Sayılarını Yazdırır.
       for (let i = 1; i <= sure.totalAyahs; i++) {
         bosDizi.push({
           durum: "ayetNo",
@@ -94,28 +89,20 @@ const Number1 = () => {
         });
         stringBuyukSayi += i.toString();
       }
-      //End
     });
-    //End
 
     setOlusanDizi(bosDizi);
     setStringSayi(stringBuyukSayi);
   }, [quranList]);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2 mt-5 md:mt-10">
-      {/* Sayfanın başlığını ayarlama */}
+    <KapsayiciComponent>
       <Helmet>
         <title>Sayı 1</title>
       </Helmet>
 
-      {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
-
-      {/* Sayıyı yada Açıklama Metnini Gösteren Bileşen */}
       <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
-
-      {/* Sayıyı kopyalayan ve seçimleri iptal eden buton bileşeni */}
       <CopyAndSelectButtons
         copyState={copyState}
         goster={goster}
@@ -124,59 +111,54 @@ const Number1 = () => {
       />
 
       {goster ? (
-        <div
-          className="break-words border border-gray-300 p-4 mb-5
-         w-full md:w-10/12 bg-gradient-to-l from-gray-700 to-gray-800
-          rounded-lg text-xl overflow-y-auto hover:ring-4
-           hover:ring-yellow-400 transition-all max-h-[60vh]"
-        >
+        <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {
             const isDiff = isDifferent(eleman, orginQuranEmptyList);
 
-            if (isDiff) {
-              // Farklı elemanları referans nesnesine kaydet
-              differentRefs.current[index] = null;
-            }
+            if (isDiff) differentRefs.current[index] = null;
+
             return (
               <span
                 key={index}
                 ref={(el) => {
                   if (isDiff) {
-                    differentRefs.current[index] = el; // Sadece farklı elemanları ekliyoruz
+                    differentRefs.current[index] = el;
                   } else {
-                    delete differentRefs.current[index]; // Farklı olmayanları temizliyoruz
+                    delete differentRefs.current[index];
                   }
                 }}
                 onClick={() => {
                   if (eleman.durum === "toplam-ayet-sayisi") {
-                    handleTotalAyatClick();
+                    handleTotalAyatClick(eleman.deger);
                   } else if (eleman.durum === "ayet-sayisi") {
                     handleTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
+                  } else if (eleman.durum === "sureNo") {
+                    handleSurahNoClick(eleman, setSelectedSurahs);
                   } else {
                     handleAyatClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   }
                 }}
                 className={`${
-                  isDifferent(eleman, orginQuranEmptyList)
-                    ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
+                  isDiff
+                    ? "text-red-500 font-bold blink"
                     : eleman.durum === "ayet-sayisi"
-                    ? "text-yellow-400" // Ayet sayısı için sarı
+                    ? "text-yellow-400"
                     : eleman.durum === "ayetNo"
-                    ? "text-white" // Ayet numarası için beyaz
+                    ? "text-white"
                     : eleman.durum === "toplam-ayet-sayisi"
-                    ? "text-blue-600" // Toplam ayet sayısı için mavi
+                    ? "text-blue-600"
+                    : eleman.durum === "sureNo"
+                    ? "text-blue-500"
                     : ""
                 } ${
                   selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
@@ -186,11 +168,11 @@ const Number1 = () => {
               </span>
             );
           })}
-        </div>
+        </SayiyiGosterenComponent>
       ) : (
         <Number1Info />
       )}
-    </div>
+    </KapsayiciComponent>
   );
 };
 
