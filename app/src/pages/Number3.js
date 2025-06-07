@@ -136,25 +136,22 @@ const Number3 = () => {
                     handleTotalAyatClick(eleman.deger);
                   } else if (eleman.durum === "ayet-sayisi") {
                     handleTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   } else if (eleman.durum === "sureNo") {
                     handleSurahNoClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      setSelectedSurahs
+                      eleman,
+                      setSelectedSurahs,
                     );
                   } else {
                     handleAyatClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   }
                 }}
