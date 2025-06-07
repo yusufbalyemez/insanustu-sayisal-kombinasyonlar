@@ -401,60 +401,44 @@ export const handleTotalClick = (
 };
 
 export const handleAyahsTotalClick = (
-  surahNumber,
-  surahName,
-  currentValue,
+  eleman,
   selectedSurahs,
-  setSelectedSurahs
+  setSelectedSurahs,
+  orginQuranEmptyList
 ) => {
-  // `surahInfo` içerisindeki surahNumber eşleşmesini kontrol et
-  const language = localStorage.getItem('lang_quran_evidence');
+  const { sureNo, deger } = eleman;
+  const language = localStorage.getItem("lang_quran_evidence");
 
-  if (!selectedSurahs.includes(surahNumber)) { //Eğer selectedSurahs dizisi içerisinde sure numarası yoksa içeridekileri yapsın. Bu sayede seçim iptalinde tekrardan toast görünmüyor.
-    //Seçim kaldırıldığında selectedSurah's içerisinde bir değer olmayacak dolayısıyla tekrar aynı kodları çalıştırmasın.
-    const matchedSurah = surahInfo.find(
-      (surah) => surah.surahNumber === surahNumber
+  if (!selectedSurahs.includes(sureNo)) {
+    // Doğru değeri orijinal listeden bul
+    const original = orginQuranEmptyList.find(
+      (e) => e.durum === "ayetNo-toplamlari" && e.sureNo === sureNo
     );
 
-
-    if (matchedSurah) {
-
-      let sayi = 0;
-      for (let i = 1; i <= matchedSurah.totalAyahs; i++) {
-        sayi = sayi + i;
-      }
-      if (sayi === currentValue) {
-        if (language === "tr") {
-          toast.success(
-            `${surahNumber}. surenin her bir ayet numaralarının toplamı : ${sayi}`
-          );
-        } else if (language === "en") {
-          toast.success(
-            `The sum of the verse numbers of each verse of ${surahNumber}. surah : ${sayi}`
-          );
-        }
+    if (original) {
+      if (original.deger === deger) {
+        toast.success(
+          language === "tr"
+            ? `${sureNo}. surenin her bir ayet numaralarının toplamı : ${deger}`
+            : `The sum of the verse numbers of Surah ${sureNo} is correct: ${deger}`
+        );
       } else {
-        if (language === "tr") {
-          toast.error(
-            `${surahNumber}. Surenin Ayet Numaralarının Toplamı Yanlış! Doğrusu: ${sayi} olmalıydı. ${currentValue} değil!`
-          );
-        } else if (language === "en") {
-          toast.error(
-            `The sum of the verse numbers of ${surahNumber}. Surah is Wrong! It should be ${sayi} not ${currentValue}!`
-          );
-        }
+        toast.error(
+          language === "tr"
+            ? `${sureNo}. Surenin Ayet Numaralarının Toplamı Yanlış! Doğrusu: ${original.deger} olmalıydı. ${deger} değil!`
+            : `The sum of the verse numbers of Surah ${sureNo} is wrong! It should be ${original.deger}, not ${deger}!`
+        );
       }
     } else {
-      if (language === "tr") {
-        toast.error(`Geçersiz Sure Numarası: ${surahNumber}`);
-      } else if (language === "en") {
-        toast.error(`Invalid Surah Number: ${surahNumber}`);
-      }
-
+      toast.error(
+        language === "tr"
+          ? `Orijinal veri bulunamadı.`
+          : `Original reference not found.`
+      );
     }
   }
 
-  toggleSurahSelection(surahNumber, setSelectedSurahs);
+  toggleSurahSelection(sureNo, setSelectedSurahs);
 };
 
 

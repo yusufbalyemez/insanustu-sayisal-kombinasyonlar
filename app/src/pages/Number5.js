@@ -53,48 +53,35 @@ const Number5 = () => {
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
 
-  const buyukSayiyiOlustur = () => {
-    let bosDizi = [];
-    let orjinalBosDizi = [];
-    let stringBuyukSayi = "";
+  // 🔧 Orijinal verileri oluşturur (sadece 1 kere)
+  useEffect(() => {
+    const orjinalBosDizi = [];
 
-    //Sayının Gösterildiği Kısım - Start
     QURAN.forEach((sure) => {
-
       suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
       suredekiAyetNumaralarinToplaminiYazdir(sure, orjinalBosDizi);
-
     });
 
-    //Sayının Gösterildiği Kısım - End
+    setOrginQuranEmptyList(orjinalBosDizi);
+  }, []);
 
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
+  // 🔁 Hesaplama dizisini oluşturur (quranList değişince tetiklenir)
+  useEffect(() => {
+    let bosDizi = [];
+    let stringBuyukSayi = "";
+
     quranList.forEach((sure) => {
+      ({ bosDizi, stringBuyukSayi } =
+        suredekiTumAyetSayilariniHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
 
       ({ bosDizi, stringBuyukSayi } =
-        suredekiTumAyetSayilariniHesaplamaDizisineEkle(
-          sure,
-          bosDizi,
-          stringBuyukSayi
-        ));        
-        
-      ({ bosDizi, stringBuyukSayi } = suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+        suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
     });
 
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
-
     setOlusanDizi(bosDizi);
-    setOrginQuranEmptyList(orjinalBosDizi);
     setStringSayi(stringBuyukSayi);
-  };
-
-  useEffect(() => {
-    try {
-      buyukSayiyiOlustur();
-    } catch (error) {
-      console.log(error);
-    }
   }, [quranList]);
+
 
   return (
     <KapsayiciComponent>
@@ -140,36 +127,32 @@ const Number5 = () => {
                     handleTotalAyatClick(eleman.deger);
                   } else if (eleman.durum === "ayet-sayisi") {
                     handleTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
 
 
                   } else if (eleman.durum === "ayetNo-toplamlari") {
                     handleAyahsTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
 
                   } else if (eleman.durum === "sureNo") {
                     handleSurahNoClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
+                      eleman,
                       setSelectedSurahs
                     );
                   } else {
                     handleAyatClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   }
                 }}
