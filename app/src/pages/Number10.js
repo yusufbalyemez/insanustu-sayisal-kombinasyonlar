@@ -34,25 +34,41 @@ import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number10Info from "../Informations/Number10Info";
 
-
 const Number10 = () => {
-  const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
-  const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
-  const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
+  const { quranList } = useQuran();
+  const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]);
+  const [olusanDizi, setOlusanDizi] = useState([]);
   const [stringSayi, setStringSayi] = useState("");
   const [goster, setGoster] = useState(false);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
   const [copyState, setCopyState] = useState(false);
+  const { differentRefs } = useDifferentRefs();
+
+  useEffect(() => {
+    const orjinalBosDizi = [];
+    QURAN.forEach((sure) => {
+      suredekiAyetNumaralarinToplaminiYazdir(sure, orjinalBosDizi);
+    });
+    tumAyetNumaralarininToplaminiYazdir(QURAN, orjinalBosDizi);
+    setOrginQuranEmptyList(orjinalBosDizi);
+  }, []);
+
+  useEffect(() => {
+    let bosDizi = [];
+    let stringBuyukSayi = "";
+    quranList.forEach((sure) => {
+      ({ bosDizi, stringBuyukSayi } = suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+    });
+    ({ bosDizi, stringBuyukSayi } = tumAyetNumaralarininToplaminiHesaplamaDizisineEkle(quranList, bosDizi, stringBuyukSayi));
+    setOlusanDizi(bosDizi);
+    setStringSayi(stringBuyukSayi);
+  }, [quranList]);
 
   const handleCopy = () => {
     navigator.clipboard
       .writeText(stringSayi)
-      .then(() => {
-        toast.success("Sayı Kopyalandı.");
-      })
-      .catch((err) => {
-        toast.error("Kopyalama başarısız.");
-      });
+      .then(() => toast.success("Sayı Kopyalandı."))
+      .catch(() => toast.error("Kopyalama başarısız."));
     setCopyState(true);
   };
 
@@ -61,59 +77,14 @@ const Number10 = () => {
     setGoster(!goster);
   };
 
-  // Context üzerinden referanslara erişim
-  const { differentRefs } = useDifferentRefs();
-
-  const buyukSayiyiOlustur = () => {
-    let bosDizi = [];
-    let orjinalBosDizi = [];
-    let stringBuyukSayi = "";
-
-    //Sayının Gösterildiği Kısım - Start
-    QURAN.forEach((sure) => {
-        suredekiAyetNumaralarinToplaminiYazdir(sure, orjinalBosDizi);
-    });
-    //Sayının Gösterildiği Kısım - End
-
-    tumAyetNumaralarininToplaminiYazdir(QURAN, orjinalBosDizi);
-
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
-    quranList.forEach((sure) => {
-     
-      ({bosDizi,stringBuyukSayi}=suredekiAyetNumaralarinToplaminiHesaplamaDizisineEkle(sure, bosDizi,stringBuyukSayi));
-      
-    });
-
-    ({bosDizi,stringBuyukSayi}=tumAyetNumaralarininToplaminiHesaplamaDizisineEkle(quranList, bosDizi,stringBuyukSayi));
-
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
-    setOlusanDizi(bosDizi);
-    setOrginQuranEmptyList(orjinalBosDizi);
-    setStringSayi(stringBuyukSayi);
-  };
-
-  useEffect(() => {
-    try {
-      buyukSayiyiOlustur();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [quranList]);
-
   return (
     <KapsayiciComponent>
-      {/* Sayfanın başlığını ayarlama */}
       <Helmet>
         <title>Sayı 10</title>
       </Helmet>
 
-      {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
-
-      {/* Sayıyı yada Açıklama Metnini Gösteren Bileşen */}
       <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
-
-      {/* Sayıyı kopyalayan ve seçimleri iptal eden buton bileşeni */}
       <CopyAndSelectButtons
         copyState={copyState}
         goster={goster}
@@ -124,85 +95,60 @@ const Number10 = () => {
         <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {
             const isDiff = isDifferent(eleman, orginQuranEmptyList);
+            if (isDiff) differentRefs.current[index] = null;
 
-            if (isDiff) {
-              // Farklı elemanları referans nesnesine kaydet
-              differentRefs.current[index] = null;
-            }
+            const handleClick = () => {
+              switch (eleman.durum) {
+                case "toplam-ayet-sayisi":
+                  handleTotalAyatClick(eleman.deger);
+                  break;
+                case "ayet-sayisi":
+                  handleTotalClick(eleman, selectedSurahs, setSelectedSurahs, orginQuranEmptyList);
+                  break;
+                case "sure-sayisi":
+                  handleSurahNumberClick();
+                  break;
+                case "tum-ayet-no-toplamlari":
+                  handleTotalAyahsInQuranClick(eleman.deger);
+                  break;
+                case "ayetNo-toplamlari":
+                  handleAyahsTotalClick(eleman, selectedSurahs, setSelectedSurahs, orginQuranEmptyList);
+                  break;
+                case "sureNo":
+                  handleSurahNoClick(eleman, setSelectedSurahs);
+                  break;
+                default:
+                  handleAyatClick(eleman, selectedSurahs, setSelectedSurahs, orginQuranEmptyList);
+              }
+            };
+
+            const renkClass = isDiff
+              ? "text-red-500 font-bold blink"
+              : eleman.durum === "ayet-sayisi" || eleman.durum === "ayetNo-toplamlari"
+              ? "text-yellow-400"
+              : eleman.durum === "tum-ayet-no-toplamlari"
+              ? "text-cyan-400"
+              : eleman.durum === "sure-sayisi"
+              ? "text-orange-400"
+              : eleman.durum === "ayetNo"
+              ? "text-white"
+              : eleman.durum === "toplam-ayet-sayisi"
+              ? "text-green-300"
+              : eleman.durum === "sureNo"
+              ? "text-blue-500"
+              : "";
+
+            const seciliClass = selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : "";
+
             return (
               <span
                 key={index}
                 ref={(el) => {
-                  if (isDiff) {
-                    differentRefs.current[index] = el; // Sadece farklı elemanları ekliyoruz
-                  } else {
-                    delete differentRefs.current[index]; // Farklı olmayanları temizliyoruz
-                  }
+                  if (isDiff) differentRefs.current[index] = el;
+                  else delete differentRefs.current[index];
                 }}
-                onClick={() => {
-                  if (eleman.durum === "toplam-ayet-sayisi") {
-                    handleTotalAyatClick(eleman.deger);
-                  } else if (eleman.durum === "ayet-sayisi") {
-                    handleTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
-                      selectedSurahs,
-                      setSelectedSurahs
-                    )} 
-
-                    else if (eleman.durum === "sure-sayisi") {
-                      handleSurahNumberClick();} 
-
-                      else if (eleman.durum === "tum-ayet-no-toplamlari") {
-                        handleTotalAyahsInQuranClick(
-                          eleman.deger,
-                        )} 
-                    
-                    else if (eleman.durum === "ayetNo-toplamlari") {
-                    handleAyahsTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
-                      selectedSurahs,
-                      setSelectedSurahs
-                    );
-
-                  } else if (eleman.durum === "sureNo") {
-                    handleSurahNoClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      setSelectedSurahs
-                    );
-                  } else {
-                    handleAyatClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
-                      selectedSurahs,
-                      setSelectedSurahs
-                    );
-                  }
-                }}
-                className={`${isDifferent(eleman, orginQuranEmptyList)
-                  ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
-                  : eleman.durum === "ayet-sayisi"
-                    ? "text-yellow-400" // Ayet sayısı için sarı
-                    : eleman.durum === "tum-ayet-no-toplamlari"
-                    ? "text-cyan-400" // Ayet sayısı için sarı
-                    : eleman.durum === "sure-sayisi"
-                    ? "text-orange-400" // Ayet sayısı için sarı
-                    : eleman.durum === "ayetNo-toplamlari"
-                      ? "text-yellow-400" // Ayet sayısı için sarı
-                      : eleman.durum === "ayetNo"
-                        ? "text-white" // Ayet numarası için beyaz
-                        : eleman.durum === "toplam-ayet-sayisi"
-                          ? "text-green-300" // Toplam ayet sayısı için mavi
-                          : eleman.durum === "sureNo"
-                            ? "text-blue-500" // sure numarası için mavi
-                            : ""
-                  } ${selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
-                  } mr-1 mb-1 cursor-pointer`}
+                onClick={handleClick}
+                className={`${renkClass} ${seciliClass} mr-1 mb-1 cursor-pointer`}
               >
                 {eleman.deger}
               </span>
@@ -210,8 +156,7 @@ const Number10 = () => {
           })}
         </SayiyiGosterenComponent>
       ) : (
-        //Sayının bilgi metnini gösteren bileşen
-        <Number10Info/>
+        <Number10Info />
       )}
     </KapsayiciComponent>
   );
