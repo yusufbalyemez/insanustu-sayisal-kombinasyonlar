@@ -236,31 +236,15 @@ const Navbar = () => {
         </div>
         <List sx={{ color: "white" }}>
           {[
-            0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7,
-            8,
-            9,
-            10,
-            11,
-            12,
-            13,
-            14,
-            15,
-            "basmala",
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "basmala",
           ].map((issue, index) => (
             <ListItem
               key={index}
-              component={Link}
-              to={issue === 0 ? "/" : `/${issue}`}
+              button
               onClick={() => {
-                handleListItemClick(issue);
-                toggleDrawer(false);
+                // Hangi sayfaya gidecek?
+                const url = issue === 0 ? "/" : `/${issue}`;
+                window.location.href = url; // <-- Sayfayı hem değiştir hem reload et
               }}
               sx={{
                 bgcolor:
@@ -280,12 +264,12 @@ const Navbar = () => {
                       ? "Anasayfa"
                       : "Home"
                     : issue === "basmala"
-                    ? lang === "tr"
-                      ? "Besmele Etkisi"
-                      : "Effect of Basmala"
-                    : lang === "tr"
-                    ? `Sayı ${issue}`
-                    : `Number ${issue}`
+                      ? lang === "tr"
+                        ? "Besmele Etkisi"
+                        : "Effect of Basmala"
+                      : lang === "tr"
+                        ? `Sayı ${issue}`
+                        : `Number ${issue}`
                 }
                 sx={{
                   color: selectedItem === issue ? "#ffd700" : "white",
@@ -295,6 +279,7 @@ const Navbar = () => {
             </ListItem>
           ))}
         </List>
+
       </Drawer>
 
       {/* Sol Drawer */}
