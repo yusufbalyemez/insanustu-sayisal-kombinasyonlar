@@ -250,11 +250,11 @@ export const handleAyatClick = (
     // Eğer farklıysa direkt olarak hata ver
     if (language === "tr") {
       toast.error(
-        `Ekleme tespit edildi. ${eleman.sureNo}. surede böyle bir ayet olmamalıydı.`
+        `Ekleme tespit edildi. ${eleman.sureNo}. surede böyle bir ayet numarası olmamalıydı.`
       );
     } else if (language === "en") {
       toast.error(
-        `Addition detected. There should not be such an ayah in ${eleman.sureNo}. surah.`
+        `Addition detected. There should not be such an ayah number in ${eleman.sureNo}. surah.`
       );
     }
     toggleSurahSelection(eleman.sureNo, setSelectedSurahs);
