@@ -46,8 +46,8 @@ const Navbar = () => {
   // Farklılıkları hesapla
   useEffect(() => {
     calculateDifferences(quranList);
-  }, [quranList, calculateDifferences]);
-
+  }, [quranList]); // calculateDifferences artık useCallback ile sabitlendi
+  
   // Değişiklik göstergesi için yeni bir fonksiyon
   const getDifferenceIndicator = (surahNumber) => {
     const diff = differences.find((d) => d.surahNumber === surahNumber);
@@ -236,7 +236,23 @@ const Navbar = () => {
         </div>
         <List sx={{ color: "white" }}>
           {[
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, "basmala",
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            "basmala",
           ].map((issue, index) => (
             <ListItem
               key={index}
@@ -264,12 +280,12 @@ const Navbar = () => {
                       ? "Anasayfa"
                       : "Home"
                     : issue === "basmala"
-                      ? lang === "tr"
-                        ? "Besmele Etkisi"
-                        : "Effect of Basmala"
-                      : lang === "tr"
-                        ? `Sayı ${issue}`
-                        : `Number ${issue}`
+                    ? lang === "tr"
+                      ? "Besmele Etkisi"
+                      : "Effect of Basmala"
+                    : lang === "tr"
+                    ? `Sayı ${issue}`
+                    : `Number ${issue}`
                 }
                 sx={{
                   color: selectedItem === issue ? "#ffd700" : "white",
@@ -279,7 +295,6 @@ const Navbar = () => {
             </ListItem>
           ))}
         </List>
-
       </Drawer>
 
       {/* Sol Drawer */}

@@ -1,25 +1,22 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import quran from "../assets/SurahInfo.json";
 import tr_quran from "../assets/SurahInfo_tr.json";
 
 const DifferenceContext = createContext();
-
 export const useDifference = () => useContext(DifferenceContext);
 
 export const DifferenceProvider = ({ children }) => {
   const [differences, setDifferences] = useState([]);
   const [originalList, setOriginalList] = useState([]);
 
-  // Orijinal listeyi dile göre ayarla
   useEffect(() => {
     const lang = localStorage.getItem('lang_quran_evidence') || 'en';
     const list = lang === 'tr' ? tr_quran : quran;
     setOriginalList(list);
   }, []);
 
-  // Farklılıkları hesapla
-  const calculateDifferences = (currentList) => {
-    if (!currentList || !originalList) return;
+  const calculateDifferences = useCallback((currentList) => {
+    if (!currentList || !originalList.length) return;
 
     const diffs = currentList.map((sure, index) => {
       const original = originalList[index];
@@ -56,11 +53,11 @@ export const DifferenceProvider = ({ children }) => {
     }).filter(diff => diff !== null);
 
     setDifferences(diffs);
-  };
+  }, [originalList]);
 
   return (
     <DifferenceContext.Provider value={{ differences, calculateDifferences }}>
       {children}
     </DifferenceContext.Provider>
   );
-}; 
+};
