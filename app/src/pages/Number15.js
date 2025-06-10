@@ -58,42 +58,27 @@ const Number15 = () => {
   // Context üzerinden referanslara erişim
   const { differentRefs } = useDifferentRefs();
 
-  const buyukSayiyiOlustur = () => {
-    let bosDizi = [];
-    let orjinalBosDizi = [];
-    let stringBuyukSayi = "";
-
-  
-    //Sayının Gösterildiği Kısım - Start
+  useEffect(() => {
+    const orjinalBosDizi = [];
     QURAN.forEach((sure) => {
       suredekiTumAyetSayilariniYazdir(sure, orjinalBosDizi);
       sureNoVeSuredekiAyetSayilarininToplamlariniYazdir(sure, orjinalBosDizi);
     });
-    //Sayının Gösterildiği Kısım - End
-
-    
-
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - Start
-    quranList.forEach((sure) => {
-      ({ bosDizi, stringBuyukSayi } = suredekiTumAyetSayilariniHesaplamaDizisineEkle(sure, bosDizi,stringBuyukSayi));
-     ({ bosDizi, stringBuyukSayi } = sureNoVeSuredekiAyetSayilarininToplamlariniHesaplamaDizisineEkle(sure, bosDizi,stringBuyukSayi));
-    });
-
-    console.log("orjinalBosDizi", orjinalBosDizi);
-    //Hesaplanacak Büyük Sayının Oluşturulduğu kısım - End
-    setOlusanDizi(bosDizi);
     setOrginQuranEmptyList(orjinalBosDizi);
-    setStringSayi(stringBuyukSayi);
-  };
+  }, []);
 
   useEffect(() => {
-    try {
-      buyukSayiyiOlustur();
-    } catch (error) {
-      console.log(error);
-    }
-  }, [quranList]);
+    let bosDizi = [];
+    let stringBuyukSayi = "";
 
+    quranList.forEach((sure) => {
+      ({ bosDizi, stringBuyukSayi } = suredekiTumAyetSayilariniHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+      ({ bosDizi, stringBuyukSayi } = sureNoVeSuredekiAyetSayilarininToplamlariniHesaplamaDizisineEkle(sure, bosDizi, stringBuyukSayi));
+    });
+
+    setOlusanDizi(bosDizi);
+    setStringSayi(stringBuyukSayi);
+  }, [quranList]);
   return (
     <KapsayiciComponent>
       {/* Sayfanın başlığını ayarlama */}
@@ -179,11 +164,10 @@ const Number15 = () => {
                     );
                   } else {
                     handleAyatClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   }
                 }}
