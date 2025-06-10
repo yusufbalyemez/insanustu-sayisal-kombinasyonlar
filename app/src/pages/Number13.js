@@ -110,11 +110,10 @@ const Number13 = () => {
                     handleTotalAyatClick(eleman.deger);
                   } else if (eleman.durum === "ayet-sayisi") {
                     handleTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   } else if (eleman.durum === "sure-sayisi") {
                     handleSurahNumberClick();
@@ -122,25 +121,22 @@ const Number13 = () => {
                     handleTotalAyahsInQuranClick(eleman.deger);
                   } else if (eleman.durum === "ayetNo-toplamlari") {
                     handleAyahsTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   } else if (eleman.durum === "sureNo") {
                     handleSurahNoClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
+                      eleman,
                       setSelectedSurahs
                     );
                   } else {
                     handleAyatClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
                   }
                 }}
