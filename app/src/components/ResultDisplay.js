@@ -12,12 +12,12 @@ const ResultDisplay = ({ stringSayi, calculateMod19 }) => {
      duration-300 text-white min-w-72 mt-20"
     >
       <div>
-        <p className="flex items-center text-base md:text-lg font-semibold mb-2">
+        <p className="flex items-center text-lg font-semibold mb-2">
           <RiNumbersFill className="text-lg mr-1" />
           {translations.resultDisplay.text1}{" "}
           <span className="text-yellow-300 ml-1">{stringSayi.length}</span>
         </p>
-        <p className="flex items-center text-base md:text-lg font-semibold">
+        <p className="flex items-center text-lg font-semibold">
           <CgMathDivide className="text-lg font-bold" />
           {translations.resultDisplay.text2}
           <span className="text-green-300 ml-1">
