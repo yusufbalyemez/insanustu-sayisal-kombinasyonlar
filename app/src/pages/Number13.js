@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   calculateMod19,
   handleTotalClick,
@@ -18,13 +18,12 @@ import { useQuran } from "../context/quranListContext";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
-import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
-import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number13Info from "../Informations/Number13Info";
+import GosterCopyController from "../components/GosterCopyController";
 
 const Number13 = () => {
   const { quranList } = useQuran();
@@ -86,13 +85,12 @@ const Number13 = () => {
         <title>Sayı 13</title>
       </Helmet>
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
-      <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
-      <CopyAndSelectButtons
-        copyState={copyState}
+      <GosterCopyController toggleGoster={toggleGoster}
         goster={goster}
+        copyState={copyState}
         handleCopy={handleCopy}
-        setSelectedSurahs={setSelectedSurahs}
-      />
+        setSelectedSurahs={setSelectedSurahs} />
+
       {goster ? (
         <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {

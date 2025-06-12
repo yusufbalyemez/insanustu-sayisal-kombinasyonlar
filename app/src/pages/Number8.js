@@ -32,6 +32,7 @@ import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number8Info from "../Informations/Number8Info";
+import GosterCopyController from "../components/GosterCopyController";
 
 const Number8 = () => {
   const { quranList } = useQuran();
@@ -90,13 +91,12 @@ const Number8 = () => {
         <title>Sayı 8</title>
       </Helmet>
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
-      <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
-      <CopyAndSelectButtons
-        copyState={copyState}
+      <GosterCopyController toggleGoster={toggleGoster}
         goster={goster}
+        copyState={copyState}
         handleCopy={handleCopy}
-        setSelectedSurahs={setSelectedSurahs}
-      />
+        setSelectedSurahs={setSelectedSurahs} />
+
       {goster ? (
         <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {

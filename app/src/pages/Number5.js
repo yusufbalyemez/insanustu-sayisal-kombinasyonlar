@@ -16,13 +16,12 @@ import { useQuran } from "../context/quranListContext";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
-import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
-import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number5Info from "../Informations/Number5Info";
+import GosterCopyController from "../components/GosterCopyController";
 
 const Number5 = () => {
   const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
@@ -93,16 +92,12 @@ const Number5 = () => {
       {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
 
-      {/* Sayıyı yada Açıklama Metnini Gösteren Bileşen */}
-      <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
-
-      {/* Sayıyı kopyalayan ve seçimleri iptal eden buton bileşeni */}
-      <CopyAndSelectButtons
-        copyState={copyState}
+      <GosterCopyController toggleGoster={toggleGoster}
         goster={goster}
+        copyState={copyState}
         handleCopy={handleCopy}
-        setSelectedSurahs={setSelectedSurahs}
-      />
+        setSelectedSurahs={setSelectedSurahs} />
+
       {goster ? (
         <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {

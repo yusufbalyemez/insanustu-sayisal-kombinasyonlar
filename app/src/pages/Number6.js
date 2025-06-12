@@ -24,6 +24,7 @@ import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number6Info from "../Informations/Number6Info";
+import GosterCopyController from "../components/GosterCopyController";
 
 const Number6 = () => {
   const { quranList } = useQuran();
@@ -74,13 +75,13 @@ const Number6 = () => {
         <title>Sayı 6</title>
       </Helmet>
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
-      <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
-      <CopyAndSelectButtons
-        copyState={copyState}
+      
+      <GosterCopyController toggleGoster={toggleGoster}
         goster={goster}
+        copyState={copyState}
         handleCopy={handleCopy}
-        setSelectedSurahs={setSelectedSurahs}
-      />
+        setSelectedSurahs={setSelectedSurahs} />
+
       {goster ? (
         <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {
@@ -109,14 +110,14 @@ const Number6 = () => {
             const renkClass = isDiff
               ? "text-red-500 font-bold blink"
               : eleman.durum === "ayet-sayisi" || eleman.durum === "ayetNo-toplamlari"
-              ? "text-yellow-400"
-              : eleman.durum === "ayetNo"
-              ? "text-white"
-              : eleman.durum === "toplam-ayet-sayisi"
-              ? "text-green-300"
-              : eleman.durum === "sureNo"
-              ? "text-blue-500"
-              : "";
+                ? "text-yellow-400"
+                : eleman.durum === "ayetNo"
+                  ? "text-white"
+                  : eleman.durum === "toplam-ayet-sayisi"
+                    ? "text-green-300"
+                    : eleman.durum === "sureNo"
+                      ? "text-blue-500"
+                      : "";
 
             const seciliClass = selectedSurahs.includes(eleman.sureNo)
               ? "bg-green-700"
