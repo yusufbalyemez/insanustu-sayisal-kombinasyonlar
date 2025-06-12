@@ -99,7 +99,6 @@ const Number1 = () => {
       <Helmet>
         <title>Sayı 1</title>
       </Helmet>
-
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
       <GosterCopyController toggleGoster={toggleGoster}
         goster={goster}

@@ -160,11 +160,11 @@
       
     },
     "buttons":{
-        "copy":"Sayıyı Kopyala",
+        "copy":"Kopyala",
         "copied": "Kopyalandı",
-        "clearSelection":"Seçimleri Kaldır",
+        "clearSelection":"Kaldır",
         "text1":"Sayıyı Göster",
-        "text2":"Metni Göster"
+        "text2":"Yazı"
     }
 
 

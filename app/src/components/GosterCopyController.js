@@ -10,7 +10,7 @@ const GosterCopyController = ({
   setSelectedSurahs,
 }) => {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-row justify-between gap-2 px-6 max-w-screen-md mx-auto">
       <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
       <CopyAndSelectButtons
         copyState={copyState}

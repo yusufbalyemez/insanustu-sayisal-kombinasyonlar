@@ -138,10 +138,10 @@
         "copiedError": "Copy failed."
     },
     "buttons": {
-        "copy": "Copy Number",
+        "copy": "Copy",
         "copied": "Copied",
-        "clearSelection": "Clear Selections",
+        "clearSelection": "Clear",
         "text1": "Show Number",
-        "text2": "Show Text"
+        "text2": "Text"
     }
 }
