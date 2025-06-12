@@ -47,7 +47,7 @@ const Navbar = () => {
   useEffect(() => {
     calculateDifferences(quranList);
   }, [quranList]); // calculateDifferences artık useCallback ile sabitlendi
-  
+
   // Değişiklik göstergesi için yeni bir fonksiyon
   const getDifferenceIndicator = (surahNumber) => {
     const diff = differences.find((d) => d.surahNumber === surahNumber);
@@ -258,9 +258,13 @@ const Navbar = () => {
               key={index}
               button
               onClick={() => {
-                // Hangi sayfaya gidecek?
+                const isGithubPages =
+                  window.location.hostname.includes("github.io");
                 const url = issue === 0 ? "/" : `/${issue}`;
-                window.location.href = url; // <-- Sayfayı hem değiştir hem reload et
+                const base = isGithubPages
+                  ? "/insanustu-sayisal-kombinasyonlar/#"
+                  : "";
+                window.location.href = `${base}${url}`;
               }}
               sx={{
                 bgcolor:
