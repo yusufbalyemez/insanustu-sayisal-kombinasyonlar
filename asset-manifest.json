@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/insanustu-sayisal-kombinasyonlar/static/css/main.35b32af1.css",
+    "main.js": "/insanustu-sayisal-kombinasyonlar/static/js/main.ea9041ff.js",
+    "static/js/453.a6a97343.chunk.js": "/insanustu-sayisal-kombinasyonlar/static/js/453.a6a97343.chunk.js",
+    "static/media/logo.png": "/insanustu-sayisal-kombinasyonlar/static/media/logo.a6ea25e3b42726187e3f.png",
+    "static/media/resim2.jpg": "/insanustu-sayisal-kombinasyonlar/static/media/resim2.75789abd12f9eec547b5.jpg",
+    "static/media/resim1.jpg": "/insanustu-sayisal-kombinasyonlar/static/media/resim1.c9d4b8b3746fd940a9c7.jpg",
+    "index.html": "/insanustu-sayisal-kombinasyonlar/index.html",
+    "main.35b32af1.css.map": "/insanustu-sayisal-kombinasyonlar/static/css/main.35b32af1.css.map",
+    "main.ea9041ff.js.map": "/insanustu-sayisal-kombinasyonlar/static/js/main.ea9041ff.js.map",
+    "453.a6a97343.chunk.js.map": "/insanustu-sayisal-kombinasyonlar/static/js/453.a6a97343.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.35b32af1.css",
+    "static/js/main.ea9041ff.js"
+  ]
+}
