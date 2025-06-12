@@ -11,13 +11,12 @@ import { useQuran } from "../context/quranListContext";
 import QURAN from "../assets/SurahInfo.json";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
-import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
-import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number1Info from "../Informations/Number1Info";
+import GosterCopyController from "../components/GosterCopyController";
 
 const Number1 = () => {
   const { quranList } = useQuran();
@@ -102,14 +101,11 @@ const Number1 = () => {
       </Helmet>
 
       <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
-      <ShowButtonToggle toggleGoster={toggleGoster} goster={goster} />
-      <CopyAndSelectButtons
-        copyState={copyState}
+      <GosterCopyController toggleGoster={toggleGoster}
         goster={goster}
+        copyState={copyState}
         handleCopy={handleCopy}
-        setSelectedSurahs={setSelectedSurahs}
-      />
-
+        setSelectedSurahs={setSelectedSurahs} />
       {goster ? (
         <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {
@@ -148,21 +144,19 @@ const Number1 = () => {
                     );
                   }
                 }}
-                className={`${
-                  isDiff
-                    ? "text-red-500 font-bold blink"
-                    : eleman.durum === "ayet-sayisi"
+                className={`${isDiff
+                  ? "text-red-500 font-bold blink"
+                  : eleman.durum === "ayet-sayisi"
                     ? "text-yellow-400"
                     : eleman.durum === "ayetNo"
-                    ? "text-white"
-                    : eleman.durum === "toplam-ayet-sayisi"
-                    ? "text-blue-600"
-                    : eleman.durum === "sureNo"
-                    ? "text-blue-500"
-                    : ""
-                } ${
-                  selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
-                } mr-1 mb-1 cursor-pointer`}
+                      ? "text-white"
+                      : eleman.durum === "toplam-ayet-sayisi"
+                        ? "text-blue-600"
+                        : eleman.durum === "sureNo"
+                          ? "text-blue-500"
+                          : ""
+                  } ${selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
+                  } mr-1 mb-1 cursor-pointer`}
               >
                 {eleman.deger}
               </span>
