@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import {
   calculateMod19,
   handleTotalClick,
@@ -24,6 +24,7 @@ import ShowButtonToggle from "../components/ShowButtonToggle";
 import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
+import SayiSpan from "../components/SayiSpan";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import BesmeleEtkisiInfo from "../Informations/BesmeleEtkisiInfo";
@@ -83,6 +84,21 @@ const BesmeleEtkisi = () => {
     setStringSayi(stringBuyukSayi);
   }, [quranList]);
 
+  // Tıklama işleyicisi: her render'da güncel state'i görür ama
+  // SayiSpan'a sabit bir fonksiyon gider (memo bozulmasın diye).
+  const sayiyaTiklandiRef = useRef();
+  sayiyaTiklandiRef.current = (eleman) => {
+                  if (eleman.durum === "toplam-ayet-sayisi") handleTotalAyatClick(eleman.deger);
+                  else if (eleman.durum === "ayet-sayisi") handleTotalClick(eleman, selectedSurahs, setSelectedSurahs, orginQuranEmptyList);
+                  else if (eleman.durum === "sureNo") handleSurahNoClick(eleman, setSelectedSurahs);
+                  else if (eleman.durum === "besmele") handleBasmalaClick(eleman.sureNo, eleman.sureAdi, true, selectedSurahs, setSelectedSurahs);
+                  else handleAyatClick(eleman, selectedSurahs, setSelectedSurahs, orginQuranEmptyList);
+  };
+  const sayiyaTiklandi = useCallback(
+    (eleman) => sayiyaTiklandiRef.current(eleman),
+    []
+  );
+
   return (
     <KapsayiciComponent>
       <Helmet>
@@ -99,23 +115,12 @@ const BesmeleEtkisi = () => {
         <SayiyiGosterenComponent>
           {olusanDizi.map((eleman, index) => {
             const isDiff = isDifferent(eleman, orginQuranEmptyList);
-            if (isDiff) differentRefs.current[index] = null;
             return (
-              <span
+              <SayiSpan
                 key={index}
-                ref={(el) => {
-                  if (isDiff) differentRefs.current[index] = el;
-                  else delete differentRefs.current[index];
-                }}
-      
-                onClick={() => {
-                  if (eleman.durum === "toplam-ayet-sayisi") handleTotalAyatClick(eleman.deger);
-                  else if (eleman.durum === "ayet-sayisi") handleTotalClick(eleman, selectedSurahs, setSelectedSurahs, orginQuranEmptyList);
-                  else if (eleman.durum === "sureNo") handleSurahNoClick(eleman, setSelectedSurahs);
-                  else if (eleman.durum === "besmele") handleBasmalaClick(eleman.sureNo, eleman.sureAdi, true, selectedSurahs, setSelectedSurahs);
-                  else handleAyatClick(eleman, selectedSurahs, setSelectedSurahs, orginQuranEmptyList);
-                }}
-                
+                index={index}
+                eleman={eleman}
+                isDiff={isDiff}
                 className={`${isDiff ? "text-red-500 font-bold blink" :
                   eleman.durum === "ayet-sayisi" ? "text-yellow-400" :
                   eleman.durum === "besmele" ? "text-orange-400" :
@@ -124,9 +129,9 @@ const BesmeleEtkisi = () => {
                   eleman.durum === "sureNo" ? "text-blue-500" : ""} ${
                   selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
                 } mr-1 mb-1 cursor-pointer`}
-              >
-                {eleman.deger}
-              </span>
+                onTap={sayiyaTiklandi}
+                differentRefs={differentRefs}
+              />
             );
           })}
         </SayiyiGosterenComponent>

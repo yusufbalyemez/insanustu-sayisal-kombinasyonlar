@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import {
   calculateMod19,
   handleTotalClick,
@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 import { Helmet } from "react-helmet";
 import ResultDisplay from "../components/ResultDisplay";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
+import SayiSpan from "../components/SayiSpan";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number5Info from "../Informations/Number5Info";
@@ -82,42 +83,10 @@ const Number5 = () => {
   }, [quranList]);
 
 
-  return (
-    <KapsayiciComponent>
-      {/* Sayfanın başlığını ayarlama */}
-      <Helmet>
-        <title>Sayı 5</title>
-      </Helmet>
-
-      {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
-      <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
-
-      <GosterCopyController toggleGoster={toggleGoster}
-        goster={goster}
-        copyState={copyState}
-        handleCopy={handleCopy}
-        setSelectedSurahs={setSelectedSurahs} />
-
-      {goster ? (
-        <SayiyiGosterenComponent>
-          {olusanDizi.map((eleman, index) => {
-            const isDiff = isDifferent(eleman, orginQuranEmptyList);
-
-            if (isDiff) {
-              // Farklı elemanları referans nesnesine kaydet
-              differentRefs.current[index] = null;
-            }
-            return (
-              <span
-                key={index}
-                ref={(el) => {
-                  if (isDiff) {
-                    differentRefs.current[index] = el; // Sadece farklı elemanları ekliyoruz
-                  } else {
-                    delete differentRefs.current[index]; // Farklı olmayanları temizliyoruz
-                  }
-                }}
-                onClick={() => {
+  // Tıklama işleyicisi: her render'da güncel state'i görür ama
+  // SayiSpan'a sabit bir fonksiyon gider (memo bozulmasın diye).
+  const sayiyaTiklandiRef = useRef();
+  sayiyaTiklandiRef.current = (eleman) => {
                   if (eleman.durum === "toplam-ayet-sayisi") {
                     handleTotalAyatClick(eleman.deger);
                   } else if (eleman.durum === "ayet-sayisi") {
@@ -150,7 +119,38 @@ const Number5 = () => {
                       orginQuranEmptyList
                     );
                   }
-                }}
+  };
+  const sayiyaTiklandi = useCallback(
+    (eleman) => sayiyaTiklandiRef.current(eleman),
+    []
+  );
+
+  return (
+    <KapsayiciComponent>
+      {/* Sayfanın başlığını ayarlama */}
+      <Helmet>
+        <title>Sayı 5</title>
+      </Helmet>
+
+      {/* 19'a bölümünden kalanını ve basamak sayısını gösteren bileşen */}
+      <ResultDisplay stringSayi={stringSayi} calculateMod19={calculateMod19} />
+
+      <GosterCopyController toggleGoster={toggleGoster}
+        goster={goster}
+        copyState={copyState}
+        handleCopy={handleCopy}
+        setSelectedSurahs={setSelectedSurahs} />
+
+      {goster ? (
+        <SayiyiGosterenComponent>
+          {olusanDizi.map((eleman, index) => {
+            const isDiff = isDifferent(eleman, orginQuranEmptyList);
+            return (
+              <SayiSpan
+                key={index}
+                index={index}
+                eleman={eleman}
+                isDiff={isDiff}
                 className={`${isDifferent(eleman, orginQuranEmptyList)
                   ? "text-red-500 font-bold blink" // Eğer farklıysa kırmızı
                   : eleman.durum === "ayet-sayisi"
@@ -166,9 +166,9 @@ const Number5 = () => {
                             : ""
                   } ${selectedSurahs.includes(eleman.sureNo) ? "bg-green-700" : ""
                   } mr-1 mb-1 cursor-pointer`}
-              >
-                {eleman.deger}
-              </span>
+                onTap={sayiyaTiklandi}
+                differentRefs={differentRefs}
+              />
             );
           })}
         </SayiyiGosterenComponent>

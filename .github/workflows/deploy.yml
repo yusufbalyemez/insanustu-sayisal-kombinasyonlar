@@ -3,7 +3,7 @@ name: GitHub Pages'e Yayınla
 
 on:
   push:
-    branches: [main]
+    branches: ["**"]
   workflow_dispatch:
 
 permissions:
@@ -35,7 +35,16 @@ jobs:
         # CI=false: create-react-app uyarıları hata sayıp derlemeyi durdurmasın
         run: CI=false npm run build
 
+      - name: Derlenen siteyi sakla (kontrol için)
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: app/build
+          retention-days: 7
+
+      # Sadece main dalı canlı siteye yayınlanır; diğer dallar sadece derlenir.
       - name: gh-pages dalına yayınla
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
