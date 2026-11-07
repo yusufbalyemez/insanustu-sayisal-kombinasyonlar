@@ -166,20 +166,24 @@ const Navbar = () => {
         <motion.div
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="w-16 md:w-20 cursor-pointer"
+          className="w-11 md:w-20 cursor-pointer flex-shrink-0"
           onClick={toggleDrawer2(true)}
         >
           <img src={logo} alt="Logo" className="w-full h-auto" />
         </motion.div>
 
-        <div className="flex items-center justify-center gap-4 md:gap-6 text-white">
+        <div className="flex items-center justify-center gap-1.5 md:gap-6 text-white">
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 cursor-pointer hover:text-yellow-400 transition-colors duration-300"
+            className="flex items-center gap-1.5 md:gap-2 cursor-pointer bg-gray-700 md:bg-transparent rounded-lg px-2.5 py-2 md:p-0 text-sm md:text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-300"
             onClick={toggleDrawer2(true)}
           >
-            <CiViewList className="text-xl" />
+            <CiViewList className="text-lg md:text-xl text-yellow-400 md:text-current" />
+            {/* Telefonda kısa yazı, bilgisayarda uzun yazı */}
+            <span className="md:hidden">
+              {lang === "tr" ? "Sureler" : "Surahs"}
+            </span>
             <span className="hidden md:inline-block">
               {lang === "tr" ? "Sure Listesi" : "Surah List"}
             </span>
@@ -188,11 +192,11 @@ const Navbar = () => {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 cursor-pointer hover:text-yellow-400 transition-colors duration-300"
+            className="flex items-center gap-1.5 md:gap-2 cursor-pointer bg-gray-700 md:bg-transparent rounded-lg px-2.5 py-2 md:p-0 text-sm md:text-base whitespace-nowrap hover:text-yellow-400 transition-colors duration-300"
             onClick={toggleDrawer(true)}
           >
-            <MdOutlineFormatListNumberedRtl className="text-xl" />
-            <span className="hidden md:inline-block">
+            <MdOutlineFormatListNumberedRtl className="text-lg md:text-xl text-yellow-400 md:text-current" />
+            <span>
               {lang === "tr" ? "Sayılar" : "Numbers"}
             </span>
           </motion.div>
@@ -200,6 +204,15 @@ const Navbar = () => {
           <Select
             value={language}
             onChange={handleLanguageChange}
+            size="small"
+            renderValue={(v) => (
+              <>
+                <span className="md:hidden">{v.toUpperCase()}</span>
+                <span className="hidden md:inline">
+                  {v === "tr" ? "Türkçe" : "English"}
+                </span>
+              </>
+            )}
             className="bg-gray-700 text-white border-0 rounded-lg"
             sx={{
               color: "white",
