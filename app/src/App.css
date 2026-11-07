@@ -14,12 +14,16 @@ body{
     }
   }
   
-  /* inline-block + will-change: yanıp sönme ekran kartında (GPU) yapılır;
-     Safari her karede tüm sayı listesini yeniden boyamaz */
+  /* Klasik "yan-sön" (step-end): saniyede sadece 2 değişim olur, yumuşak
+     geçişteki gibi her karede yeniden çizim olmaz. Böylece iPhone (Safari)
+     dahil her cihazda çalışır ve telefonu yormaz. */
   .blink {
     display: inline-block;
-    will-change: opacity;
-    animation: blink 1s infinite;
+    animation: blink 1s step-end infinite;
+  }
+
+  .yanip-kapali .blink {
+    animation: none;
   }
 
   /* Sayı listesinin parçaları: her parça kendi içinde hesaplanır, ekranda
@@ -28,14 +32,4 @@ body{
     contain: content;
     content-visibility: auto;
     contain-intrinsic-size: auto 400px;
-  }
-
-  .yanip-kapali .blink {
-    animation: none;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .blink {
-      animation: none;
-    }
   }
