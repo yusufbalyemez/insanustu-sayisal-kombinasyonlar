@@ -568,14 +568,25 @@ export const calculateTotalAyahs = (surahInfo) => {
 };
 
 // Dizileri Karşılaştırma fonksiyonu
+// Eskiden her eleman için orijinal listenin tamamı .find() ile taranıyordu
+// (~6300 x 6300 = ~40 milyon karşılaştırma, HER render'da). Bu, özellikle
+// iPhone'larda (Safari/WebKit) sayfanın donmasına yol açıyordu.
+// Artık orijinal liste bir kez Set'e çevrilip önbelleğe alınıyor; arama O(1).
+const originalKeyCache = new WeakMap();
+const elemanKey = (e) => `${e.durum}|${e.sureNo}|${e.deger}`;
+
+const getOriginalKeySet = (orginQuranEmptyList) => {
+  let set = originalKeyCache.get(orginQuranEmptyList);
+  if (!set) {
+    set = new Set(orginQuranEmptyList.map(elemanKey));
+    originalKeyCache.set(orginQuranEmptyList, set);
+  }
+  return set;
+};
+
 export const isDifferent = (eleman, orginQuranEmptyList) => {
-  const originalElement = orginQuranEmptyList.find(
-    (orjEleman) =>
-      orjEleman.sureNo === eleman.sureNo &&
-      orjEleman.durum === eleman.durum &&
-      orjEleman.deger === eleman.deger
-  );
-  return !originalElement;
+  if (!orginQuranEmptyList || orginQuranEmptyList.length === 0) return true;
+  return !getOriginalKeySet(orginQuranEmptyList).has(elemanKey(eleman));
 };
 
 export const toggleGoster = (setCopyState, goster, setGoster) => {

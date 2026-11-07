@@ -51,7 +51,13 @@ function App() {
             <Route path="/15" element={<Number15/>} />
             <Route path="/basmala" element={<BesmeleEtkisi/>} />
           </Routes>
-          <ToastContainer autoClose={4000} position="top-center" />
+          <ToastContainer
+            autoClose={4000}
+            position="top-center"
+            limit={3}
+            newestOnTop
+            pauseOnFocusLoss={false}
+          />
         </DifferenceProvider>
       </DifferentRefsProvider>
     </QuranProvider>

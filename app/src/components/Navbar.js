@@ -20,7 +20,7 @@ import {
   IconButton,
 } from "@mui/material";
 import { AiOutlineNumber } from "react-icons/ai";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import quran from "../assets/SurahInfo.json";
 import tr_quran from "../assets/SurahInfo_tr.json";
 import { useQuran } from "../context/quranListContext";
@@ -30,6 +30,7 @@ import { useDifference } from "../context/DifferenceContext";
 
 const Navbar = () => {
   const { translations } = useLanguage(); // Çeviri verilerini al
+  const navigate = useNavigate();
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isLeftDrawerOpen, setIsLeftDrawerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(0);
@@ -102,24 +103,28 @@ const Navbar = () => {
     setSelectedItem(index);
   };
 
+  // Not: Eski kodda nesneler yerinde değiştiriliyordu (state mutasyonu).
+  // Artık sadece değişen sure kopyalanarak güncelleniyor.
+  const updateTempSurah = (index, changes) => {
+    setTempQuranList((prev) =>
+      prev.map((sura, i) => (i === index ? { ...sura, ...changes } : sura))
+    );
+  };
+
   const handleAyahChange = (index, value) => {
-    const updatedTempList = [...tempQuranList];
-    updatedTempList[index].totalAyahs = parseInt(value) || 0;
-    setTempQuranList(updatedTempList);
+    updateTempSurah(index, { totalAyahs: parseInt(value) || 0 });
   };
 
   const handleHurufCheckboxChange = (index) => {
-    const updatedTempList = [...tempQuranList];
-    updatedTempList[index].startsWithHurufMuqattaat =
-      !updatedTempList[index].startsWithHurufMuqattaat;
-    setTempQuranList(updatedTempList);
+    updateTempSurah(index, {
+      startsWithHurufMuqattaat: !tempQuranList[index].startsWithHurufMuqattaat,
+    });
   };
 
   const handleBasmalaCheckboxChange = (index) => {
-    const updatedTempList = [...tempQuranList];
-    updatedTempList[index].startsWithBasmala =
-      !updatedTempList[index].startsWithBasmala;
-    setTempQuranList(updatedTempList);
+    updateTempSurah(index, {
+      startsWithBasmala: !tempQuranList[index].startsWithBasmala,
+    });
   };
 
   const handleUpdateQuranList = () => {
@@ -258,13 +263,11 @@ const Navbar = () => {
               key={index}
               button
               onClick={() => {
-                const isGithubPages =
-                  window.location.hostname.includes("github.io");
-                const url = issue === 0 ? "/" : `/${issue}`;
-                const base = isGithubPages
-                  ? "/insanustu-sayisal-kombinasyonlar/#"
-                  : "";
-                window.location.href = `${base}${url}`;
+                // Sayfayı baştan yüklemek yerine React Router ile geçiş
+                setSelectedItem(issue);
+                setIsDrawerOpen(false);
+                navigate(issue === 0 ? "/" : `/${issue}`);
+                window.scrollTo(0, 0);
               }}
               sx={{
                 bgcolor:
@@ -390,7 +393,8 @@ const Navbar = () => {
                     <input
                       id={`ayah-input-${index}`}
                       name={`ayah-input-${index}`}
-                      className="w-16 sm:w-24 text-yellow-400 text-center border-b-2 border-yellow-400 outline-none bg-transparent text-sm sm:text-base"
+                      className="w-16 sm:w-24 text-yellow-400 text-center border-b-2 border-yellow-400 outline-none bg-transparent text-base"
+                      inputMode="numeric"
                       type="text"
                       value={sura.totalAyahs}
                       onChange={(e) => handleAyahChange(index, e.target.value)}

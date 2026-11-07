@@ -1,0 +1,43 @@
+# main dalına her gönderimde siteyi derleyip GitHub Pages'e (gh-pages dalı) yayınlar.
+name: GitHub Pages'e Yayınla
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: app/package-lock.json
+
+      - name: Paketleri kur
+        run: npm ci
+
+      - name: Derle
+        # CI=false: create-react-app uyarıları hata sayıp derlemeyi durdurmasın
+        run: CI=false npm run build
+
+      - name: gh-pages dalına yayınla
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: app/build
+          publish_branch: gh-pages

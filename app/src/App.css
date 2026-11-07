@@ -17,3 +17,9 @@ body{
   .blink {
     animation: blink 1s infinite;
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .blink {
+      animation: none;
+    }
+  }
