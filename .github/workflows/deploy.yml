@@ -35,13 +35,6 @@ jobs:
         # CI=false: create-react-app uyarıları hata sayıp derlemeyi durdurmasın
         run: CI=false npm run build
 
-      - name: Derlenen siteyi sakla (kontrol için)
-        uses: actions/upload-artifact@v4
-        with:
-          name: build
-          path: app/build
-          retention-days: 7
-
       # Sadece main dalı canlı siteye yayınlanır; diğer dallar sadece derlenir.
       - name: gh-pages dalına yayınla
         if: github.ref == 'refs/heads/main'
@@ -50,3 +43,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: app/build
           publish_branch: gh-pages
+
+      # main dışındaki dallar: canlı siteye değil, 'onizleme' dalına konur (test için)
+      - name: onizleme dalına koy
+        if: github.ref != 'refs/heads/main'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: app/build
+          publish_branch: onizleme
