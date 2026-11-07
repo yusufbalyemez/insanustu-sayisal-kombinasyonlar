@@ -8,8 +8,14 @@ const PARCA_BOYUTU = 250;
 // sayfa donuyordu. Sayılar artık küçük parçalara bölünüyor:
 //  - her parça kendi içinde hesaplanıyor (contain)
 //  - ekranda görünmeyen parçalar hiç çizilmiyor (content-visibility: auto)
+// Varsayılan: parçalama KAPALI (satır aralarında boşluk olmasın).
+// Test için adresin sonuna ?parca=1 eklenirse parçalı hali açılır.
+const PARCALA =
+  typeof window !== "undefined" &&
+  new URLSearchParams(window.location.search).get("parca") === "1";
+
 const SayiyiGosterenComponent = ({ children }) => {
-  const elemanlar = Children.toArray(children);
+  const elemanlar = PARCALA ? Children.toArray(children) : [];
   const parcalar = [];
   for (let i = 0; i < elemanlar.length; i += PARCA_BOYUTU) {
     parcalar.push(elemanlar.slice(i, i + PARCA_BOYUTU));
@@ -25,14 +31,18 @@ const SayiyiGosterenComponent = ({ children }) => {
         // iOS'ta hızlı art arda dokunuşlarda çift-dokunma yakınlaştırması
         // ve tıklama gecikmesi olmasın
         touchAction: "manipulation",
+        // Değişiklikler sadece bu kutunun içinde hesaplansın
+        contain: "content",
         WebkitTapHighlightColor: "transparent",
       }}
     >
-      {parcalar.map((parca, i) => (
-        <div key={i} className="sayi-parcasi">
-          {parca}
-        </div>
-      ))}
+      {PARCALA
+        ? parcalar.map((parca, i) => (
+            <div key={i} className="sayi-parcasi">
+              {parca}
+            </div>
+          ))
+        : children}
     </div>
   );
 };
