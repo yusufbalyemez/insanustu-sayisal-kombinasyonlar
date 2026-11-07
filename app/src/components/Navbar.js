@@ -69,15 +69,10 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    const storedQuranList = localStorage.getItem("quranList");
-    if (storedQuranList) {
-      setQuranList(JSON.parse(storedQuranList));
-      setTempQuranList(JSON.parse(storedQuranList));
-    } else {
-      setQuranList(quranList);
-      setTempQuranList(quranList);
-    }
-  }, []); // Bu bağımlılıklarla `quranList` güncellemelerine doğru tepki verilir
+    // Liste zaten QuranProvider tarafından (geçerli kayıt varsa oradan) yüklendi.
+    // Burada sadece düzenleme tablosu için bir kopya alınır; localStorage'a yazılmaz.
+    setTempQuranList(quranList.map((sura) => ({ ...sura })));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const toggleDrawer = (open) => (event) => {
     if (
@@ -112,7 +107,9 @@ const Navbar = () => {
   };
 
   const handleAyahChange = (index, value) => {
-    updateTempSurah(index, { totalAyahs: parseInt(value) || 0 });
+    // Sadece rakam kabul et (eksi veya harf girilirse 19 hesabı bozuluyordu)
+    const rakamlar = String(value).replace(/\D/g, "").slice(0, 4);
+    updateTempSurah(index, { totalAyahs: parseInt(rakamlar, 10) || 0 });
   };
 
   const handleHurufCheckboxChange = (index) => {
@@ -129,8 +126,7 @@ const Navbar = () => {
 
   const handleUpdateQuranList = () => {
     clearDifferentRefs(); // Referansları temizle
-    setQuranList(tempQuranList); // Yeni listeyi güncelle
-    localStorage.setItem("quranList", JSON.stringify(tempQuranList)); // Listeyi localStorage'a kaydet
+    setQuranList(tempQuranList); // Yeni listeyi güncelle (kaydetme işini QuranProvider yapar)
 
     // DOM'un güncellenmesini bekle ve scroll'u tetikle
     setTimeout(() => {
@@ -147,9 +143,8 @@ const Navbar = () => {
       defaultQuranList = JSON.parse(JSON.stringify(quran));
     }
 
-    setQuranList(defaultQuranList);
+    setQuranList(defaultQuranList); // orijinalle aynı olduğu için kayıt silinir
     setTempQuranList(defaultQuranList);
-    localStorage.setItem("quranList", JSON.stringify(defaultQuranList));
     setIsLeftDrawerOpen(false);
     // İşlemler tamamlandığı anda sayfayı baştan yükle:
     window.location.reload();

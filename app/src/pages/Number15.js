@@ -42,10 +42,10 @@ const Number15 = () => {
     navigator.clipboard
       .writeText(stringSayi)
       .then(() => {
-        toast.success("Sayı Kopyalandı.");
+        toast.success(localStorage.getItem("lang_quran_evidence") === "en" ? "Number copied." : "Sayı Kopyalandı.");
       })
       .catch((err) => {
-        toast.error("Kopyalama başarısız.");
+        toast.error(localStorage.getItem("lang_quran_evidence") === "en" ? "Copy failed." : "Kopyalama başarısız.");
       });
     setCopyState(true);
   };
@@ -87,11 +87,10 @@ const Number15 = () => {
                     handleTotalAyatClick(eleman.deger);
                   } else if (eleman.durum === "ayet-sayisi") {
                     handleTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     )} 
                     else if (eleman.durum ===  "sureNo+AyetSayisi") {
                       handleSurahAndSurahNumberTotalClick(
@@ -112,19 +111,14 @@ const Number15 = () => {
                     
                     else if (eleman.durum === "ayetNo-toplamlari") {
                     handleAyahsTotalClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      eleman.deger,
+                      eleman,
                       selectedSurahs,
-                      setSelectedSurahs
+                      setSelectedSurahs,
+                      orginQuranEmptyList
                     );
 
                   } else if (eleman.durum === "sureNo") {
-                    handleSurahNoClick(
-                      eleman.sureNo,
-                      eleman.sureAdi,
-                      setSelectedSurahs
-                    );
+                    handleSurahNoClick(eleman, setSelectedSurahs);
                   } else {
                     handleAyatClick(
                       eleman,

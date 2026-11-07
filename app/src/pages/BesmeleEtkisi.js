@@ -43,8 +43,8 @@ const BesmeleEtkisi = () => {
   const handleCopy = () => {
     navigator.clipboard
       .writeText(stringSayi)
-      .then(() => toast.success("Sayı Kopyalandı."))
-      .catch(() => toast.error("Kopyalama başarısız."));
+      .then(() => toast.success(localStorage.getItem("lang_quran_evidence") === "en" ? "Number copied." : "Sayı Kopyalandı."))
+      .catch(() => toast.error(localStorage.getItem("lang_quran_evidence") === "en" ? "Copy failed." : "Kopyalama başarısız."));
     setCopyState(true);
   };
 

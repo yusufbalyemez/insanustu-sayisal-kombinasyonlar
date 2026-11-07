@@ -39,10 +39,10 @@ const Number13 = () => {
     navigator.clipboard
       .writeText(stringSayi)
       .then(() => {
-        toast.success("Sayı Kopyalandı.");
+        toast.success(localStorage.getItem("lang_quran_evidence") === "en" ? "Number copied." : "Sayı Kopyalandı.");
       })
       .catch(() => {
-        toast.error("Kopyalama başarısız.");
+        toast.error(localStorage.getItem("lang_quran_evidence") === "en" ? "Copy failed." : "Kopyalama başarısız.");
       });
     setCopyState(true);
   };
