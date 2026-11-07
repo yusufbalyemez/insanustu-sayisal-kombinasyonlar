@@ -12,7 +12,12 @@ const SayiSpan = memo(function SayiSpan({
   onTap,
   differentRefs,
 }) {
+  // Sondaki "\u200B" (görünmez boşluk) tarayıcıya "satır buradan kırılabilir"
+  // der. Bu olmadan 6000+ sayı boşluksuz TEK bir dev kelime gibi davranıyordu:
+  // sayılar satır sonunda ortadan bölünüyor, Safari (iPhone) her değişiklikte
+  // bu dev kelimeyi satırlara bölmek için çok ağır hesap yapıp donuyordu.
   return (
+    <>
     <span
       ref={(el) => {
         if (el && isDiff) {
@@ -26,6 +31,8 @@ const SayiSpan = memo(function SayiSpan({
     >
       {eleman.deger}
     </span>
+    {"\u200B"}
+    </>
   );
 });
 
