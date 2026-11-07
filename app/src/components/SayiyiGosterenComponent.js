@@ -7,7 +7,13 @@ const SayiyiGosterenComponent = ({ children }) => {
          hover:ring-yellow-400 transition-shadow max-h-[60vh]"
       // touch-action: manipulation -> iOS'ta hızlı art arda dokunuşlarda
       // çift-dokunma yakınlaştırması ve tıklama gecikmesi olmasın
-      style={{ touchAction: "manipulation" }}
+      style={{
+        touchAction: "manipulation",
+        // Bir sayının rengi değişince tarayıcı sadece bu kutuyu yeniden
+        // hesaplasın, tüm sayfayı değil
+        contain: "content",
+        WebkitTapHighlightColor: "transparent",
+      }}
     >
       {children}
     </div>
