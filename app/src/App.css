@@ -30,6 +30,10 @@ body{
     contain-intrinsic-size: auto 400px;
   }
 
+  .yanip-kapali .blink {
+    animation: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .blink {
       animation: none;
