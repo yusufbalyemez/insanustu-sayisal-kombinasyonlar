@@ -28,11 +28,12 @@ import Number6Info from "../Informations/Number6Info";
 import GosterCopyController from "../components/GosterCopyController";
 
 const Number6 = () => {
-  const { quranList } = useQuran();
+  const { quranList, degistirildi } = useQuran();
   const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]);
   const [olusanDizi, setOlusanDizi] = useState([]);
   const [stringSayi, setStringSayi] = useState("");
-  const [goster, setGoster] = useState(false);
+  // Listede değişiklik varsa sayılar açık gelir (çubuk ilk farka kaydırır)
+  const [goster, setGoster] = useState(degistirildi);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
   const [copyState, setCopyState] = useState(false);
   const { differentRefs } = useDifferentRefs();

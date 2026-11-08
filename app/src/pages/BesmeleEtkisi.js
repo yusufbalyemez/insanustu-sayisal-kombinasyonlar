@@ -31,11 +31,12 @@ import BesmeleEtkisiInfo from "../Informations/BesmeleEtkisiInfo";
 import GosterCopyController from "../components/GosterCopyController";
 
 const BesmeleEtkisi = () => {
-  const { quranList } = useQuran();
+  const { quranList, degistirildi } = useQuran();
   const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]);
   const [olusanDizi, setOlusanDizi] = useState([]);
   const [stringSayi, setStringSayi] = useState("");
-  const [goster, setGoster] = useState(false);
+  // Listede değişiklik varsa sayılar açık gelir (çubuk ilk farka kaydırır)
+  const [goster, setGoster] = useState(degistirildi);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
   const [copyState, setCopyState] = useState(false);
   const { differentRefs } = useDifferentRefs();

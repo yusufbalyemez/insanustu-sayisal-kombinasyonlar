@@ -22,6 +22,14 @@ body{
     animation: blink 1s step-end infinite;
   }
 
+  /* Farklılık çubuğuyla gidilen kırmızı sayı: yanıp sönmez, sarı çerçeveli */
+  .aktif-fark {
+    animation: none !important;
+    outline: 2px solid #facc15;
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
   .yanip-kapali .blink {
     animation: none;
   }

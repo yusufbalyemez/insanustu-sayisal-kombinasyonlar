@@ -36,7 +36,7 @@ const Navbar = () => {
   const [selectedItem, setSelectedItem] = useState(0);
   const { quranList, setQuranList } = useQuran();
   const [tempQuranList, setTempQuranList] = useState([]);
-  const { scrollToDifferent, clearDifferentRefs } = useDifferentRefs(); // Scroll fonksiyonunu al
+  const { clearDifferentRefs } = useDifferentRefs(); // Scroll fonksiyonunu al
   const lang = localStorage.getItem("lang_quran_evidence");
 
   // Dil Context'i
@@ -127,11 +127,7 @@ const Navbar = () => {
   const handleUpdateQuranList = () => {
     clearDifferentRefs(); // Referansları temizle
     setQuranList(tempQuranList); // Yeni listeyi güncelle (kaydetme işini QuranProvider yapar)
-
-    // DOM'un güncellenmesini bekle ve scroll'u tetikle
-    setTimeout(() => {
-      scrollToDifferent();
-    }, 200); // Daha güvenli bir şekilde DOM değişikliklerini beklemek için kısa bir gecikme ekleyin
+    // İlk farka kaydırma işini artık SayiyiGosterenComponent'teki farklılık çubuğu yapıyor
     setIsLeftDrawerOpen(false);
   };
   const handleDefaultQuranList = () => {

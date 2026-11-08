@@ -25,11 +25,12 @@ import Number5Info from "../Informations/Number5Info";
 import GosterCopyController from "../components/GosterCopyController";
 
 const Number5 = () => {
-  const { quranList } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
+  const { quranList, degistirildi } = useQuran(); //Jsondaki Orjinal Kuran listesini bu değişkene aktarır.
   const [orginQuranEmptyList, setOrginQuranEmptyList] = useState([]); //JSONdaki bilgileri büyük sayı hale getirmek için kullanılan boş dizi.
   const [olusanDizi, setOlusanDizi] = useState([]); //Jsondaki ve tabloda değişiklik olursa oluşacak sayıyı oluşturan boş dizi
   const [stringSayi, setStringSayi] = useState("");
-  const [goster, setGoster] = useState(false);
+  // Listede değişiklik varsa sayılar açık gelir (çubuk ilk farka kaydırır)
+  const [goster, setGoster] = useState(degistirildi);
   const [selectedSurahs, setSelectedSurahs] = useState([]);
   const [copyState, setCopyState] = useState(false);
 

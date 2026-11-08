@@ -71,7 +71,14 @@ export const QuranProvider = ({ children }) => {
   };
 
   return (
-    <QuranContext.Provider value={{ quranList, setQuranList: updateQuranList }}>
+    <QuranContext.Provider
+      value={{
+        quranList,
+        setQuranList: updateQuranList,
+        // Kullanıcı listeyi orijinalden farklı hale getirdiyse true
+        degistirildi: sayisalOzet(quranList) !== VERI_VERSIYONU,
+      }}
+    >
       {children}
     </QuranContext.Provider>
   );
