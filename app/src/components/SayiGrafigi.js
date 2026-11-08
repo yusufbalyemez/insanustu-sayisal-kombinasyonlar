@@ -113,11 +113,19 @@ const SayiGrafigi = ({ dizi, orjinal, stringSayi }) => {
     .slice(0, 2)
     .forEach((b) => ornekler.push(b));
 
-  // Bir parçanın tarifi: ilk surenin eleman türleri sırasıyla
-  const tarif = [];
-  (sureBloklari[0] ? sureBloklari[0].elemanlar : []).forEach((e) => {
-    if (tarif[tarif.length - 1] !== e.durum) tarif.push(e.durum);
-  });
+  // Bir parçanın tarifi: ilk birkaç sure içinde en çok türü içeren surenin
+  // eleman türleri sırasıyla (ör. 1. surede olmayan besmele de görünsün)
+  const turleri = (b) => {
+    const t = [];
+    b.elemanlar.forEach((e) => {
+      if (t[t.length - 1] !== e.durum) t.push(e.durum);
+    });
+    return t;
+  };
+  const tarif = sureBloklari
+    .slice(0, 5)
+    .map(turleri)
+    .reduce((enUzun, t) => (t.length > enUzun.length ? t : enUzun), []);
 
   // 2. adım: zincir (ilk 3 sure, değişenler, son sure; genel sayılar yerinde)
   const sonSure = sureBloklari[sureBloklari.length - 1];
