@@ -44,6 +44,7 @@ const SayiyiGosterenComponent = ({ children }) => {
   const elemanlar = Children.toArray(children);
   const kutuRef = useRef(null);
   const aktifElRef = useRef(null);
+  const barRef = useRef(null);
   const [aktif, setAktif] = useState(-1);
 
   // Farklı (kırmızı) sayılar, sayfadaki sırasıyla
@@ -68,7 +69,24 @@ const SayiyiGosterenComponent = ({ children }) => {
     if (aktifElRef.current) aktifElRef.current.classList.remove("aktif-fark");
     el.classList.add("aktif-fark");
     aktifElRef.current = el;
-    el.scrollIntoView({ behavior: "smooth", block: "center" });
+    // 1) Sayı kutusunun içinde, kırmızı sayıyı kutunun ortasına getir.
+    //    Uzaksa anında atla (yumuşak kaydırma binlerce sayıda yarıda kalıyordu).
+    const kutuRect = kutu.getBoundingClientRect();
+    const elRect = el.getBoundingClientRect();
+    const hedef =
+      kutu.scrollTop + (elRect.top - kutuRect.top) - kutu.clientHeight / 2 + elRect.height / 2;
+    const uzak = Math.abs(hedef - kutu.scrollTop) > kutu.clientHeight * 2;
+    kutu.scrollTo({ top: Math.max(0, hedef), behavior: uzak ? "auto" : "smooth" });
+
+    // 2) Sayfayı, sayı kutusu sabit çubuğun hemen altında tam görünecek şekilde ayarla
+    const bar = barRef.current;
+    if (bar) {
+      const ust = (parseFloat(getComputedStyle(bar).top) || 0) + bar.offsetHeight + 8;
+      const kr = kutu.getBoundingClientRect();
+      if (kr.top < ust - 1 || kr.bottom > window.innerHeight) {
+        window.scrollBy({ top: kr.top - ust, behavior: "smooth" });
+      }
+    }
     setAktif(hedefIndex);
   };
 
@@ -99,6 +117,7 @@ const SayiyiGosterenComponent = ({ children }) => {
       {toplam > 0 && (
         // Ekranın üstünde (menünün hemen altında) sabit kalan farklılık çubuğu
         <div
+          ref={barRef}
           className="sticky top-[72px] md:top-[108px] z-40 mb-2 flex items-center gap-2
            bg-red-900 border border-red-400 rounded-lg px-3 py-2 text-white shadow-lg"
         >
