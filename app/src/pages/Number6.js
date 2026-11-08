@@ -22,6 +22,7 @@ import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiSpan from "../components/SayiSpan";
+import SayiGrafigi from "../components/SayiGrafigi";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number6Info from "../Informations/Number6Info";
@@ -145,7 +146,15 @@ const Number6 = () => {
           })}
         </SayiyiGosterenComponent>
       ) : (
-        <Number6Info />
+        <>
+          <Number6Info />
+          {/* Metnin grafiksel anlatımı */}
+          <SayiGrafigi
+            dizi={olusanDizi}
+            orjinal={orginQuranEmptyList}
+            stringSayi={stringSayi}
+          />
+        </>
       )}
     </KapsayiciComponent>
   );

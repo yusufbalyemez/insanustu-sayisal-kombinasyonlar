@@ -20,6 +20,7 @@ import { Helmet } from "react-helmet";
 import ResultDisplay from "../components/ResultDisplay";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiSpan from "../components/SayiSpan";
+import SayiGrafigi from "../components/SayiGrafigi";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number7Info from "../Informations/Number7Info";
@@ -142,7 +143,15 @@ const Number7 = () => {
           })}
         </SayiyiGosterenComponent>
       ) : (
-        <Number7Info />
+        <>
+          <Number7Info />
+          {/* Metnin grafiksel anlatımı */}
+          <SayiGrafigi
+            dizi={olusanDizi}
+            orjinal={orginQuranEmptyList}
+            stringSayi={stringSayi}
+          />
+        </>
       )}
     </KapsayiciComponent>
   );

@@ -28,6 +28,7 @@ import { Helmet } from "react-helmet";
 import ResultDisplay from "../components/ResultDisplay";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiSpan from "../components/SayiSpan";
+import SayiGrafigi from "../components/SayiGrafigi";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number9Info from "../Informations/Number9Info";
@@ -164,7 +165,15 @@ const Number9 = () => {
           })}
         </SayiyiGosterenComponent>
       ) : (
-        <Number9Info />
+        <>
+          <Number9Info />
+          {/* Metnin grafiksel anlatımı */}
+          <SayiGrafigi
+            dizi={olusanDizi}
+            orjinal={orginQuranEmptyList}
+            stringSayi={stringSayi}
+          />
+        </>
       )}
     </KapsayiciComponent>
   );

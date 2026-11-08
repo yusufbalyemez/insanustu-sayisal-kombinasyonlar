@@ -24,6 +24,7 @@ import ResultDisplay from "../components/ResultDisplay";
 import CopyAndSelectButtons from "../components/CopyAndSelectButtons";
 import { useDifferentRefs } from "../context/DifferentRefsContext";
 import SayiSpan from "../components/SayiSpan";
+import SayiGrafigi from "../components/SayiGrafigi";
 import SayiyiGosterenComponent from "../components/SayiyiGosterenComponent";
 import KapsayiciComponent from "../components/KapsayiciComponent";
 import Number4Info from "../Informations/Number4Info";
@@ -189,7 +190,15 @@ const Number4 = () => {
         </SayiyiGosterenComponent>
       ) : (
         //Sayının bilgi metnini gösteren bileşen
-        <Number4Info />
+        <>
+          <Number4Info />
+          {/* Metnin grafiksel anlatımı */}
+          <SayiGrafigi
+            dizi={olusanDizi}
+            orjinal={orginQuranEmptyList}
+            stringSayi={stringSayi}
+          />
+        </>
       )}
     </KapsayiciComponent>
   );
